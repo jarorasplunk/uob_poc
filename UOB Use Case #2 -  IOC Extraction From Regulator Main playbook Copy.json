@@ -103,7 +103,7 @@
                     "targetPort": "33_in"
                 }
             ],
-            "hash": "2fe78e918a5ca19fafdbd81cc33d17f2a9e73070",
+            "hash": "d9544d2e6116ce8c395122dd9a97eedabef2a4c3",
             "nodes": {
                 "0": {
                     "data": {
@@ -281,9 +281,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -140,
@@ -363,6 +360,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 500,
@@ -722,7 +722,7 @@
                         "parameters": [
                             "artifact:*.cef.sourceAddress"
                         ],
-                        "template": "%%\n{0}\\r\\n\n%%",
+                        "template": "%%\n{0}\n%%",
                         "type": "format"
                     },
                     "errors": {},
@@ -887,7 +887,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T06:56:10.511702+00:00",
+    "create_time": "2024-04-24T06:56:52.226962+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"

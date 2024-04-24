@@ -350,7 +350,7 @@ def add_note_ip_addres_extracted(action=None, success=None, container=None, resu
 def format_ip_address_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_ip_address_extracted() called")
 
-    template = """%%\n{0}\\r\\n\n%%"""
+    template = """%%\n{0}\n%%"""
 
     # parameter list for template variable replacement
     parameters = [
