@@ -166,7 +166,7 @@
                     "userCode": "\n    # Write your custom code here...\n    import re\n    \n    phantom.debug(filtered_artifact_0__cef_emailheaders_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_date[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_from[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_subject[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_references[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_in_reply_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_type[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0])\n    sender = filtered_artifact_0__cef_emailheaders_from[0]\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', sender)\n    sender = match[0]\n    sender_domain = sender[sender.index('@') + 1 : ]\n    replyto = filtered_artifact_0__cef_emailheaders_in_reply_to[0]\n    recipient = filtered_artifact_0__cef_emailheaders_to[0]\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', recipient)\n    recipient = match[0]\n    date = filtered_artifact_0__cef_emailheaders_date[0]\n    routing_info = filtered_artifact_0__cef_emailheaders_references[0]\n    contenttype = filtered_artifact_0__cef_emailheaders_content_type[0]\n    contentencoding = filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0]\n    \n    note = (\n        \"| Sender email | Sender domain | Reply To | Recipient | Date | Routing information | Content type | Content Encoding |\\n\"\n        \"| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\\n\"\n    )\n    \n    note += \"|{}|{}|{}|{}|{}|{}|{}|{}|\\n\".format(sender, sender_domain, replyto, recipient, date, routing_info, contenttype, contentencoding)\n    \n    format_header_note_1__header_note = note\n    \n    \n    \n",
                     "warnings": {},
                     "x": 0,
-                    "y": 328
+                    "y": 320
                 },
                 "15": {
                     "data": {
@@ -280,15 +280,15 @@
                     "type": "utility",
                     "warnings": {},
                     "x": 0,
-                    "y": 476
+                    "y": 480
                 }
             },
             "notes": "",
             "origin": {
-                "playbook_id": 235,
-                "playbook_name": "UOB Use case # 1 - Adding Notes to the incident Subplaybook Copy",
-                "playbook_repo_id": 3,
-                "playbook_repo_name": "uob_poc"
+                "playbook_id": 662,
+                "playbook_name": "UOB Use case # 1 - Adding Notes to the incident Subplaybook - Copy",
+                "playbook_repo_id": 2,
+                "playbook_repo_name": "local"
             }
         },
         "input_spec": null,
