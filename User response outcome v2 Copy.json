@@ -31,18 +31,6 @@
                             "index": 1
                         }
                     ],
-                    "id": "port_2_to_port_9",
-                    "sourceNode": "2",
-                    "sourcePort": "2_out",
-                    "targetNode": "9",
-                    "targetPort": "9_in"
-                },
-                {
-                    "conditions": [
-                        {
-                            "index": 0
-                        }
-                    ],
                     "id": "port_2_to_port_10",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
@@ -128,9 +116,21 @@
                     "sourcePort": "0_out",
                     "targetNode": "19",
                     "targetPort": "19_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_2_to_port_9",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "9",
+                    "targetPort": "9_in"
                 }
             ],
-            "hash": "b2499dacdd590089741b9b88827c6d33646e202a",
+            "hash": "9be1fea971029c3c7866dd2fffc6b197c7706d2d",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,11 +549,7 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -340,
                     "y": 180
                 },
@@ -742,9 +738,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -1632,7 +1625,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:09:17.685470+00:00",
+    "create_time": "2024-04-24T11:11:06.834924+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
