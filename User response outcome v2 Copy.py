@@ -55,7 +55,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     matched_artifacts_3, matched_results_3 = phantom.condition(
         container=container,
         conditions=[
-            ["regex_split_3:custom_function_result.success", "==", True]
+            ["regex_split_3:custom_function_result.success", "==", False]
         ],
         name="filter_1:condition_3",
         scope="all",
