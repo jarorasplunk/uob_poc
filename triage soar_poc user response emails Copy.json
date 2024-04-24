@@ -40,7 +40,7 @@
                     "targetPort": "4_in"
                 }
             ],
-            "hash": "fcc88706f6de55012ffd2af46923187473246f0d",
+            "hash": "88014ea5fc8e3d0aec7018bf50d37399774cc3fe",
             "nodes": {
                 "0": {
                     "data": {
@@ -309,7 +309,7 @@
                                 "cef_value": "extract_container_id:custom_function:user_response",
                                 "container": "extract_container_id:custom_function:container_id",
                                 "input_json": "",
-                                "label": "process_analysed",
+                                "label": "events",
                                 "name": "User Response Artifact",
                                 "run_automation": "true",
                                 "severity": null,
@@ -335,7 +335,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:04:59.090624+00:00",
+    "create_time": "2024-04-24T11:30:45.241997+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
