@@ -460,7 +460,7 @@ def find_related_containers_4(action=None, success=None, container=None, results
                 ["find_related_containers_4:custom_function_result.success", "==", "True"]
             ],
             "max_ttl": 600,
-            "delay_time": 60,
+            "delay_time": 180,
         }
 
     # Load state from the JSON passed to it
