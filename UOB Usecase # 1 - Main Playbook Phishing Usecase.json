@@ -207,7 +207,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "e46e4349f7264d7a44001b3916af1b16c06b2655",
+            "hash": "df4fba92a9bc53333aec57fa2d8189780d983149",
             "nodes": {
                 "0": {
                     "data": {
@@ -223,7 +223,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 380,
-                    "y": -2.5579538487363607e-13
+                    "y": -3.197442310920451e-13
                 },
                 "1": {
                     "data": {
@@ -671,7 +671,7 @@
                             "refreshNotableData": true
                         },
                         "functionId": 10,
-                        "functionName": "set_status_promote_to_case_set_severity_add_note_10",
+                        "functionName": "promote_to_case_add_note_set_status_set_severity_pin_10",
                         "id": "19",
                         "loop": {
                             "enabled": false,
@@ -752,6 +752,82 @@
                                 ],
                                 "label": "add note",
                                 "name": "add_note"
+                            },
+                            "pin": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "message",
+                                        "name": "message",
+                                        "placeholder": "Enter a message",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "data",
+                                        "name": "data",
+                                        "placeholder": "Enter a value",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "card",
+                                            "data"
+                                        ],
+                                        "description": "",
+                                        "label": "pin type",
+                                        "name": "pin_type",
+                                        "placeholder": "Select pin type",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "grey",
+                                            "blue",
+                                            "red"
+                                        ],
+                                        "description": "",
+                                        "label": "pin color",
+                                        "name": "pin_style",
+                                        "placeholder": "Select pin color",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "Use a named pin",
+                                        "renderType": "input",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "truncate",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "pin",
+                                "name": "pin"
                             },
                             "promote": {
                                 "description": "",
@@ -857,6 +933,19 @@
                                 "note_format": "markdown",
                                 "note_type": "general",
                                 "title": "Investigation status update"
+                            },
+                            "pin": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "truncate",
+                                    "trace"
+                                ],
+                                "data": "playbook_saa_dynamic_email_analysis_1:playbook_output:verdict",
+                                "message": "Verdict",
+                                "name": "SAA Verdict",
+                                "pin_style": "red",
+                                "pin_type": "card"
                             },
                             "promote": {
                                 "_internal": [
@@ -1566,7 +1655,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 40,
-                    "y": 279.99999999999983
+                    "y": 279.9999999999998
                 },
                 "6": {
                     "data": {
@@ -1959,7 +2048,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T02:10:20.835122+00:00",
+    "create_time": "2024-04-24T08:55:20.215467+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc_phishing"

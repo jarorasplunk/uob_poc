@@ -357,14 +357,18 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_phishing"], callback=set_status_promote_to_case_set_severity_add_note_10)
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_phishing"], callback=promote_to_case_add_note_set_status_set_severity_pin_10)
 
     return
 
 
 @phantom.playbook_block()
-def set_status_promote_to_case_set_severity_add_note_10(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("set_status_promote_to_case_set_severity_add_note_10() called")
+def promote_to_case_add_note_set_status_set_severity_pin_10(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("promote_to_case_add_note_set_status_set_severity_pin_10() called")
+
+    playbook_saa_dynamic_email_analysis_1_output_verdict = phantom.collect2(container=container, datapath=["playbook_saa_dynamic_email_analysis_1:playbook_output:verdict"])
+
+    playbook_saa_dynamic_email_analysis_1_output_verdict_values = [item[0] for item in playbook_saa_dynamic_email_analysis_1_output_verdict]
 
     ################################################################################
     ## Custom Code Start
@@ -380,6 +384,7 @@ def set_status_promote_to_case_set_severity_add_note_10(action=None, success=Non
     phantom.add_note(container=container, content="This event has been updated to a case and the severity has been raised to critical.", note_format="markdown", note_type="general", title="Investigation status update")
     phantom.set_status(container=container, status="open")
     phantom.set_severity(container=container, severity="critical")
+    phantom.pin(container=container, data=playbook_saa_dynamic_email_analysis_1_output_verdict_values, message="Verdict", name="SAA Verdict", pin_style="red", pin_type="card")
 
     container = phantom.get_container(container.get('id', None))
 
