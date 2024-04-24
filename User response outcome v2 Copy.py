@@ -413,7 +413,7 @@ def find_related_containers_4(action=None, success=None, container=None, results
     parameters = []
 
     parameters.append({
-        "field_list": ["userResponse"],
+        "field_list": ["userResponseaa"],
         "value_list": None,
         "minimum_match_count": None,
         "container": id_value,
