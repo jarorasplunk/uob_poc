@@ -102,6 +102,7 @@ def add_note_assets(action=None, success=None, container=None, results=None, han
     phantom.add_note(container=container, content=assets_and_identities_enrichment_output_task_note_assets_values, note_format="markdown", note_type="general", title="Asset details")
 
     send_htmlemail_1(container=container)
+    debug_1(container=container)
 
     return
 
@@ -264,6 +265,52 @@ def set_label_2(action=None, success=None, container=None, results=None, handle=
     phantom.set_label(container=container, label="process_analysed")
 
     container = phantom.get_container(container.get('id', None))
+
+    return
+
+
+@phantom.playbook_block()
+def debug_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("debug_1() called")
+
+    id_value = container.get("id", None)
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.normalized_risk_object","artifact:*.cef.dest_nt_host","artifact:*.id"])
+    es_process_analysis_output_note_title = phantom.collect2(container=container, datapath=["es_process_analysis:playbook_output:note_title"])
+    es_process_analysis_output_note_content_process_info_first = phantom.collect2(container=container, datapath=["es_process_analysis:playbook_output:note_content_process_info_first"])
+    es_process_analysis_output_note_content_process_info_second = phantom.collect2(container=container, datapath=["es_process_analysis:playbook_output:note_content_process_info_second"])
+
+    container_artifact_cef_item_0 = [item[0] for item in container_artifact_data]
+    container_artifact_cef_item_1 = [item[1] for item in container_artifact_data]
+    es_process_analysis_output_note_title_values = [item[0] for item in es_process_analysis_output_note_title]
+    es_process_analysis_output_note_content_process_info_first_values = [item[0] for item in es_process_analysis_output_note_content_process_info_first]
+    es_process_analysis_output_note_content_process_info_second_values = [item[0] for item in es_process_analysis_output_note_content_process_info_second]
+
+    parameters = []
+
+    parameters.append({
+        "input_1": container_artifact_cef_item_0,
+        "input_2": container_artifact_cef_item_1,
+        "input_3": es_process_analysis_output_note_title_values,
+        "input_4": es_process_analysis_output_note_content_process_info_first_values,
+        "input_5": id_value,
+        "input_6": es_process_analysis_output_note_content_process_info_second_values,
+        "input_7": None,
+        "input_8": None,
+        "input_9": None,
+        "input_10": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_1")
 
     return
 
