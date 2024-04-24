@@ -144,7 +144,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 200,
-                    "y": -80.00000000000011
+                    "y": -80.00000000000017
                 },
                 "1": {
                     "data": {
@@ -871,10 +871,10 @@
             },
             "notes": "Inputs: url,  vault_id\nInteractions: Splunk Attack Analyzer\nActions: url detonation, , file detonation\nOutputs: report, observables",
             "origin": {
-                "playbook_id": 747,
-                "playbook_name": "UOB Use case #1 - SAA_Dynamic_Email_Analysis Subplaybook",
-                "playbook_repo_id": 2,
-                "playbook_repo_name": "local"
+                "playbook_id": 233,
+                "playbook_name": "SAA_Dynamic_Email_Analysis Copy",
+                "playbook_repo_id": 3,
+                "playbook_repo_name": "uob_poc"
             }
         },
         "input_spec": [
@@ -945,7 +945,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-23T23:58:37.092891+00:00",
+    "create_time": "2024-04-24T01:55:24.762315+00:00",
     "draft_mode": false,
     "labels": [
         "*"
