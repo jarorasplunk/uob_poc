@@ -1,0 +1,263 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "id": "port_2_to_port_3",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                },
+                {
+                    "id": "port_3_to_port_4",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "4",
+                    "targetPort": "4_in"
+                }
+            ],
+            "hash": "680098dadb4f01f2191bfdd28744b707692b63ae",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 419.9999999999998
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 1000
+                },
+                "2": {
+                    "data": {
+                        "action": "get job forensics",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "Splunk Attack Analyzer Connector for Splunk SOAR",
+                        "connectorConfigs": [
+                            "saa_uob_poc"
+                        ],
+                        "connectorId": "de681fee-c552-45bf-9212-827b1c7529f8",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "get_job_forensics_1",
+                        "id": "2",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "job_id": "1fbc2149-4b51-445f-a301-656e02a6c7db"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "job_id"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 980,
+                    "y": 560
+                },
+                "3": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "code_1",
+                        "id": "3",
+                        "inputParameters": [
+                            "get_job_forensics_1:action_result.data",
+                            "get_job_forensics_1:action_result.data.*.WhoisResults"
+                        ],
+                        "outputVariables": [
+                            "whois_note"
+                        ],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    import json\n    \n    #phantom.debug(get_job_forensics_1_result_item_0)\n    whois_data_json = get_job_forensics_1_result_item_1[0][0]\n    phantom.debug(whois_data_json)\n    phantom.debug(whois_data_json['Emails'])\n    note = (\n        \"| Key | Value |\\n\"\n        \"| :--- | :--- |\\n\"\n    )\n\n    note += \"|{}|{}|\\n\".format(\"Org\", whois_data_json['Org'])\n    note += \"|{}|{}|\\n\".format(\"City\", whois_data_json['City'])\n    note += \"|{}|{}|\\n\".format(\"Name\", whois_data_json['Name'])\n    note += \"|{}|{}|\\n\".format(\"State\", whois_data_json['State'])\n    note += \"|{}|{}|\\n\".format(\"DNSSec\", whois_data_json['DNSSec'])\n    note += \"|{}|{}|\\n\".format(\"Emails\", whois_data_json['Emails'])\n    note += \"|{}|{}|\\n\".format(\"Address\", whois_data_json['Address'])\n    note += \"|{}|{}|\\n\".format(\"Country\", whois_data_json['Country'])\n    note += \"|{}|{}|\\n\".format(\"Engines\", whois_data_json['Engines'])\n    note += \"|{}|{}|\\n\".format(\"ZipCode\", whois_data_json['ZipCode'])\n    note += \"|{}|{}|\\n\".format(\"CreatedAt\", whois_data_json['CreatedAt'])\n    note += \"|{}|{}|\\n\".format(\"ExpiresAt\", whois_data_json['ExpiresAt'])\n    note += \"|{}|{}|\\n\".format(\"Registrar\", whois_data_json['Registrar'])\n    note += \"|{}|{}|\\n\".format(\"UpdatedAt\", whois_data_json['UpdatedAt'])\n    note += \"|{}|{}|\\n\".format(\"DomainName\", whois_data_json['DomainName'])\n    note += \"|{}|{}|\\n\".format(\"NameServers\", whois_data_json['NameServers'])\n    note += \"|{}|{}|\\n\".format(\"WhoisServer\", whois_data_json['WhoisServer'])\n    note += \"|{}|{}|\\n\".format(\"WhoisServer\", whois_data_json['WhoisServer'])\n    note += \"|{}|{}|\\n\".format(\"WhoisServer\", whois_data_json['WhoisServer'])\n    \n    code_1__whois_note = note\n\n",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 680
+                },
+                "4": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "add_note_1",
+                        "id": "4",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "add_note": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "title",
+                                        "name": "title",
+                                        "placeholder": "Enter a note title",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "content",
+                                        "name": "content",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "markdown",
+                                            "html"
+                                        ],
+                                        "default": "markdown",
+                                        "description": "",
+                                        "label": "note format",
+                                        "name": "note_format",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "default": "general",
+                                        "hidden": true,
+                                        "name": "note_type",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "event_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "task_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add note",
+                                "name": "add_note"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "add_note": {
+                                "_internal": [
+                                    "container",
+                                    "note_type",
+                                    "author",
+                                    "event_id",
+                                    "task_id",
+                                    "trace"
+                                ],
+                                "content": "code_1:custom_function:whois_note",
+                                "note_format": "markdown",
+                                "note_type": "general",
+                                "title": "Whois information"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "4",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 784.5
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.11",
+        "version": "6.2.1.305"
+    },
+    "create_time": "2024-04-24T00:18:00.243864+00:00",
+    "draft_mode": false,
+    "labels": [
+        "*"
+    ],
+    "tags": []
+}
