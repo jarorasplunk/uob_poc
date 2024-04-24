@@ -137,7 +137,7 @@
                     "targetPort": "9_in"
                 }
             ],
-            "hash": "3d309f72331e2b010819604090c7db352592420d",
+            "hash": "9a11f3efc21b8defaaaba5fe51dacb69de44f9ca",
             "nodes": {
                 "0": {
                     "data": {
@@ -734,11 +734,7 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -340,
                     "y": 180
                 },
@@ -927,9 +923,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -983,9 +976,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -260,
@@ -1263,6 +1253,18 @@
                                 ],
                                 "conditionIndex": 1,
                                 "customName": "Expected Behaviour",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 2,
+                                        "op": "==",
+                                        "param": "regex_split_3:custom_function_result.success",
+                                        "value": "True"
+                                    }
+                                ],
+                                "conditionIndex": 2,
                                 "logic": "and"
                             }
                         ],
@@ -2040,7 +2042,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T12:00:55.398715+00:00",
+    "create_time": "2024-04-24T12:01:55.928116+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

@@ -51,6 +51,21 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     if matched_artifacts_2 or matched_results_2:
         debug_9(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
 
+    # collect filtered artifact ids and results for 'if' condition 3
+    matched_artifacts_3, matched_results_3 = phantom.condition(
+        container=container,
+        conditions=[
+            ["regex_split_3:custom_function_result.success", "==", True]
+        ],
+        name="filter_1:condition_3",
+        scope="all",
+        case_sensitive=False,
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_3 or matched_results_3:
+        pass
+
     return
 
 
