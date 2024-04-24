@@ -157,7 +157,7 @@ def extract_domain_ioc(action=None, success=None, container=None, results=None, 
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_domain_ioc", assets=["soar_poc_parser"], callback=format_domain_extracted)
+    phantom.act("extract ioc", parameters=parameters, name="extract_domain_ioc", assets=["soar_poc_parser"], callback=filter_1)
 
     return
 
@@ -483,6 +483,26 @@ def add_note_md5_extracted(action=None, success=None, container=None, results=No
     phantom.add_note(container=container, content=format_hash_extracted, note_format="html", note_type="general", title="List MD5 Extracted")
 
     join_playbook_soar_poc_put_ioc_custom_list_1(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_1() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["artifact:*.description", "==", "Artifact added by Parser"]
+        ],
+        name="filter_1:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        format_domain_extracted(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 

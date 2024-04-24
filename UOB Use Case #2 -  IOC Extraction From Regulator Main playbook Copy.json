@@ -89,13 +89,6 @@
                     "targetPort": "30_in"
                 },
                 {
-                    "id": "port_18_to_port_32",
-                    "sourceNode": "18",
-                    "sourcePort": "18_out",
-                    "targetNode": "32",
-                    "targetPort": "32_in"
-                },
-                {
                     "id": "port_32_to_port_33",
                     "sourceNode": "32",
                     "sourcePort": "32_out",
@@ -153,9 +146,28 @@
                     "sourcePort": "35_out",
                     "targetNode": "28",
                     "targetPort": "28_in"
+                },
+                {
+                    "id": "port_18_to_port_36",
+                    "sourceNode": "18",
+                    "sourcePort": "18_out",
+                    "targetNode": "36",
+                    "targetPort": "36_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_36_to_port_32",
+                    "sourceNode": "36",
+                    "sourcePort": "36_out",
+                    "targetNode": "32",
+                    "targetPort": "32_in"
                 }
             ],
-            "hash": "13bb1774cdc9bca4e4f60ed97e6d616d682c43ca",
+            "hash": "519ad29aec0db7bbdf6ba16692e1447380d44215",
             "nodes": {
                 "0": {
                     "data": {
@@ -795,7 +807,7 @@
                     "type": "format",
                     "warnings": {},
                     "x": -140,
-                    "y": 479.9999999999999
+                    "y": 560
                 },
                 "33": {
                     "data": {
@@ -911,7 +923,7 @@
                     "type": "utility",
                     "warnings": {},
                     "x": -140,
-                    "y": 620
+                    "y": 660
                 },
                 "34": {
                     "data": {
@@ -1052,6 +1064,38 @@
                     "warnings": {},
                     "x": 500,
                     "y": 624.5
+                },
+                "36": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.description",
+                                        "value": "Artifact added by Parser"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Filter Artifact Domain List",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "filter_1",
+                        "id": "36",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "36",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": -80,
+                    "y": 420
                 }
             },
             "notes": "",
@@ -1069,7 +1113,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T07:01:25.380715+00:00",
+    "create_time": "2024-04-24T07:03:59.267147+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
