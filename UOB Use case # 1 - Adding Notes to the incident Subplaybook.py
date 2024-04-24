@@ -86,6 +86,8 @@ def format_header_note_1(action=None, success=None, container=None, results=None
     phantom.debug(filtered_artifact_0__cef_emailheaders_from[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_subject[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_references[0])
+    phantom.debug(filtered_artifact_1__cef_emailheaders_in_reply_to)
+    phantom.debug(type(filtered_artifact_1__cef_emailheaders_in_reply_to))
     phantom.debug(filtered_artifact_1__cef_emailheaders_in_reply_to[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_content_type[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0])
