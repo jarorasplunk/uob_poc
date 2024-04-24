@@ -57,7 +57,7 @@ def extract_ip_ioc(action=None, success=None, container=None, results=None, hand
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ip_ioc", assets=["soar_poc_parser"], callback=format_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_ip_ioc", assets=["soar_poc_parser"], callback=format_ip_address_extracted)
 
     return
 
@@ -157,7 +157,7 @@ def extract_domain_ioc(action=None, success=None, container=None, results=None, 
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_domain_ioc", assets=["soar_poc_parser"])
+    phantom.act("extract ioc", parameters=parameters, name="extract_domain_ioc", assets=["soar_poc_parser"], callback=format_domain_extracted)
 
     return
 
@@ -324,10 +324,10 @@ def playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container
 
 
 @phantom.playbook_block()
-def add_note_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("add_note_2() called")
+def add_note_ip_addres_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("add_note_ip_addres_extracted() called")
 
-    format_1__as_list = phantom.get_format_data(name="format_1__as_list")
+    format_ip_address_extracted = phantom.get_format_data(name="format_ip_address_extracted")
 
     ################################################################################
     ## Custom Code Start
@@ -339,7 +339,7 @@ def add_note_2(action=None, success=None, container=None, results=None, handle=N
     ## Custom Code End
     ################################################################################
 
-    phantom.add_note(container=container, content=format_1__as_list, note_format="markdown", note_type="general", title="List IP Address Extracted")
+    phantom.add_note(container=container, content=format_ip_address_extracted, note_format="html", note_type="general", title="List IP Address Extracted")
 
     playbook_soar_poc_put_ioc_custom_list_1(container=container)
 
@@ -347,10 +347,10 @@ def add_note_2(action=None, success=None, container=None, results=None, handle=N
 
 
 @phantom.playbook_block()
-def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("format_1() called")
+def format_ip_address_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_ip_address_extracted() called")
 
-    template = """%%\n{0}\n%%"""
+    template = """%%\n{0}\\r\\n\n%%"""
 
     # parameter list for template variable replacement
     parameters = [
@@ -367,9 +367,58 @@ def format_1(action=None, success=None, container=None, results=None, handle=Non
     ## Custom Code End
     ################################################################################
 
-    phantom.format(container=container, template=template, parameters=parameters, name="format_1", drop_none=True)
+    phantom.format(container=container, template=template, parameters=parameters, name="format_ip_address_extracted", drop_none=True)
 
-    add_note_2(container=container)
+    add_note_ip_addres_extracted(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def format_domain_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_domain_extracted() called")
+
+    template = """%%\n{0}\n%%"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.destinationDnsDomain"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_domain_extracted")
+
+    add_note_domain_extracted(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def add_note_domain_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("add_note_domain_extracted() called")
+
+    format_domain_extracted = phantom.get_format_data(name="format_domain_extracted")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.add_note(container=container, content=format_domain_extracted, note_format="html", note_type="general")
 
     return
 
