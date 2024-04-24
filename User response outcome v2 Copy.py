@@ -178,7 +178,7 @@ def set_status_6(action=None, success=None, container=None, results=None, handle
 
     container = phantom.get_container(container.get('id', None))
 
-    playbook_splunk_enterprise_security_close_investigation_1(container=container)
+    splunk_enterprise_security_close_investigation(container=container)
 
     return
 
@@ -208,8 +208,8 @@ def promote_to_case_add_note_set_status_set_severity_7(action=None, success=None
 
 
 @phantom.playbook_block()
-def playbook_splunk_enterprise_security_close_investigation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("playbook_splunk_enterprise_security_close_investigation_1() called")
+def splunk_enterprise_security_close_investigation(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("splunk_enterprise_security_close_investigation() called")
 
     ################################################################################
     ## Custom Code Start
@@ -221,8 +221,8 @@ def playbook_splunk_enterprise_security_close_investigation_1(action=None, succe
     ## Custom Code End
     ################################################################################
 
-    # call playbook "local/splunk_enterprise_security_close_investigation", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("local/splunk_enterprise_security_close_investigation", container=container)
+    # call playbook "uob_poc/splunk_enterprise_security_close_investigation Copy", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("uob_poc/splunk_enterprise_security_close_investigation Copy", container=container)
 
     return
 
@@ -401,7 +401,7 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc_smtp"])
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc"])
 
     return
 

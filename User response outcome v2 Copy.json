@@ -130,7 +130,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "c108e480d2ca9c14ab055e016b3878cc48263b3c",
+            "hash": "3040e27de7042eaca034d19d56c43bb21d3b4e5d",
             "nodes": {
                 "0": {
                     "data": {
@@ -146,7 +146,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 190,
-                    "y": 15.99999999999983
+                    "y": 15.999999999999773
                 },
                 "1": {
                     "data": {
@@ -459,10 +459,12 @@
                 "12": {
                     "data": {
                         "advanced": {
+                            "customName": "splunk_enterprise_security_close_investigation",
+                            "customNameId": 0,
                             "join": []
                         },
                         "functionId": 1,
-                        "functionName": "playbook_splunk_enterprise_security_close_investigation_1",
+                        "functionName": "splunk_enterprise_security_close_investigation",
                         "id": "12",
                         "inputs": {},
                         "loop": {
@@ -474,9 +476,9 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "playbookName": "splunk_enterprise_security_close_investigation",
-                        "playbookRepo": 2,
-                        "playbookRepoName": "local",
+                        "playbookName": "splunk_enterprise_security_close_investigation Copy",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "uob_poc",
                         "playbookType": "automation",
                         "synchronous": false,
                         "type": "playbook"
@@ -486,7 +488,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 340,
-                    "y": 1353
+                    "y": 1360
                 },
                 "13": {
                     "data": {
@@ -549,7 +551,7 @@
                     "type": "utility",
                     "warnings": {},
                     "x": 160,
-                    "y": 159.99999999999997
+                    "y": 160
                 },
                 "16": {
                     "data": {
@@ -795,7 +797,7 @@
                         },
                         "connector": "SMTP",
                         "connectorConfigs": [
-                            "soar_poc_smtp"
+                            "soar_poc"
                         ],
                         "connectorId": "45bb6f37-4478-499b-b4a3-51ecfa62b78c",
                         "connectorVersion": "v1",
@@ -847,8 +849,8 @@
                     "id": "18",
                     "type": "action",
                     "warnings": {},
-                    "x": 810,
-                    "y": 644.5
+                    "x": 820,
+                    "y": 640
                 },
                 "2": {
                     "data": {
@@ -1250,7 +1252,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T00:00:33.459742+00:00",
+    "create_time": "2024-04-24T00:47:06.315832+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
