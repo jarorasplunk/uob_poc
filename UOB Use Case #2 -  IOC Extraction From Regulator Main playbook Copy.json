@@ -89,7 +89,7 @@
                     "targetPort": "30_in"
                 }
             ],
-            "hash": "2070aa39d0c251f15123574c504c925af4307eb0",
+            "hash": "96ad942ec271b487419605a333197e9fb6aeeebb",
             "nodes": {
                 "0": {
                     "data": {
@@ -267,9 +267,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 680,
@@ -349,6 +346,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 0,
@@ -678,7 +678,7 @@
                                     "task_id",
                                     "trace"
                                 ],
-                                "content": "artifact:*.cef.sourceAddress",
+                                "content": "format_1:formatted_data",
                                 "note_format": "markdown",
                                 "note_type": "general",
                                 "title": "List IP Address Extracted"
@@ -730,7 +730,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T06:44:06.112982+00:00",
+    "create_time": "2024-04-24T06:44:20.021462+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"

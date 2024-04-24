@@ -327,9 +327,7 @@ def playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container
 def add_note_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("add_note_2() called")
 
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.sourceAddress"])
-
-    container_artifact_cef_item_0 = [item[0] for item in container_artifact_data]
+    format_1 = phantom.get_format_data(name="format_1")
 
     ################################################################################
     ## Custom Code Start
@@ -341,7 +339,7 @@ def add_note_2(action=None, success=None, container=None, results=None, handle=N
     ## Custom Code End
     ################################################################################
 
-    phantom.add_note(container=container, content=container_artifact_cef_item_0, note_format="markdown", note_type="general", title="List IP Address Extracted")
+    phantom.add_note(container=container, content=format_1, note_format="markdown", note_type="general", title="List IP Address Extracted")
 
     playbook_soar_poc_put_ioc_custom_list_1(container=container)
 
