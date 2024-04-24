@@ -157,7 +157,7 @@ def extract_domain_ioc(action=None, success=None, container=None, results=None, 
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_domain_ioc", assets=["soar_poc_parser"], callback=filter_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_domain_ioc", assets=["soar_poc_parser"], callback=filter_artifact_domain_list)
 
     return
 
@@ -393,7 +393,7 @@ def format_domain_extracted(action=None, success=None, container=None, results=N
 
     # parameter list for template variable replacement
     parameters = [
-        "artifact:*.cef.destinationDnsDomain"
+        "filtered-data:filter_artifact_domain_list:condition_1:artifact:*.cef.destinationDnsDomain"
     ]
 
     ################################################################################
@@ -488,8 +488,8 @@ def add_note_md5_extracted(action=None, success=None, container=None, results=No
 
 
 @phantom.playbook_block()
-def filter_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("filter_1() called")
+def filter_artifact_domain_list(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_artifact_domain_list() called")
 
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
@@ -499,7 +499,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
             ["artifact:*.description", "==", "Artifact added by Parser"],
             ["extract_domain_ioc:action_result.status", "==", "success"]
         ],
-        name="filter_1:condition_1",
+        name="filter_artifact_domain_list:condition_1",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
