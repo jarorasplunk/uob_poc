@@ -57,7 +57,7 @@ def extract_ip_ioc(action=None, success=None, container=None, results=None, hand
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ip_ioc", assets=["soar_poc_parser"], callback=playbook_soar_poc_put_ioc_custom_list_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_ip_ioc", assets=["soar_poc_parser"], callback=add_note_2)
 
     return
 
@@ -319,6 +319,31 @@ def playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container
     playbook_soar_poc_execute_search_ip_1(container=container)
     playbook_soar_poc_execute_search_domain_1(container=container)
     playbook_soar_poc_execute_search_md5_1(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def add_note_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("add_note_2() called")
+
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.sourceAddress"])
+
+    container_artifact_cef_item_0 = [item[0] for item in container_artifact_data]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.add_note(container=container, content=container_artifact_cef_item_0, note_format="markdown", note_type="general", title="List IP Address Extracted")
+
+    playbook_soar_poc_put_ioc_custom_list_1(container=container)
 
     return
 

@@ -47,13 +47,6 @@
                     "targetPort": "1_in"
                 },
                 {
-                    "id": "port_2_to_port_28",
-                    "sourceNode": "2",
-                    "sourcePort": "2_out",
-                    "targetNode": "28",
-                    "targetPort": "28_in"
-                },
-                {
                     "id": "port_28_to_port_23",
                     "sourceNode": "28",
                     "sourcePort": "28_out",
@@ -73,9 +66,23 @@
                     "sourcePort": "28_out",
                     "targetNode": "25",
                     "targetPort": "25_in"
+                },
+                {
+                    "id": "port_2_to_port_30",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "30",
+                    "targetPort": "30_in"
+                },
+                {
+                    "id": "port_30_to_port_28",
+                    "sourceNode": "30",
+                    "sourcePort": "30_out",
+                    "targetNode": "28",
+                    "targetPort": "28_in"
                 }
             ],
-            "hash": "ed0af73a029cd54e370b8dca413b1f40e5f1e310",
+            "hash": "5a869377f30ace5e33c7cc130da877dba4b8246e",
             "nodes": {
                 "0": {
                     "data": {
@@ -253,9 +260,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 680,
@@ -335,6 +339,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 0,
@@ -434,7 +441,7 @@
                     "type": "action",
                     "warnings": {},
                     "x": 340,
-                    "y": 320
+                    "y": 280
                 },
                 "23": {
                     "data": {
@@ -562,7 +569,121 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 340,
-                    "y": 484.5
+                    "y": 500
+                },
+                "30": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "add_note_2",
+                        "id": "30",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "add_note": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "title",
+                                        "name": "title",
+                                        "placeholder": "Enter a note title",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "content",
+                                        "name": "content",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "markdown",
+                                            "html"
+                                        ],
+                                        "default": "markdown",
+                                        "description": "",
+                                        "label": "note format",
+                                        "name": "note_format",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "default": "general",
+                                        "hidden": true,
+                                        "name": "note_type",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "event_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "task_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add note",
+                                "name": "add_note"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "add_note": {
+                                "_internal": [
+                                    "container",
+                                    "note_type",
+                                    "author",
+                                    "event_id",
+                                    "task_id",
+                                    "trace"
+                                ],
+                                "content": "artifact:*.cef.sourceAddress",
+                                "note_format": "markdown",
+                                "note_type": "general",
+                                "title": "List IP Address Extracted"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "30",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 340,
+                    "y": 400
                 }
             },
             "notes": "",
@@ -580,7 +701,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T06:21:10.529218+00:00",
+    "create_time": "2024-04-24T06:41:15.225293+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
