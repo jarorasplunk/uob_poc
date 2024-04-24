@@ -444,7 +444,7 @@ def send_htmlemail_2(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_2", assets=["soar_phishing"])
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_2", assets=["soar_phishing"], callback=set_status_pin_3)
 
     return
 
@@ -664,7 +664,7 @@ def send_htmlemail_4(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_4", assets=["soar_phishing"])
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_4", assets=["soar_phishing"], callback=set_status_pin_set_severity_8)
 
     return
 
@@ -725,6 +725,55 @@ def playbook_uob_use_case___1___adding_notes_to_the_incident_subplaybook_1(actio
     playbook_run_id = phantom.playbook("uob_poc/UOB Use case # 1 - Adding Notes to the incident Subplaybook", container=container)
 
     vault_list_1(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def set_status_pin_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_status_pin_3() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.set_status(container=container, status="closed")
+    phantom.pin(container=container, data="Safe", message="Verdict", name="SAA Verdict", pin_style="blue", pin_type="card")
+
+    container = phantom.get_container(container.get('id', None))
+
+    return
+
+
+@phantom.playbook_block()
+def set_status_pin_set_severity_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_status_pin_set_severity_8() called")
+
+    playbook_saa_dynamic_email_analysis_1_output_verdict = phantom.collect2(container=container, datapath=["playbook_saa_dynamic_email_analysis_1:playbook_output:verdict"])
+
+    playbook_saa_dynamic_email_analysis_1_output_verdict_values = [item[0] for item in playbook_saa_dynamic_email_analysis_1_output_verdict]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.set_status(container=container, status="open")
+    phantom.pin(container=container, data=playbook_saa_dynamic_email_analysis_1_output_verdict_values, message="Verdict", name="SAA Verdict", pin_style="grey", pin_type="data")
+    phantom.set_severity(container=container, severity="high")
+
+    container = phantom.get_container(container.get('id', None))
 
     return
 
