@@ -40,7 +40,7 @@
                     "targetPort": "4_in"
                 }
             ],
-            "hash": "41d1d8e7aa8e7ecf5cc61997b0d0ea2c5254bea3",
+            "hash": "9f40e80af861ac6296cb9129f3364cd7cce1ae22",
             "nodes": {
                 "0": {
                     "data": {
@@ -56,7 +56,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 19.999999999999986,
-                    "y": -3.517186542012496e-13
+                    "y": -4.156675004196586e-13
                 },
                 "1": {
                     "data": {
@@ -309,7 +309,7 @@
                                 "cef_value": "extract_container_id:custom_function:user_response",
                                 "container": "extract_container_id:custom_function:container_id",
                                 "input_json": "",
-                                "label": "user_response",
+                                "label": "artifact",
                                 "name": "User Response Artifact",
                                 "run_automation": "true",
                                 "severity": null,
@@ -335,7 +335,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T00:44:25.198782+00:00",
+    "create_time": "2024-04-24T10:21:23.550673+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"

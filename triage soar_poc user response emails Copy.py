@@ -95,7 +95,7 @@ def artifact_create(action=None, success=None, container=None, results=None, han
     parameters.append({
         "name": "User Response Artifact",
         "tags": "user_response",
-        "label": "user_response",
+        "label": "artifact",
         "severity": None,
         "cef_field": "userResponse",
         "cef_value": extract_container_id__user_response,
