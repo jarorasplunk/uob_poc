@@ -130,7 +130,7 @@
                     "targetPort": "18_in"
                 }
             ],
-            "hash": "afb625c48d77f084fc21ebf8fb40eb2d8cf21106",
+            "hash": "49bc83e5f2e14cc03e435d93201f863ac38ae4b0",
             "nodes": {
                 "0": {
                     "data": {
@@ -727,7 +727,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -916,6 +920,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -969,6 +976,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -260,
@@ -1256,7 +1266,7 @@
                     "id": "2",
                     "type": "filter",
                     "warnings": {},
-                    "x": 240,
+                    "x": 220,
                     "y": 980
                 },
                 "20": {
