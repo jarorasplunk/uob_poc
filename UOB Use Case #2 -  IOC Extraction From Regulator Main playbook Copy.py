@@ -18,8 +18,8 @@ def on_start(container):
     return
 
 @phantom.playbook_block()
-def extract_ioc_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("extract_ioc_1() called")
+def extract_ip_ioc(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("extract_ip_ioc() called")
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
@@ -28,7 +28,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
 
     parameters = []
 
-    # build parameters list for 'extract_ioc_1' call
+    # build parameters list for 'extract_ip_ioc' call
     for filtered_artifact_0_item_filter_2 in filtered_artifact_0_data_filter_2:
         parameters.append({
             "text": "",
@@ -57,7 +57,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_ip_ioc", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
 
     return
 
@@ -77,7 +77,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
-        extract_ioc_1(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        extract_ip_ioc(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     # collect filtered artifact ids and results for 'if' condition 2
     matched_artifacts_2, matched_results_2 = phantom.condition(
@@ -90,7 +90,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_2 or matched_results_2:
-        extract_ioc_2(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
+        extract_domain_ioc(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
 
     # collect filtered artifact ids and results for 'if' condition 3
     matched_artifacts_3, matched_results_3 = phantom.condition(
@@ -103,7 +103,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_3 or matched_results_3:
-        extract_ioc_3(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_3, filtered_results=matched_results_3)
+        extract_hash_ioc(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_3, filtered_results=matched_results_3)
 
     # collect filtered artifact ids and results for 'if' condition 4
     matched_artifacts_4, matched_results_4 = phantom.condition(
@@ -122,8 +122,8 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 
 
 @phantom.playbook_block()
-def extract_ioc_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("extract_ioc_2() called")
+def extract_domain_ioc(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("extract_domain_ioc() called")
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
@@ -132,7 +132,7 @@ def extract_ioc_2(action=None, success=None, container=None, results=None, handl
 
     parameters = []
 
-    # build parameters list for 'extract_ioc_2' call
+    # build parameters list for 'extract_domain_ioc' call
     for filtered_artifact_0_item_filter_2 in filtered_artifact_0_data_filter_2:
         parameters.append({
             "severity": "medium",
@@ -157,14 +157,14 @@ def extract_ioc_2(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_2", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_domain_ioc", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
 
     return
 
 
 @phantom.playbook_block()
-def extract_ioc_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("extract_ioc_3() called")
+def extract_hash_ioc(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("extract_hash_ioc() called")
 
     # phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
 
@@ -173,7 +173,7 @@ def extract_ioc_3(action=None, success=None, container=None, results=None, handl
 
     parameters = []
 
-    # build parameters list for 'extract_ioc_3' call
+    # build parameters list for 'extract_hash_ioc' call
     for filtered_artifact_0_item_filter_2 in filtered_artifact_0_data_filter_2:
         parameters.append({
             "severity": "medium",
@@ -198,7 +198,7 @@ def extract_ioc_3(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_3", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_hash_ioc", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
 
     return
 
@@ -303,7 +303,7 @@ def playbook_soar_poc_execute_search_md5_1_callback(action=None, success=None, c
 def join_playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("join_playbook_soar_poc_put_ioc_custom_list_1() called")
 
-    if phantom.completed(action_names=["extract_ioc_1", "extract_ioc_2", "extract_ioc_3"]):
+    if phantom.completed(action_names=["extract_ip_ioc", "extract_domain_ioc", "extract_hash_ioc"]):
         # call connected block "playbook_soar_poc_put_ioc_custom_list_1"
         playbook_soar_poc_put_ioc_custom_list_1(container=container, handle=handle)
 

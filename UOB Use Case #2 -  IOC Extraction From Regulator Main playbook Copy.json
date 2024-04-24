@@ -113,7 +113,7 @@
                     "targetPort": "25_in"
                 }
             ],
-            "hash": "03167673b0b3d6565a03d1f3cd1cc33601873c7a",
+            "hash": "3148a2c79ba0d32c8b9389a227bf9d6d473dcaa6",
             "nodes": {
                 "0": {
                     "data": {
@@ -129,7 +129,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": -5.755396159656812e-13
+                    "y": -6.394884621840902e-13
                 },
                 "1": {
                     "data": {
@@ -222,6 +222,8 @@
                         "action": "extract ioc",
                         "actionType": "generic",
                         "advanced": {
+                            "customName": "extract Domain IOC",
+                            "customNameId": 0,
                             "delayTime": 0,
                             "join": []
                         },
@@ -232,7 +234,7 @@
                         "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
                         "connectorVersion": "v1",
                         "functionId": 2,
-                        "functionName": "extract_ioc_2",
+                        "functionName": "extract_domain_ioc",
                         "id": "18",
                         "loop": {
                             "enabled": false,
@@ -295,6 +297,8 @@
                         "action": "extract ioc",
                         "actionType": "generic",
                         "advanced": {
+                            "customName": "extract hash IOC",
+                            "customNameId": 0,
                             "delayTime": 0,
                             "join": []
                         },
@@ -305,7 +309,7 @@
                         "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
                         "connectorVersion": "v1",
                         "functionId": 3,
-                        "functionName": "extract_ioc_3",
+                        "functionName": "extract_hash_ioc",
                         "id": "19",
                         "loop": {
                             "enabled": false,
@@ -368,6 +372,8 @@
                         "action": "extract ioc",
                         "actionType": "generic",
                         "advanced": {
+                            "customName": "extract IP IOC",
+                            "customNameId": 0,
                             "delayTime": 0,
                             "join": []
                         },
@@ -378,7 +384,7 @@
                         "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
                         "connectorVersion": "v1",
                         "functionId": 1,
-                        "functionName": "extract_ioc_1",
+                        "functionName": "extract_ip_ioc",
                         "id": "2",
                         "loop": {
                             "conditions": [
@@ -601,7 +607,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T05:42:26.306647+00:00",
+    "create_time": "2024-04-24T06:20:34.654474+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
