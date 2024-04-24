@@ -102,7 +102,7 @@ def artifact_create(action=None, success=None, container=None, results=None, han
         "container": extract_container_id__container_id,
         "input_json": None,
         "cef_data_type": None,
-        "run_automation": True,
+        "run_automation": False,
     })
 
     ################################################################################
