@@ -350,7 +350,7 @@ def add_note_2(action=None, success=None, container=None, results=None, handle=N
 def format_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_1() called")
 
-    template = """%%\n{0}\n%%"""
+    template = """%%\n{0}\\r\\n\n%%"""
 
     # parameter list for template variable replacement
     parameters = [
