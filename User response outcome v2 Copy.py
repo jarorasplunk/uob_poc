@@ -49,7 +49,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_2 or matched_results_2:
-        set_status_pin_6(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
+        debug_9(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
 
     return
 
@@ -124,14 +124,14 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 def debug_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_5() called")
 
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef","artifact:*.id"])
+    regex_split_3__result = phantom.collect2(container=container, datapath=["regex_split_3:custom_function_result.data.0.item"])
 
-    container_artifact_header_item_0 = [item[0] for item in container_artifact_data]
+    regex_split_3_data_0_item = [item[0] for item in regex_split_3__result]
 
     parameters = []
 
     parameters.append({
-        "input_1": container_artifact_header_item_0,
+        "input_1": regex_split_3_data_0_item,
         "input_2": None,
         "input_3": None,
         "input_4": None,
@@ -525,6 +525,44 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # check for 'else' condition 2
     send_htmlemail_1(action=action, success=success, container=container, results=results, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def debug_9(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("debug_9() called")
+
+    regex_split_3__result = phantom.collect2(container=container, datapath=["regex_split_3:custom_function_result.data.0.item"])
+
+    regex_split_3_data_0_item = [item[0] for item in regex_split_3__result]
+
+    parameters = []
+
+    parameters.append({
+        "input_1": regex_split_3_data_0_item,
+        "input_2": None,
+        "input_3": None,
+        "input_4": None,
+        "input_5": None,
+        "input_6": None,
+        "input_7": None,
+        "input_8": None,
+        "input_9": None,
+        "input_10": None,
+    })
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_9", callback=set_status_pin_6)
 
     return
 
