@@ -130,7 +130,7 @@
                     "targetPort": "19_in"
                 }
             ],
-            "hash": "45842632a168c29e620c2660290630cdeec7681c",
+            "hash": "d60400ec539bb99ff0eae408d77f514d6ab2fbfd",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,7 +549,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -738,6 +742,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -1016,7 +1023,9 @@
                             "find_related_containers": {
                                 "container": "container:id",
                                 "earliest_time": null,
-                                "field_list": null,
+                                "field_list": [
+                                    "userResponse"
+                                ],
                                 "filter_in_case": null,
                                 "filter_label": null,
                                 "filter_severity": null,
@@ -1248,7 +1257,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "find_related_containers_4:custom_function_result.data"
+                                    "find_related_containers_4:custom_function_result.success"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -1611,7 +1620,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T10:53:53.422222+00:00",
+    "create_time": "2024-04-24T10:57:15.061522+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
