@@ -1,0 +1,307 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_12_to_port_14",
+                    "sourceNode": "12",
+                    "sourcePort": "12_out",
+                    "targetNode": "14",
+                    "targetPort": "14_in"
+                },
+                {
+                    "id": "port_14_to_port_15",
+                    "sourceNode": "14",
+                    "sourcePort": "14_out",
+                    "targetNode": "15",
+                    "targetPort": "15_in"
+                },
+                {
+                    "id": "port_0_to_port_12",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
+                },
+                {
+                    "id": "port_15_to_port_1",
+                    "sourceNode": "15",
+                    "sourcePort": "15_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                }
+            ],
+            "hash": "bd34f2dbd53dadbe88b8ea53437e30011564356e",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 19.999999999999986,
+                    "y": -4.796163466380676e-13
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 19.999999999999986,
+                    "y": 624
+                },
+                "12": {
+                    "data": {
+                        "advanced": {
+                            "customName": "filter email artifact",
+                            "customNameId": 0,
+                            "join": [],
+                            "scope": "all"
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Email Artifact"
+                                    },
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.description",
+                                        "value": "Artifact added by MSG File Parser"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Extract Attached MSG Header",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "Email Artifact"
+                                    },
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "artifact:*.description",
+                                        "value": "Artifact added by IMAP"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "Extract Reporting Email Header",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 3,
+                        "functionName": "filter_email_artifact",
+                        "id": "12",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 60,
+                    "y": 148
+                },
+                "14": {
+                    "data": {
+                        "advanced": {
+                            "customName": "format header note",
+                            "customNameId": 1,
+                            "join": [],
+                            "scope": "all"
+                        },
+                        "functionId": 1,
+                        "functionName": "format_header_note_1",
+                        "id": "14",
+                        "inputParameters": [
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.To",
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Date",
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.From",
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Subject",
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.References",
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.In-Reply-To",
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Type",
+                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Transfer-Encoding"
+                        ],
+                        "outputVariables": [
+                            "header_note"
+                        ],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "14",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    import re\n    \n    phantom.debug(filtered_artifact_0__cef_emailheaders_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_date[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_from[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_subject[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_references[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_in_reply_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_type[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0])\n    sender = filtered_artifact_0__cef_emailheaders_from[0]\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', sender)\n    sender = match[0]\n    sender_domain = sender[sender.index('@') + 1 : ]\n    replyto = filtered_artifact_0__cef_emailheaders_in_reply_to[0]\n    recipient = filtered_artifact_0__cef_emailheaders_to[0]\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', recipient)\n    recipient = match[0]\n    date = filtered_artifact_0__cef_emailheaders_date[0]\n    routing_info = filtered_artifact_0__cef_emailheaders_references[0]\n    contenttype = filtered_artifact_0__cef_emailheaders_content_type[0]\n    contentencoding = filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0]\n    \n    note = (\n        \"| Sender email | Sender domain | Reply To | Recipient | Date | Routing information | Content type | Content Encoding |\\n\"\n        \"| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\\n\"\n    )\n    \n    note += \"|{}|{}|{}|{}|{}|{}|{}|{}|\\n\".format(sender, sender_domain, replyto, recipient, date, routing_info, contenttype, contentencoding)\n    \n    format_header_note_1__header_note = note\n    \n    \n    \n",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 328
+                },
+                "15": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 8,
+                        "functionName": "add_note_8",
+                        "id": "15",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "add_note": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "title",
+                                        "name": "title",
+                                        "placeholder": "Enter a note title",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "content",
+                                        "name": "content",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "markdown",
+                                            "html"
+                                        ],
+                                        "default": "markdown",
+                                        "description": "",
+                                        "label": "note format",
+                                        "name": "note_format",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "default": "general",
+                                        "hidden": true,
+                                        "name": "note_type",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "event_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "task_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add note",
+                                "name": "add_note"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "add_note": {
+                                "_internal": [
+                                    "container",
+                                    "note_type",
+                                    "author",
+                                    "event_id",
+                                    "task_id",
+                                    "trace"
+                                ],
+                                "content": "format_header_note_1:custom_function:header_note",
+                                "note_format": "markdown",
+                                "note_type": "general",
+                                "title": "Email header details"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "15",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 476
+                }
+            },
+            "notes": "",
+            "origin": {
+                "playbook_id": 662,
+                "playbook_name": "UOB Use case # 1 - Adding Notes to the incident Subplaybook - Copy",
+                "playbook_repo_id": 2,
+                "playbook_repo_name": "local"
+            }
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.11",
+        "version": "6.2.1.305"
+    },
+    "create_time": "2024-04-24T00:11:02.030356+00:00",
+    "draft_mode": false,
+    "labels": [
+        "soar_poc_phishing"
+    ],
+    "tags": []
+}
