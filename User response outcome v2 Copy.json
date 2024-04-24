@@ -123,7 +123,7 @@
                     "targetPort": "17_in"
                 }
             ],
-            "hash": "49bc83e5f2e14cc03e435d93201f863ac38ae4b0",
+            "hash": "6f11e1e961e8664b3e02ac1df10eb01c89685d16",
             "nodes": {
                 "0": {
                     "data": {
@@ -139,7 +139,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 190,
-                    "y": 15.999999999999659
+                    "y": 15.999999999999602
                 },
                 "1": {
                     "data": {
@@ -542,11 +542,7 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -340,
                     "y": 180
                 },
@@ -735,9 +731,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -875,9 +868,9 @@
                                     "comparisons": [
                                         {
                                             "conditionIndex": 0,
-                                            "op": "==",
-                                            "param": "indicator_collect_4:custom_function_result.data.all_indicators.*.cef_key",
-                                            "value": "userResponse"
+                                            "op": "in",
+                                            "param": "userResponse",
+                                            "value": "indicator_collect_4:custom_function_result.data.all_indicators.*.cef_key"
                                         }
                                     ],
                                     "conditionIndex": 0,
@@ -1388,7 +1381,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T10:05:00.868302+00:00",
+    "create_time": "2024-04-24T10:08:20.292798+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

@@ -430,10 +430,10 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
     parameters.append({
         "container": id_value,
         "artifact_ids_include": None,
-        "indicator_types_include": None,
-        "indicator_types_exclude": None,
-        "indicator_tags_include": None,
         "indicator_tags_exclude": None,
+        "indicator_tags_include": None,
+        "indicator_types_exclude": None,
+        "indicator_types_include": None,
     })
 
     if not loop_state_json:
@@ -443,7 +443,7 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
             "current_iteration": 1,
             "max_iterations": 3,
             "conditions": [
-                ["indicator_collect_4:custom_function_result.data.all_indicators.*.cef_key", "==", "userResponse"]
+                ["userResponse", "in", "indicator_collect_4:custom_function_result.data.all_indicators.*.cef_key"]
             ],
             "max_ttl": 600,
             "delay_time": 120,
