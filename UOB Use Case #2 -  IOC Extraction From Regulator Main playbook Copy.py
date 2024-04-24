@@ -494,8 +494,10 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
+        logical_operator="and",
         conditions=[
-            ["artifact:*.description", "==", "Artifact added by Parser"]
+            ["artifact:*.description", "==", "Artifact added by Parser"],
+            ["extract_domain_ioc:action_result.status", "==", "success"]
         ],
         name="filter_1:condition_1",
         delimiter=None)

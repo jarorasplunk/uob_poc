@@ -167,7 +167,7 @@
                     "targetPort": "32_in"
                 }
             ],
-            "hash": "03167673b0b3d6565a03d1f3cd1cc33601873c7a",
+            "hash": "58707fed6f10f0a45c44022e3441a20f2b1825d0",
             "nodes": {
                 "0": {
                     "data": {
@@ -1078,6 +1078,11 @@
                                         "op": "==",
                                         "param": "artifact:*.description",
                                         "value": "Artifact added by Parser"
+                                    },
+                                    {
+                                        "op": "==",
+                                        "param": "extract_domain_ioc:action_result.status",
+                                        "value": "success"
                                     }
                                 ],
                                 "conditionIndex": 0,
@@ -1113,7 +1118,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T07:03:59.267147+00:00",
+    "create_time": "2024-04-24T07:44:34.829456+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
