@@ -304,7 +304,11 @@
                     "errors": {},
                     "id": "20",
                     "type": "playbook",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 1920,
                     "y": 1160
                 },
