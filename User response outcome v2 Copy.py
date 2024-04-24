@@ -405,6 +405,21 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
 
 
 @phantom.playbook_block()
+def loop_find_related_containers_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("loop_find_related_containers_4() called")
+
+    loop_state = phantom.LoopState(state=loop_state_json)
+
+    if loop_state.should_continue(container=container, results=results): # should_continue evaluates iteration/timeout/conditions
+        loop_state.increment() # increments iteration count
+        find_related_containers_4(container=container, loop_state_json=loop_state.to_json())
+    else:
+        debug_8(container=container)
+
+    return
+
+
+@phantom.playbook_block()
 def find_related_containers_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("find_related_containers_4() called")
 
@@ -413,7 +428,7 @@ def find_related_containers_4(action=None, success=None, container=None, results
     parameters = []
 
     parameters.append({
-        "field_list": ["userResponseaa"],
+        "field_list": ["userResponse"],
         "value_list": None,
         "minimum_match_count": None,
         "container": id_value,
@@ -423,6 +438,22 @@ def find_related_containers_4(action=None, success=None, container=None, results
         "filter_severity": None,
         "filter_in_case": None,
     })
+
+    if not loop_state_json:
+        # Loop state is empty. We are creating a new one from the inputs
+        loop_state_json = {
+            # Looping configs
+            "current_iteration": 1,
+            "max_iterations": 3,
+            "conditions": [
+                ["find_related_containers_4:custom_function_result.success", "in", "True"]
+            ],
+            "max_ttl": 360,
+            "delay_time": 120,
+        }
+
+    # Load state from the JSON passed to it
+    loop_state = phantom.LoopState(state=loop_state_json)
 
     ################################################################################
     ## Custom Code Start
@@ -434,7 +465,7 @@ def find_related_containers_4(action=None, success=None, container=None, results
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/find_related_containers", parameters=parameters, name="find_related_containers_4", callback=debug_8)
+    phantom.custom_function(custom_function="community/find_related_containers", parameters=parameters, name="find_related_containers_4", callback=loop_find_related_containers_4, loop_state=loop_state.to_json())
 
     return
 
