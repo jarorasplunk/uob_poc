@@ -9,9 +9,6 @@
                 {
                     "conditions": [
                         {
-                            "index": 0
-                        },
-                        {
                             "index": 1
                         }
                     ],
@@ -43,7 +40,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "bd34f2dbd53dadbe88b8ea53437e30011564356e",
+            "hash": "6471ce48d6d5b2b2a87895f8b0fe0e040ed44839",
             "nodes": {
                 "0": {
                     "data": {
@@ -301,7 +298,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T02:25:33.577450+00:00",
+    "create_time": "2024-04-24T02:30:45.851532+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc_phishing"
