@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'indicator_collect_4' block
-    indicator_collect_4(container=container)
+    # call 'filter_3' block
+    filter_3(container=container)
 
     return
 
@@ -409,12 +409,15 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
     phantom.debug("indicator_collect_4() called")
 
     id_value = container.get("id", None)
+    filtered_artifact_0_data_filter_3 = phantom.collect2(container=container, datapath=["filtered-data:filter_3:condition_1:artifact:*.id","filtered-data:filter_3:condition_1:artifact:*.id"])
+
+    filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_filter_3]
 
     parameters = []
 
     parameters.append({
         "container": id_value,
-        "artifact_ids_include": None,
+        "artifact_ids_include": filtered_artifact_0__id,
         "indicator_tags_exclude": None,
         "indicator_tags_include": None,
         "indicator_types_exclude": None,
@@ -470,6 +473,26 @@ def debug_8(action=None, success=None, container=None, results=None, handle=None
     ################################################################################
 
     phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_8", callback=decision_3)
+
+    return
+
+
+@phantom.playbook_block()
+def filter_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("filter_3() called")
+
+    # collect filtered artifact ids and results for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["artifact:*.name", "==", "User Response Artifact"]
+        ],
+        name="filter_3:condition_1",
+        delimiter=None)
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        indicator_collect_4(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 

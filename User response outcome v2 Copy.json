@@ -109,13 +109,6 @@
                     "targetPort": "1_in"
                 },
                 {
-                    "id": "port_0_to_port_19",
-                    "sourceNode": "0",
-                    "sourcePort": "0_out",
-                    "targetNode": "19",
-                    "targetPort": "19_in"
-                },
-                {
                     "id": "port_19_to_port_20",
                     "sourceNode": "19",
                     "sourcePort": "19_out",
@@ -128,9 +121,28 @@
                     "sourcePort": "20_out",
                     "targetNode": "17",
                     "targetPort": "17_in"
+                },
+                {
+                    "id": "port_0_to_port_21",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "21",
+                    "targetPort": "21_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_21_to_port_19",
+                    "sourceNode": "21",
+                    "sourcePort": "21_out",
+                    "targetNode": "19",
+                    "targetPort": "19_in"
                 }
             ],
-            "hash": "82047db1ff6e7dddfb0186e9f702d294e6470ad0",
+            "hash": "fb6fe91a8d6a6325cd191e5428c6278be93c48e7",
             "nodes": {
                 "0": {
                     "data": {
@@ -145,8 +157,8 @@
                     "id": "0",
                     "type": "start",
                     "warnings": {},
-                    "x": 190,
-                    "y": 15.999999999999602
+                    "x": 200,
+                    "y": -100.00000000000003
                 },
                 "1": {
                     "data": {
@@ -549,11 +561,7 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -340,
                     "y": 180
                 },
@@ -742,9 +750,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -979,7 +984,9 @@
                         "utilityType": "custom_function",
                         "values": {
                             "indicator_collect": {
-                                "artifact_ids_include": null,
+                                "artifact_ids_include": [
+                                    "filtered-data:filter_3:condition_1:artifact:*.id"
+                                ],
                                 "container": "container:id",
                                 "indicator_tags_exclude": null,
                                 "indicator_tags_include": null,
@@ -993,7 +1000,7 @@
                     "type": "utility",
                     "warnings": {},
                     "x": 180,
-                    "y": 120
+                    "y": 200
                 },
                 "2": {
                     "data": {
@@ -1230,6 +1237,37 @@
                     "warnings": {},
                     "x": 180,
                     "y": 304.5
+                },
+                "21": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.name",
+                                        "value": "User Response Artifact"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 3,
+                        "functionName": "filter_3",
+                        "id": "21",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "21",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 240,
+                    "y": 40
                 },
                 "6": {
                     "data": {
@@ -1573,7 +1611,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T10:12:19.770073+00:00",
+    "create_time": "2024-04-24T10:16:08.402084+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
