@@ -60,16 +60,17 @@ def filter_email_artifact(action=None, success=None, container=None, results=Non
 def format_header_note_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_header_note_1() called")
 
-    filtered_artifact_0_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.To","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Date","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.From","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Subject","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.References","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.In-Reply-To","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Type","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Transfer-Encoding"], scope="all")
+    filtered_artifact_0_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.To","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Date","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.From","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Subject","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.References","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Type","filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Transfer-Encoding"], scope="all")
+    filtered_artifact_1_data_filter_email_artifact = phantom.collect2(container=container, datapath=["filtered-data:filter_email_artifact:condition_2:artifact:*.cef.emailHeaders.In-Reply-To"], scope="all")
 
     filtered_artifact_0__cef_emailheaders_to = [item[0] for item in filtered_artifact_0_data_filter_email_artifact]
     filtered_artifact_0__cef_emailheaders_date = [item[1] for item in filtered_artifact_0_data_filter_email_artifact]
     filtered_artifact_0__cef_emailheaders_from = [item[2] for item in filtered_artifact_0_data_filter_email_artifact]
     filtered_artifact_0__cef_emailheaders_subject = [item[3] for item in filtered_artifact_0_data_filter_email_artifact]
     filtered_artifact_0__cef_emailheaders_references = [item[4] for item in filtered_artifact_0_data_filter_email_artifact]
-    filtered_artifact_0__cef_emailheaders_in_reply_to = [item[5] for item in filtered_artifact_0_data_filter_email_artifact]
-    filtered_artifact_0__cef_emailheaders_content_type = [item[6] for item in filtered_artifact_0_data_filter_email_artifact]
-    filtered_artifact_0__cef_emailheaders_content_transfer_encoding = [item[7] for item in filtered_artifact_0_data_filter_email_artifact]
+    filtered_artifact_0__cef_emailheaders_content_type = [item[5] for item in filtered_artifact_0_data_filter_email_artifact]
+    filtered_artifact_0__cef_emailheaders_content_transfer_encoding = [item[6] for item in filtered_artifact_0_data_filter_email_artifact]
+    filtered_artifact_1__cef_emailheaders_in_reply_to = [item[0] for item in filtered_artifact_1_data_filter_email_artifact]
 
     format_header_note_1__header_note = None
 
@@ -85,7 +86,7 @@ def format_header_note_1(action=None, success=None, container=None, results=None
     phantom.debug(filtered_artifact_0__cef_emailheaders_from[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_subject[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_references[0])
-    phantom.debug(filtered_artifact_0__cef_emailheaders_in_reply_to[0])
+    phantom.debug(filtered_artifact_1__cef_emailheaders_in_reply_to[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_content_type[0])
     phantom.debug(filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0])
     sender = filtered_artifact_0__cef_emailheaders_from[0]
@@ -96,7 +97,7 @@ def format_header_note_1(action=None, success=None, container=None, results=None
     phantom.debug("sender after")
     phantom.debug(sender)
     sender_domain = sender[sender.index('@') + 1 : ]
-    replyto = filtered_artifact_0__cef_emailheaders_in_reply_to[0]
+    replyto = filtered_artifact_1__cef_emailheaders_in_reply_to[0]
     phantom.debug("replyto")
     phantom.debug(replyto)
     recipient = filtered_artifact_0__cef_emailheaders_to[0]

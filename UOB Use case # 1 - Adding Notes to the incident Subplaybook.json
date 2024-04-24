@@ -43,7 +43,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "518606f424cb16b2670f03c49d1f72fd3658e603",
+            "hash": "42e7d5997cb5893c222bec074c5bb00cd7600d6c",
             "nodes": {
                 "0": {
                     "data": {
@@ -154,7 +154,7 @@
                             "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.From",
                             "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Subject",
                             "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.References",
-                            "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.In-Reply-To",
+                            "filtered-data:filter_email_artifact:condition_2:artifact:*.cef.emailHeaders.In-Reply-To",
                             "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Type",
                             "filtered-data:filter_email_artifact:condition_1:artifact:*.cef.emailHeaders.Content-Transfer-Encoding"
                         ],
@@ -166,7 +166,7 @@
                     "errors": {},
                     "id": "14",
                     "type": "code",
-                    "userCode": "\n    # Write your custom code here...\n    import re\n    \n    phantom.debug(filtered_artifact_0__cef_emailheaders_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_date[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_from[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_subject[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_references[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_in_reply_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_type[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0])\n    sender = filtered_artifact_0__cef_emailheaders_from[0]\n    phantom.debug(\"sender before\")\n    phantom.debug(sender)\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', sender[0])\n    sender = match[0]\n    phantom.debug(\"sender after\")\n    phantom.debug(sender)\n    sender_domain = sender[sender.index('@') + 1 : ]\n    replyto = filtered_artifact_0__cef_emailheaders_in_reply_to[0]\n    phantom.debug(\"replyto\")\n    phantom.debug(replyto)\n    recipient = filtered_artifact_0__cef_emailheaders_to[0]\n    phantom.debug(\"recipient before\")\n    phantom.debug(recipient)\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', recipient)\n    recipient = match[0]\n    phantom.debug(\"recipient after\")\n    phantom.debug(recipient)\n    date = filtered_artifact_0__cef_emailheaders_date[0]\n    routing_info = filtered_artifact_0__cef_emailheaders_references[0]\n    contenttype = filtered_artifact_0__cef_emailheaders_content_type[0]\n    contentencoding = filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0]\n    \n    note = (\n        \"| Sender email | Sender domain | Reply To | Recipient | Date | Routing information | Content type | Content Encoding |\\n\"\n        \"| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\\n\"\n    )\n    \n    note += \"|{}|{}|{}|{}|{}|{}|{}|{}|\\n\".format(sender, sender_domain, replyto, recipient, date, routing_info, contenttype, contentencoding)\n    \n    format_header_note_1__header_note = note\n    \n    \n    \n",
+                    "userCode": "\n    # Write your custom code here...\n    import re\n    \n    phantom.debug(filtered_artifact_0__cef_emailheaders_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_date[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_from[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_subject[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_references[0])\n    phantom.debug(filtered_artifact_1__cef_emailheaders_in_reply_to[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_type[0])\n    phantom.debug(filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0])\n    sender = filtered_artifact_0__cef_emailheaders_from[0]\n    phantom.debug(\"sender before\")\n    phantom.debug(sender)\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', sender[0])\n    sender = match[0]\n    phantom.debug(\"sender after\")\n    phantom.debug(sender)\n    sender_domain = sender[sender.index('@') + 1 : ]\n    replyto = filtered_artifact_1__cef_emailheaders_in_reply_to[0]\n    phantom.debug(\"replyto\")\n    phantom.debug(replyto)\n    recipient = filtered_artifact_0__cef_emailheaders_to[0]\n    phantom.debug(\"recipient before\")\n    phantom.debug(recipient)\n    match = re.findall(r'[\\w.+-]+@[\\w-]+\\.[\\w.-]+', recipient)\n    recipient = match[0]\n    phantom.debug(\"recipient after\")\n    phantom.debug(recipient)\n    date = filtered_artifact_0__cef_emailheaders_date[0]\n    routing_info = filtered_artifact_0__cef_emailheaders_references[0]\n    contenttype = filtered_artifact_0__cef_emailheaders_content_type[0]\n    contentencoding = filtered_artifact_0__cef_emailheaders_content_transfer_encoding[0]\n    \n    note = (\n        \"| Sender email | Sender domain | Reply To | Recipient | Date | Routing information | Content type | Content Encoding |\\n\"\n        \"| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\\n\"\n    )\n    \n    note += \"|{}|{}|{}|{}|{}|{}|{}|{}|\\n\".format(sender, sender_domain, replyto, recipient, date, routing_info, contenttype, contentencoding)\n    \n    format_header_note_1__header_note = note\n    \n    \n    \n",
                     "warnings": {},
                     "x": 0,
                     "y": 320
@@ -301,7 +301,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T02:21:56.546461+00:00",
+    "create_time": "2024-04-24T02:24:03.286231+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc_phishing"
