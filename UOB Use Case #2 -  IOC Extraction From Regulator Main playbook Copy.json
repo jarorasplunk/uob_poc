@@ -71,35 +71,49 @@
                     "targetPort": "1_in"
                 },
                 {
-                    "id": "port_2_to_port_27",
+                    "id": "port_2_to_port_28",
                     "sourceNode": "2",
                     "sourcePort": "2_out",
-                    "targetNode": "27",
-                    "targetPort": "27_in"
+                    "targetNode": "28",
+                    "targetPort": "28_in"
                 },
                 {
-                    "id": "port_27_to_port_23",
-                    "sourceNode": "27",
-                    "sourcePort": "27_out",
+                    "id": "port_19_to_port_28",
+                    "sourceNode": "19",
+                    "sourcePort": "19_out",
+                    "targetNode": "28",
+                    "targetPort": "28_in"
+                },
+                {
+                    "id": "port_18_to_port_28",
+                    "sourceNode": "18",
+                    "sourcePort": "18_out",
+                    "targetNode": "28",
+                    "targetPort": "28_in"
+                },
+                {
+                    "id": "port_28_to_port_23",
+                    "sourceNode": "28",
+                    "sourcePort": "28_out",
                     "targetNode": "23",
                     "targetPort": "23_in"
                 },
                 {
-                    "id": "port_27_to_port_24",
-                    "sourceNode": "27",
-                    "sourcePort": "27_out",
+                    "id": "port_28_to_port_24",
+                    "sourceNode": "28",
+                    "sourcePort": "28_out",
                     "targetNode": "24",
                     "targetPort": "24_in"
                 },
                 {
-                    "id": "port_27_to_port_25",
-                    "sourceNode": "27",
-                    "sourcePort": "27_out",
+                    "id": "port_28_to_port_25",
+                    "sourceNode": "28",
+                    "sourcePort": "28_out",
                     "targetNode": "25",
                     "targetPort": "25_in"
                 }
             ],
-            "hash": "fb42fc10848fc7fb93598af355758454be0f34a2",
+            "hash": "03167673b0b3d6565a03d1f3cd1cc33601873c7a",
             "nodes": {
                 "0": {
                     "data": {
@@ -115,7 +129,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 360,
-                    "y": -5.115907697472721e-13
+                    "y": -5.755396159656812e-13
                 },
                 "1": {
                     "data": {
@@ -539,14 +553,14 @@
                     "x": 680,
                     "y": 640
                 },
-                "27": {
+                "28": {
                     "data": {
                         "advanced": {
                             "join": []
                         },
                         "functionId": 1,
-                        "functionName": "playbook_UOB_Use_case_#2___Put_IOC_into_custom_list_and_lookuptable_Subplaybook_1",
-                        "id": "27",
+                        "functionName": "playbook_soar_poc_put_IOC_custom_list_1",
+                        "id": "28",
                         "inputs": {},
                         "loop": {
                             "enabled": false,
@@ -557,7 +571,7 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "playbookName": "UOB Use case #2 - Put IOC into custom list and lookuptable Subplaybook",
+                        "playbookName": "soar_poc_put_IOC_custom_list",
                         "playbookRepo": 2,
                         "playbookRepoName": "local",
                         "playbookType": "automation",
@@ -565,11 +579,11 @@
                         "type": "playbook"
                     },
                     "errors": {},
-                    "id": "27",
+                    "id": "28",
                     "type": "playbook",
                     "warnings": {},
                     "x": 340,
-                    "y": 420
+                    "y": 484.5
                 }
             },
             "notes": "",
@@ -587,7 +601,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T00:02:11.090014+00:00",
+    "create_time": "2024-04-24T05:42:26.306647+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"

@@ -57,7 +57,7 @@ def extract_ioc_1(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["soar_poc_parser"], callback=playbook_uob_use_case__2___put_ioc_into_custom_list_and_lookuptable_subplaybook_1)
+    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_1", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
 
     return
 
@@ -157,7 +157,7 @@ def extract_ioc_2(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_2", assets=["soar_poc_parser"])
+    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_2", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
 
     return
 
@@ -198,7 +198,7 @@ def extract_ioc_3(action=None, success=None, container=None, results=None, handl
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_3", assets=["soar_poc_parser"])
+    phantom.act("extract ioc", parameters=parameters, name="extract_ioc_3", assets=["soar_poc_parser"], callback=join_playbook_soar_poc_put_ioc_custom_list_1)
 
     return
 
@@ -300,8 +300,19 @@ def playbook_soar_poc_execute_search_md5_1_callback(action=None, success=None, c
 
 
 @phantom.playbook_block()
-def playbook_uob_use_case__2___put_ioc_into_custom_list_and_lookuptable_subplaybook_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("playbook_uob_use_case__2___put_ioc_into_custom_list_and_lookuptable_subplaybook_1() called")
+def join_playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_playbook_soar_poc_put_ioc_custom_list_1() called")
+
+    if phantom.completed(action_names=["extract_ioc_1", "extract_ioc_2", "extract_ioc_3"]):
+        # call connected block "playbook_soar_poc_put_ioc_custom_list_1"
+        playbook_soar_poc_put_ioc_custom_list_1(container=container, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
+def playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("playbook_soar_poc_put_ioc_custom_list_1() called")
 
     ################################################################################
     ## Custom Code Start
@@ -313,8 +324,8 @@ def playbook_uob_use_case__2___put_ioc_into_custom_list_and_lookuptable_subplayb
     ## Custom Code End
     ################################################################################
 
-    # call playbook "local/UOB Use case #2 - Put IOC into custom list and lookuptable Subplaybook", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("local/UOB Use case #2 - Put IOC into custom list and lookuptable Subplaybook", container=container)
+    # call playbook "local/soar_poc_put_IOC_custom_list", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("local/soar_poc_put_IOC_custom_list", container=container)
 
     playbook_soar_poc_execute_search_ip_1(container=container)
     playbook_soar_poc_execute_search_domain_1(container=container)
