@@ -597,7 +597,6 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
     # call connected blocks if condition 1 matched
     if found_match_1:
         debug_5(action=action, success=success, container=container, results=results, handle=handle)
-        debug_9(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # check for 'elif' condition 2
@@ -610,6 +609,7 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 2 matched
     if found_match_2:
+        debug_9(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     return
