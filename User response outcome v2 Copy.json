@@ -130,7 +130,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "c550c8a8b59eb61d18e711d6be0b71462b87a62a",
+            "hash": "8142b82e6d57cd55b086418d5b852c5eb9ff050b",
             "nodes": {
                 "0": {
                     "data": {
@@ -146,7 +146,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 190,
-                    "y": 15.999999999999716
+                    "y": 15.999999999999659
                 },
                 "1": {
                     "data": {
@@ -526,9 +526,9 @@
                             "exitAfterUnit": "m",
                             "exitAfterValue": 15,
                             "exitConditionEnabled": true,
-                            "exitLoopAfter": 5,
+                            "exitLoopAfter": 3,
                             "pauseUnit": "m",
-                            "pauseValue": 3
+                            "pauseValue": 2
                         },
                         "selectMore": false,
                         "tab": "customFunctions",
@@ -1252,7 +1252,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T09:33:56.975205+00:00",
+    "create_time": "2024-04-24T09:43:50.693353+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

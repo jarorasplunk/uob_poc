@@ -253,12 +253,12 @@ def noop_1(action=None, success=None, container=None, results=None, handle=None,
         loop_state_json = {
             # Looping configs
             "current_iteration": 1,
-            "max_iterations": 5,
+            "max_iterations": 3,
             "conditions": [
                 ["artifact:*.name", "==", "User Response Artifact"]
             ],
             "max_ttl": 900,
-            "delay_time": 180,
+            "delay_time": 120,
         }
 
     # Load state from the JSON passed to it
