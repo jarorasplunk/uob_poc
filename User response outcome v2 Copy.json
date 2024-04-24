@@ -130,7 +130,7 @@
                     "targetPort": "18_in"
                 }
             ],
-            "hash": "3d9846898f8fc63d60a6ad9842159552c322b3ec",
+            "hash": "12197cd02faedab02ec57e7444fcde527e387a93",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,7 +549,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -738,6 +742,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -791,6 +798,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -260,
@@ -1047,12 +1057,6 @@
                                     {
                                         "conditionIndex": 0,
                                         "op": "==",
-                                        "param": "artifact:*.label",
-                                        "value": "events"
-                                    },
-                                    {
-                                        "conditionIndex": 0,
-                                        "op": "==",
                                         "param": "regex_split_3:custom_function_result.data.0.item",
                                         "value": "Not expected behaviour"
                                     }
@@ -1063,12 +1067,6 @@
                             },
                             {
                                 "comparisons": [
-                                    {
-                                        "conditionIndex": 1,
-                                        "op": "==",
-                                        "param": "artifact:*.label",
-                                        "value": "events"
-                                    },
                                     {
                                         "conditionIndex": 1,
                                         "op": "==",
@@ -1311,6 +1309,7 @@
                             {
                                 "comparisons": [
                                     {
+                                        "conditionIndex": 1,
                                         "op": "==",
                                         "param": "",
                                         "value": ""
@@ -1332,7 +1331,7 @@
                     "type": "decision",
                     "warnings": {},
                     "x": 240,
-                    "y": 484.5
+                    "y": 480
                 },
                 "6": {
                     "data": {
@@ -1676,7 +1675,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:23:48.812208+00:00",
+    "create_time": "2024-04-24T11:28:59.086431+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

@@ -24,9 +24,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     # collect filtered artifact ids and results for 'if' condition 1
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
-        logical_operator="and",
         conditions=[
-            ["artifact:*.label", "==", "events"],
             ["regex_split_3:custom_function_result.data.0.item", "==", "Not expected behaviour"]
         ],
         name="filter_1:condition_1",
@@ -40,9 +38,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     # collect filtered artifact ids and results for 'if' condition 2
     matched_artifacts_2, matched_results_2 = phantom.condition(
         container=container,
-        logical_operator="and",
         conditions=[
-            ["artifact:*.label", "==", "events"],
             ["regex_split_3:custom_function_result.data.0.item", "==", "Expected behaviour"]
         ],
         name="filter_1:condition_2",
