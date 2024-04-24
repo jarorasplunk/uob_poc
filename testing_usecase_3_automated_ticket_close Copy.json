@@ -75,7 +75,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "1f7a42e40b6bce26df97239bb1adca4d3ec162ea",
+            "hash": "073d2da90188231da1d277efb0ac3318d700eed3",
             "nodes": {
                 "0": {
                     "data": {
@@ -304,11 +304,7 @@
                     "errors": {},
                     "id": "20",
                     "type": "playbook",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 1920,
                     "y": 1160
                 },
