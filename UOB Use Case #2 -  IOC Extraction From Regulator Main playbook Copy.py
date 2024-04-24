@@ -90,7 +90,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_2 or matched_results_2:
-        pass
+        extract_domain_ioc(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
 
     # collect filtered artifact ids and results for 'if' condition 3
     matched_artifacts_3, matched_results_3 = phantom.condition(
@@ -103,7 +103,7 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_3 or matched_results_3:
-        pass
+        extract_hash_ioc(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_3, filtered_results=matched_results_3)
 
     # collect filtered artifact ids and results for 'if' condition 4
     matched_artifacts_4, matched_results_4 = phantom.condition(
@@ -198,7 +198,7 @@ def extract_hash_ioc(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract ioc", parameters=parameters, name="extract_hash_ioc", assets=["soar_poc_parser"])
+    phantom.act("extract ioc", parameters=parameters, name="extract_hash_ioc", assets=["soar_poc_parser"], callback=format_hash_extracted)
 
     return
 
@@ -300,6 +300,17 @@ def playbook_soar_poc_execute_search_md5_1_callback(action=None, success=None, c
 
 
 @phantom.playbook_block()
+def join_playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("join_playbook_soar_poc_put_ioc_custom_list_1() called")
+
+    if phantom.completed(action_names=["extract_ip_ioc", "extract_domain_ioc", "extract_hash_ioc"]):
+        # call connected block "playbook_soar_poc_put_ioc_custom_list_1"
+        playbook_soar_poc_put_ioc_custom_list_1(container=container, handle=handle)
+
+    return
+
+
+@phantom.playbook_block()
 def playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("playbook_soar_poc_put_ioc_custom_list_1() called")
 
@@ -324,8 +335,8 @@ def playbook_soar_poc_put_ioc_custom_list_1(action=None, success=None, container
 
 
 @phantom.playbook_block()
-def add_note_ip_addres_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("add_note_ip_addres_extracted() called")
+def add_note_ip_address_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("add_note_ip_address_extracted() called")
 
     format_ip_address_extracted = phantom.get_format_data(name="format_ip_address_extracted")
 
@@ -341,7 +352,7 @@ def add_note_ip_addres_extracted(action=None, success=None, container=None, resu
 
     phantom.add_note(container=container, content=format_ip_address_extracted, note_format="html", note_type="general", title="List IP Address Extracted")
 
-    playbook_soar_poc_put_ioc_custom_list_1(container=container)
+    join_playbook_soar_poc_put_ioc_custom_list_1(container=container)
 
     return
 
@@ -369,7 +380,7 @@ def format_ip_address_extracted(action=None, success=None, container=None, resul
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_ip_address_extracted", drop_none=True)
 
-    add_note_ip_addres_extracted(container=container)
+    add_note_ip_address_extracted(container=container)
 
     return
 
@@ -395,7 +406,7 @@ def format_domain_extracted(action=None, success=None, container=None, results=N
     ## Custom Code End
     ################################################################################
 
-    phantom.format(container=container, template=template, parameters=parameters, name="format_domain_extracted")
+    phantom.format(container=container, template=template, parameters=parameters, name="format_domain_extracted", drop_none=True)
 
     add_note_domain_extracted(container=container)
 
@@ -418,7 +429,60 @@ def add_note_domain_extracted(action=None, success=None, container=None, results
     ## Custom Code End
     ################################################################################
 
-    phantom.add_note(container=container, content=format_domain_extracted, note_format="html", note_type="general")
+    phantom.add_note(container=container, content=format_domain_extracted, note_format="html", note_type="general", title="List Domain Extracted")
+
+    join_playbook_soar_poc_put_ioc_custom_list_1(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def format_hash_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("format_hash_extracted() called")
+
+    template = """%%\n{0}\n%%"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "artifact:*.cef.fileHash"
+    ]
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_hash_extracted", drop_none=True)
+
+    add_note_md5_extracted(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def add_note_md5_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("add_note_md5_extracted() called")
+
+    format_hash_extracted = phantom.get_format_data(name="format_hash_extracted")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.add_note(container=container, content=format_hash_extracted, note_format="html", note_type="general", title="List MD5 Extracted")
+
+    join_playbook_soar_poc_put_ioc_custom_list_1(container=container)
 
     return
 

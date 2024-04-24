@@ -101,9 +101,61 @@
                     "sourcePort": "32_out",
                     "targetNode": "33",
                     "targetPort": "33_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_17_to_port_18",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "18",
+                    "targetPort": "18_in"
+                },
+                {
+                    "id": "port_33_to_port_28",
+                    "sourceNode": "33",
+                    "sourcePort": "33_out",
+                    "targetNode": "28",
+                    "targetPort": "28_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 2
+                        }
+                    ],
+                    "id": "port_17_to_port_19",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "19",
+                    "targetPort": "19_in"
+                },
+                {
+                    "id": "port_19_to_port_34",
+                    "sourceNode": "19",
+                    "sourcePort": "19_out",
+                    "targetNode": "34",
+                    "targetPort": "34_in"
+                },
+                {
+                    "id": "port_34_to_port_35",
+                    "sourceNode": "34",
+                    "sourcePort": "34_out",
+                    "targetNode": "35",
+                    "targetPort": "35_in"
+                },
+                {
+                    "id": "port_35_to_port_28",
+                    "sourceNode": "35",
+                    "sourcePort": "35_out",
+                    "targetNode": "28",
+                    "targetPort": "28_in"
                 }
             ],
-            "hash": "d9544d2e6116ce8c395122dd9a97eedabef2a4c3",
+            "hash": "13bb1774cdc9bca4e4f60ed97e6d616d682c43ca",
             "nodes": {
                 "0": {
                     "data": {
@@ -205,7 +257,7 @@
                     "type": "filter",
                     "warnings": {},
                     "x": 240,
-                    "y": 148
+                    "y": 160
                 },
                 "18": {
                     "data": {
@@ -278,11 +330,7 @@
                     "errors": {},
                     "id": "18",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -140,
                     "y": 320
                 },
@@ -357,14 +405,7 @@
                     "errors": {},
                     "id": "19",
                     "type": "action",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 500,
                     "y": 320
                 },
@@ -595,12 +636,12 @@
                 "30": {
                     "data": {
                         "advanced": {
-                            "customName": "Add Note IP addres Extracted",
+                            "customName": "Add Note IP address Extracted",
                             "customNameId": 0,
                             "join": []
                         },
                         "functionId": 2,
-                        "functionName": "add_note_ip_addres_extracted",
+                        "functionName": "add_note_ip_address_extracted",
                         "id": "30",
                         "loop": {
                             "enabled": false,
@@ -737,6 +778,7 @@
                         "advanced": {
                             "customName": "Format Domain Extracted",
                             "customNameId": 0,
+                            "drop_none": true,
                             "join": []
                         },
                         "functionId": 2,
@@ -860,7 +902,7 @@
                                 "content": "format_domain_extracted:formatted_data",
                                 "note_format": "html",
                                 "note_type": "general",
-                                "title": null
+                                "title": "List Domain Extracted"
                             }
                         }
                     },
@@ -870,6 +912,146 @@
                     "warnings": {},
                     "x": -140,
                     "y": 620
+                },
+                "34": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Format Hash Extracted",
+                            "customNameId": 0,
+                            "drop_none": true,
+                            "join": []
+                        },
+                        "functionId": 3,
+                        "functionName": "format_hash_extracted",
+                        "id": "34",
+                        "parameters": [
+                            "artifact:*.cef.fileHash"
+                        ],
+                        "template": "%%\n{0}\n%%",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "34",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 500,
+                    "y": 480
+                },
+                "35": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Add Note MD5 Extracted",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 4,
+                        "functionName": "add_note_md5_extracted",
+                        "id": "35",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "add_note": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "title",
+                                        "name": "title",
+                                        "placeholder": "Enter a note title",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "content",
+                                        "name": "content",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "markdown",
+                                            "html"
+                                        ],
+                                        "default": "markdown",
+                                        "description": "",
+                                        "label": "note format",
+                                        "name": "note_format",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "default": "general",
+                                        "hidden": true,
+                                        "name": "note_type",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "event_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "task_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add note",
+                                "name": "add_note"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "add_note": {
+                                "_internal": [
+                                    "container",
+                                    "note_type",
+                                    "author",
+                                    "event_id",
+                                    "task_id",
+                                    "trace"
+                                ],
+                                "content": "format_hash_extracted:formatted_data",
+                                "note_format": "html",
+                                "note_type": "general",
+                                "title": "List MD5 Extracted"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "35",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 500,
+                    "y": 624.5
                 }
             },
             "notes": "",
@@ -887,7 +1069,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T06:56:52.226962+00:00",
+    "create_time": "2024-04-24T07:01:25.380715+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
