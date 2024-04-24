@@ -66,30 +66,6 @@
                     "targetPort": "1_in"
                 },
                 {
-                    "conditions": [
-                        {
-                            "index": 0
-                        }
-                    ],
-                    "id": "port_17_to_port_8",
-                    "sourceNode": "17",
-                    "sourcePort": "17_out",
-                    "targetNode": "8",
-                    "targetPort": "8_in"
-                },
-                {
-                    "conditions": [
-                        {
-                            "index": 1
-                        }
-                    ],
-                    "id": "port_17_to_port_18",
-                    "sourceNode": "17",
-                    "sourcePort": "17_out",
-                    "targetNode": "18",
-                    "targetPort": "18_in"
-                },
-                {
                     "id": "port_18_to_port_1",
                     "sourceNode": "18",
                     "sourcePort": "18_out",
@@ -102,13 +78,6 @@
                     "sourcePort": "19_out",
                     "targetNode": "20",
                     "targetPort": "20_in"
-                },
-                {
-                    "id": "port_20_to_port_17",
-                    "sourceNode": "20",
-                    "sourcePort": "20_out",
-                    "targetNode": "17",
-                    "targetPort": "17_in"
                 },
                 {
                     "id": "port_0_to_port_19",
@@ -128,9 +97,16 @@
                     "sourcePort": "2_out",
                     "targetNode": "9",
                     "targetPort": "9_in"
+                },
+                {
+                    "id": "port_20_to_port_23",
+                    "sourceNode": "20",
+                    "sourcePort": "20_out",
+                    "targetNode": "23",
+                    "targetPort": "23_in"
                 }
             ],
-            "hash": "49bc83e5f2e14cc03e435d93201f863ac38ae4b0",
+            "hash": "e72bbc92fc1a00c6554d85590adbe63f6554ed65",
             "nodes": {
                 "0": {
                     "data": {
@@ -795,9 +771,16 @@
                     "errors": {},
                     "id": "17",
                     "type": "decision",
-                    "warnings": {},
-                    "x": 260,
-                    "y": 500
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
+                    "x": -260,
+                    "y": 400
                 },
                 "18": {
                     "data": {
@@ -883,7 +866,7 @@
                                     "comparisons": [
                                         {
                                             "conditionIndex": 0,
-                                            "op": "in",
+                                            "op": "==",
                                             "param": "find_related_containers_4:custom_function_result.success",
                                             "value": "True"
                                         }
@@ -1290,6 +1273,53 @@
                     "x": 160,
                     "y": 340
                 },
+                "23": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "find_related_containers_4:custom_function_result.success",
+                                        "value": "True"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "Response Received",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "decision_1",
+                        "id": "23",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "23",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 240,
+                    "y": 484.5
+                },
                 "6": {
                     "data": {
                         "advanced": {
@@ -1424,7 +1454,11 @@
                     "errors": {},
                     "id": "8",
                     "type": "filter",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 230,
                     "y": 689
                 },
@@ -1632,7 +1666,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:11:06.834924+00:00",
+    "create_time": "2024-04-24T11:23:26.256096+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

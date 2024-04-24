@@ -333,7 +333,6 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if found_match_1:
-        filter_2(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     # check for 'elif' condition 2
@@ -346,7 +345,6 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 2 matched
     if found_match_2:
-        send_htmlemail_1(action=action, success=success, container=container, results=results, handle=handle)
         return
 
     return
@@ -446,7 +444,7 @@ def find_related_containers_4(action=None, success=None, container=None, results
             "current_iteration": 1,
             "max_iterations": 3,
             "conditions": [
-                ["find_related_containers_4:custom_function_result.success", "in", "True"]
+                ["find_related_containers_4:custom_function_result.success", "==", "True"]
             ],
             "max_ttl": 360,
             "delay_time": 120,
@@ -503,7 +501,26 @@ def debug_8(action=None, success=None, container=None, results=None, handle=None
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_8", callback=decision_3)
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_8", callback=decision_1)
+
+    return
+
+
+@phantom.playbook_block()
+def decision_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("decision_1() called")
+
+    # check for 'if' condition 1
+    found_match_1 = phantom.decision(
+        container=container,
+        conditions=[
+            ["find_related_containers_4:custom_function_result.success", "==", True]
+        ],
+        delimiter=None)
+
+    # call connected blocks if condition 1 matched
+    if found_match_1:
+        return
 
     return
 
