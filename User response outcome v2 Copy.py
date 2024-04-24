@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'filter_3' block
-    filter_3(container=container)
+    # call 'collect_by_cef_type_4' block
+    collect_by_cef_type_4(container=container)
 
     return
 
@@ -405,23 +405,18 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
 
 
 @phantom.playbook_block()
-def indicator_collect_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("indicator_collect_4() called")
+def collect_by_cef_type_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("collect_by_cef_type_4() called")
 
     id_value = container.get("id", None)
-    filtered_artifact_0_data_filter_3 = phantom.collect2(container=container, datapath=["filtered-data:filter_3:condition_1:artifact:*.id","filtered-data:filter_3:condition_1:artifact:*.id"])
-
-    filtered_artifact_0__id = [item[0] for item in filtered_artifact_0_data_filter_3]
 
     parameters = []
 
     parameters.append({
         "container": id_value,
-        "artifact_ids_include": filtered_artifact_0__id,
-        "indicator_tags_exclude": None,
-        "indicator_tags_include": None,
-        "indicator_types_exclude": None,
-        "indicator_types_include": None,
+        "data_types": ["all"],
+        "scope": None,
+        "tags": None,
     })
 
     ################################################################################
@@ -434,7 +429,7 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/indicator_collect", parameters=parameters, name="indicator_collect_4", callback=debug_8)
+    phantom.custom_function(custom_function="community/collect_by_cef_type", parameters=parameters, name="collect_by_cef_type_4", callback=debug_8)
 
     return
 
@@ -443,14 +438,14 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
 def debug_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_8() called")
 
-    indicator_collect_4__result = phantom.collect2(container=container, datapath=["indicator_collect_4:custom_function_result.data.all_indicators"])
+    collect_by_cef_type_4__result = phantom.collect2(container=container, datapath=["collect_by_cef_type_4:custom_function_result.data"])
 
-    indicator_collect_4_data_all_indicators = [item[0] for item in indicator_collect_4__result]
+    collect_by_cef_type_4_data = [item[0] for item in collect_by_cef_type_4__result]
 
     parameters = []
 
     parameters.append({
-        "input_1": indicator_collect_4_data_all_indicators,
+        "input_1": collect_by_cef_type_4_data,
         "input_2": None,
         "input_3": None,
         "input_4": None,
@@ -473,26 +468,6 @@ def debug_8(action=None, success=None, container=None, results=None, handle=None
     ################################################################################
 
     phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_8", callback=decision_3)
-
-    return
-
-
-@phantom.playbook_block()
-def filter_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("filter_3() called")
-
-    # collect filtered artifact ids and results for 'if' condition 1
-    matched_artifacts_1, matched_results_1 = phantom.condition(
-        container=container,
-        conditions=[
-            ["artifact:*.name", "==", "User Response Artifact"]
-        ],
-        name="filter_3:condition_1",
-        delimiter=None)
-
-    # call connected blocks if filtered artifacts or results
-    if matched_artifacts_1 or matched_results_1:
-        indicator_collect_4(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
