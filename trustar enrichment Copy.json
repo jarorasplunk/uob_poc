@@ -1,0 +1,1017 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_2_to_port_3",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                },
+                {
+                    "id": "port_8_to_port_11",
+                    "sourceNode": "8",
+                    "sourcePort": "8_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "id": "port_11_to_port_12",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
+                },
+                {
+                    "id": "port_12_to_port_1",
+                    "sourceNode": "12",
+                    "sourcePort": "12_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_6_to_port_14",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "14",
+                    "targetPort": "14_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_14_to_port_17",
+                    "sourceNode": "14",
+                    "sourcePort": "14_out",
+                    "targetNode": "17",
+                    "targetPort": "17_in"
+                },
+                {
+                    "id": "port_17_to_port_8",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "8",
+                    "targetPort": "8_in"
+                },
+                {
+                    "id": "port_3_to_port_13",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "13",
+                    "targetPort": "13_in"
+                },
+                {
+                    "id": "port_13_to_port_7",
+                    "sourceNode": "13",
+                    "sourcePort": "13_out",
+                    "targetNode": "7",
+                    "targetPort": "7_in"
+                },
+                {
+                    "id": "port_7_to_port_20",
+                    "sourceNode": "7",
+                    "sourcePort": "7_out",
+                    "targetNode": "20",
+                    "targetPort": "20_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_20_to_port_6",
+                    "sourceNode": "20",
+                    "sourcePort": "20_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_20_to_port_18",
+                    "sourceNode": "20",
+                    "sourcePort": "20_out",
+                    "targetNode": "18",
+                    "targetPort": "18_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 2
+                        }
+                    ],
+                    "id": "port_20_to_port_19",
+                    "sourceNode": "20",
+                    "sourcePort": "20_out",
+                    "targetNode": "19",
+                    "targetPort": "19_in"
+                },
+                {
+                    "id": "port_19_to_port_21",
+                    "sourceNode": "19",
+                    "sourcePort": "19_out",
+                    "targetNode": "21",
+                    "targetPort": "21_in"
+                },
+                {
+                    "id": "port_18_to_port_22",
+                    "sourceNode": "18",
+                    "sourcePort": "18_out",
+                    "targetNode": "22",
+                    "targetPort": "22_in"
+                },
+                {
+                    "id": "port_21_to_port_11",
+                    "sourceNode": "21",
+                    "sourcePort": "21_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "id": "port_22_to_port_11",
+                    "sourceNode": "22",
+                    "sourcePort": "22_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "id": "port_11_to_port_1",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                }
+            ],
+            "hash": "9c44f64eeb2ddb23bc5897adc6278f5f79b25595",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 190,
+                    "y": -6.394884621840902e-14
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": -40.000000000000014,
+                    "y": 1860
+                },
+                "11": {
+                    "data": {
+                        "advanced": {
+                            "customName": "create output",
+                            "customNameId": 0,
+                            "join": [],
+                            "notRequiredJoins": []
+                        },
+                        "functionId": 1,
+                        "functionName": "create_output",
+                        "id": "11",
+                        "inputParameters": [
+                            "indicator_summary_details:formatted_data",
+                            "indicator_reputation_details:formatted_data",
+                            "trustar_report_details:formatted_data"
+                        ],
+                        "outputVariables": [
+                            "output_note"
+                        ],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    \n    \n    phantom.debug(type(trustar_report_details))\n    phantom.debug(trustar_report_details)\n\n    phantom.debug(type(indicator_reputation_details))\n    phantom.debug(indicator_reputation_details)\n    \n    phantom.debug(type(indicator_summary_details))\n    phantom.debug(indicator_summary_details)\n    \n    create_output__output_note = \"\\n\"\n    if indicator_summary_details:\n        create_output__output_note += indicator_summary_details + \"\\n\" \n\n    if trustar_report_details:\n        create_output__output_note += trustar_report_details + \"\\n\"\n\n    if indicator_reputation_details:\n        create_output__output_note += indicator_reputation_details\n    \n    #phantom.debug(create_output__output_note)\n        \n",
+                    "warnings": {},
+                    "x": -380,
+                    "y": 1520
+                },
+                "12": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "add_note_2",
+                        "id": "12",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "tab": "apis",
+                        "type": "utility",
+                        "utilities": {
+                            "add_note": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "title",
+                                        "name": "title",
+                                        "placeholder": "Enter a note title",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "content",
+                                        "name": "content",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "markdown",
+                                            "html"
+                                        ],
+                                        "default": "markdown",
+                                        "description": "",
+                                        "label": "note format",
+                                        "name": "note_format",
+                                        "placeholder": "Enter the note content",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "default": "general",
+                                        "hidden": true,
+                                        "name": "note_type",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "event_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "task_id",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "add note",
+                                "name": "add_note"
+                            }
+                        },
+                        "utilityType": "api",
+                        "values": {
+                            "add_note": {
+                                "_internal": [
+                                    "container",
+                                    "note_type",
+                                    "author",
+                                    "event_id",
+                                    "task_id",
+                                    "trace"
+                                ],
+                                "content": "create_output:custom_function:output_note",
+                                "note_format": "markdown",
+                                "note_type": "general",
+                                "title": "trustar enrichment details"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": -600,
+                    "y": 1700
+                },
+                "13": {
+                    "data": {
+                        "action": "indicator reputation",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "TruSTAR",
+                        "connectorConfigs": [
+                            "trustar - abc"
+                        ],
+                        "connectorId": "536ae6e0-72b2-4ae1-9520-810acaddd2d1",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "indicator_reputation_1",
+                        "id": "13",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "enclave_ids": "38658197-4e9b-4651-9381-1c62c9d2cca0,77033ea5-3b8b-45ad-9120-7e0ea35baed5,ddc86a8b-9d8b-4cd4-8a55-96670b504df1,109940b7-1004-4b23-bfb0-c4df740d82f9,0f9fe120-f904-4750-baf7-731f8552016f,be86dc88-50c8-447f-b4ed-14797ed9ba4b,e100e42a-0550-46e5-b9e6-c99b405a7200,7e09b124-b631-44e2-b261-57d53dd727d0,11125bbd-ca70-4f16-bce2-7e361693ceb2,27f5a1a3-faf6-4cf6-93bf-8ab0cfd008a8,b85b0cfc-3be1-44ef-9077-5d7d8c049991,cb0f3a77-122d-4c9e-a2c6-f832369ad2e9,5ff109d4-a5b7-434a-8397-eef28ac05d67,8f7b34f8-9e99-4cc4-91eb-9f014e82f1bc",
+                            "indicator_value": "filtered-data:filter_indicator:condition_1:playbook_input:ip",
+                            "limit": 10000
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "numeric",
+                                "default": 10000,
+                                "field": "limit"
+                            },
+                            {
+                                "data_type": "string",
+                                "field": "indicator_value"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "13",
+                    "type": "action",
+                    "warnings": {},
+                    "x": -200,
+                    "y": 480
+                },
+                "14": {
+                    "data": {
+                        "advanced": {
+                            "customName": "find indicator",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "get_report_1:action_result.summary.extracted_indicators_count",
+                                        "value": "0"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "no indicator in main report",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "indicators found",
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "find_indicator",
+                        "id": "14",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "14",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 140,
+                    "y": 980
+                },
+                "17": {
+                    "data": {
+                        "advanced": {
+                            "customName": "report output format",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "report_output_format",
+                        "id": "17",
+                        "inputParameters": [
+                            "get_report_1:action_result.data.*.reportBody"
+                        ],
+                        "outputVariables": [
+                            "report_output"
+                        ],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "17",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    import re\n    import json\n    \n    note = (\n            \"| Observable | Valid From | Confidence Score | Attributes | Related Observables | Tags | Properties |\\n\"\n            \"| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\\n\"\n        )\n    \n    phantom.debug(str(get_report_1_result_item_0))\n    report = str(get_report_1_result_item_0)\n    indicators = []\n    indicators = re.findall(r\"indicators\\\"\\:(.*?)\\}\\'\", report)\n    phantom.debug(indicators)\n    for item in indicators:\n        phantom.debug(\"item\")\n        phantom.debug(item)\n        phantom.debug(type(item))\n        related = json.loads(item)\n        for values in related:\n            phantom.debug(type(values))\n            observable = values['observable']\n            phantom.debug(observable)\n            validFrom = values['validFrom']\n            phantom.debug(validFrom)\n            confidenceScore = values['confidenceScore']\n            phantom.debug(confidenceScore)\n            attributes = values['attributes']\n            phantom.debug(attributes)\n            relatedObservables = values['relatedObservables']\n            phantom.debug(relatedObservables)\n            tags = values['tags']\n            phantom.debug(tags)\n            properties = values['properties']\n            phantom.debug(properties)\n            note += \"|{}|{}|{}|{}|{}|{}|{}|\\n\".format(observable, validFrom, confidenceScore, attributes, relatedObservables, tags, properties)\n        \n        phantom.debug(note)\n        report_output_format__report_output = note\n        \"\"\"item = item[1:-1]\n        item = \"'\" + item + \"'\"\n        item = '{\"observable\":{\"value\":\"198.185.159.144\",\"type\":\"IP4\"},\"validFrom\":1695994622167,\"confidenceScore\":\"HIGH\",\"attributes\":[],\"relatedObservables\":[{\"entity\":{\"value\":\"ecoledesalsa.com\",\"type\":\"DOMAIN\"}},{\"entity\":{\"value\":\"http://ecoledesalsa.com/cekmh\",\"type\":\"URL\"}}],\"tags\":[\"misp-object: object--fb7fc80a-fade-4482-bab8-cdc\"],\"properties\":{}},{\"observable\":{\"value\":\"ecoledesalsa.com\",\"type\":\"DOMAIN\"},\"validFrom\":1695994622167,\"confidenceScore\":\"HIGH\",\"attributes\":[],\"relatedObservables\":[{\"entity\":{\"value\":\"198.185.159.144\",\"type\":\"IP4\"}},{\"entity\":{\"value\":\"http://ecoledesalsa.com/cekmh\",\"type\":\"URL\"}}],\"tags\":[\"misp-object: object--fb7fc80a-fade-4482-bab8-cdc\"],\"properties\":{}},{\"observable\":{\"value\":\"http://ecoledesalsa.com/cekmh\",\"type\":\"URL\"},\"validFrom\":1695994622167,\"confidenceScore\":\"HIGH\",\"attributes\":[],\"relatedObservables\":[{\"entity\":{\"value\":\"198.185.159.144\",\"type\":\"IP4\"}},{\"entity\":{\"value\":\"ecoledesalsa.com\",\"type\":\"DOMAIN\"}}],\"tags\":[\"misp-object: object--fb7fc80a-fade-4482-bab8-cdc\"],\"properties\":{}}'\n        phantom.debug(\"newitem\")\n        phantom.debug(item)\n        data  = json.loads(item)\n        phantom.debug(\"data\")\n        phantom.debug(data)\n        phantom.debug(data['observable'])\n        validfrom = data['validFrom']\n        phantom.debug(validfrom)\n        \n        #values = item.split(',')\n        #for parameters in values:\n        #    phantom.debug(parameters)\n    \n    \n    array = '{\"fruits\": [\"apple\", \"banana\", \"orange\"]}'\n    data2  = json.loads(array)\n    fruits_list = data2['fruits']\n    phantom.debug(fruits_list)\n    \n    \n    #indicators = get_report_1_result_item_0['indicators']\n    #phantom.debug(indicators)\"\"\"\n\n",
+                    "warnings": {},
+                    "x": 60,
+                    "y": 1140
+                },
+                "18": {
+                    "data": {
+                        "advanced": {
+                            "customName": "indicator reputation format",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 3,
+                        "functionName": "indicator_reputation_format",
+                        "id": "18",
+                        "inputParameters": [
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.parameter.indicator_value",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.data.*.observable.type",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.data.*.priorityScore",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.data.*.submissionTags",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.data.*.attributes",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.data.*.safelisted",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.data.*.scoreContexts.*.sourceName",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.data.*.enclaveGuid",
+                            "filtered-data:enrich_indicator:condition_2:indicator_reputation_1:action_result.summary.indicators_found"
+                        ],
+                        "outputVariables": [
+                            "indicator_reputation_note"
+                        ],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "18",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    import urllib.parse\n    \n    note = (\n            \"| Indicator | Type | Priority Score | Submission Tags | Attributes | Safe Listed? | Sources | Enclave ID |\\n\"\n            \"| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\\n\"\n        )\n    if filtered_result_0_summary_indicators_found != 0:\n        for item in filtered_result_0_data_enrich_indicator:\n            # for the first column, use the indicator as the text and the trustar query as the href\n            trustar_link = 'https://station.trustar.co/browse/search?q={}'.format(urllib.parse.quote(item[0]))\n            indicator_markdown = '[{}]({})'.format(item[0], trustar_link)\n            indicator_type = item[1]\n            priority = item[2]\n            if item[3]:\n                submission_tags = json.dumps(item[3]).replace('[', '').replace(']', '')\n            else:\n                submission_tags = \"None\"\n            if item[4]:\n                attributes = json.dumps(item[4]).replace('{', '').replace('}', '').replace('[', '').replace(']', '')\n            else:\n                attributes = \"None\"\n            safe_listed = item[5]\n            sources = item[6]\n            enclaveGuid = item[7]\n            note += \"|{}|{}|{}|{}|{}|{}|{}|{}|\\n\".format(indicator_markdown, indicator_type, priority, submission_tags, attributes, safe_listed, sources, enclaveGuid)\n    else:\n        note += \"|{}|Not found in TruSTAR||||||\\n\".format(item[0])\n    \n    indicator_reputation_format__indicator_reputation_note = note\n",
+                    "warnings": {},
+                    "x": -380,
+                    "y": 880
+                },
+                "19": {
+                    "data": {
+                        "advanced": {
+                            "customName": "indicator summary format",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 4,
+                        "functionName": "indicator_summary_format",
+                        "id": "19",
+                        "inputParameters": [
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.value",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.type",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.description",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.enclaveId",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.reportId",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.score.name",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.score.value",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.data.*.source.name",
+                            "filtered-data:enrich_indicator:condition_3:get_indicator_summary_1:action_result.summary.indicator_summaries"
+                        ],
+                        "outputVariables": [
+                            "indicator_summary_note"
+                        ],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "19",
+                    "type": "code",
+                    "userCode": "\n    # Write your custom code here...\n    import urllib.parse\n    \n    note = (\n            \"| Indicator | Type | Description | Source | Category | Score | Enclave ID | Report ID |\\n\"\n            \"| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\\n\"\n        )\n    if filtered_result_0_summary_indicator_summaries != 0:\n        for item in filtered_result_0_data_enrich_indicator:\n            trustar_link = 'https://station.trustar.co/browse/search?q={}'.format(urllib.parse.quote(item[0]))\n            indicator_markdown = '[{}]({})'.format(item[0], trustar_link)\n            indicator_type = item[1]\n            description = item[2]\n            enclaveid = item[3]\n            reportid = item[4]\n            score_name = item[5]\n            score_value = item[6]\n            source = item[7]\n            #attributes = json.dumps(item[4]).replace('{', '').replace('}', '').replace('[', '').replace(']', '')\n            note += \"|{}|{}|{}|{}|{}|{}|{}|{}|\\n\".format(indicator_markdown, indicator_type, description, source, score_name, score_value, enclaveid, reportid)\n    else:\n        note += \"|{}|Not found in TruSTAR||||||\\n\".format(item[0])\n    \n    indicator_summary_format__indicator_summary_note = note\n    \n\n",
+                    "warnings": {},
+                    "x": -780,
+                    "y": 880
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "customName": "filter indicator",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "playbook_input:ip",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "IP",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "!=",
+                                        "param": "playbook_input:domain",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "DOMAIN",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 2,
+                                        "op": "!=",
+                                        "param": "playbook_input:url",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 2,
+                                "customName": "URL",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 3,
+                                        "op": "!=",
+                                        "param": "playbook_input:hash",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 3,
+                                "customName": "HASH",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "filter_indicator",
+                        "id": "2",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 230,
+                    "y": 148
+                },
+                "20": {
+                    "data": {
+                        "advanced": {
+                            "customName": "enrich indicator",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "hunt_ip_1:action_result.data.*.report_id",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "get report",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "!=",
+                                        "param": "indicator_reputation_1:action_result.summary.indicators_found",
+                                        "value": "0"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "indicator reputation",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 2,
+                                        "op": "==",
+                                        "param": "get_indicator_summary_1:action_result.status",
+                                        "value": "success"
+                                    }
+                                ],
+                                "conditionIndex": 2,
+                                "customName": "indicator summary",
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 3,
+                        "functionName": "enrich_indicator",
+                        "id": "20",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "20",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": -140,
+                    "y": 700
+                },
+                "21": {
+                    "data": {
+                        "advanced": {
+                            "customName": "indicator summary details",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 4,
+                        "functionName": "indicator_summary_details",
+                        "id": "21",
+                        "parameters": [
+                            "indicator_summary_format:custom_function:indicator_summary_note"
+                        ],
+                        "template": "# Indicator Summary:\n\n{0}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "21",
+                    "type": "format",
+                    "warnings": {},
+                    "x": -760,
+                    "y": 1060
+                },
+                "22": {
+                    "data": {
+                        "advanced": {
+                            "customName": "indicator reputation details",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "functionId": 5,
+                        "functionName": "indicator_reputation_details",
+                        "id": "22",
+                        "parameters": [
+                            "indicator_reputation_format:custom_function:indicator_reputation_note"
+                        ],
+                        "template": "# Indicator reputation details\n\n{0}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "22",
+                    "type": "format",
+                    "warnings": {},
+                    "x": -380,
+                    "y": 1020
+                },
+                "3": {
+                    "data": {
+                        "action": "hunt ip",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "TruSTAR",
+                        "connectorConfigs": [
+                            "trustar - abc"
+                        ],
+                        "connectorId": "536ae6e0-72b2-4ae1-9520-810acaddd2d1",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "hunt_ip_1",
+                        "id": "3",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "ip": "filtered-data:filter_indicator:condition_1:playbook_input:ip"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "ip"
+                            }
+                        ],
+                        "tab": "byAction",
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "action",
+                    "warnings": {},
+                    "x": -200,
+                    "y": 360
+                },
+                "5": {
+                    "data": {
+                        "advanced": {
+                            "customName": "check for report",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "hunt_ip_1:action_result.data.*.report_id",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "get report",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "!=",
+                                        "param": "indicator_reputation_1:action_result.summary.indicators_found",
+                                        "value": "0"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "indicator reputation",
+                                "display": "Else If",
+                                "logic": "and",
+                                "type": "elif"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 2,
+                                        "op": "==",
+                                        "param": "get_indicator_summary_1:action_result.status",
+                                        "value": "success"
+                                    }
+                                ],
+                                "conditionIndex": 2,
+                                "customName": "indicator summary",
+                                "display": "Else If",
+                                "logic": "and",
+                                "type": "elif"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "check_for_report",
+                        "id": "5",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "5",
+                    "type": "decision",
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
+                    "x": -500,
+                    "y": 680
+                },
+                "6": {
+                    "data": {
+                        "action": "get report",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "TruSTAR",
+                        "connectorConfigs": [
+                            "trustar - abc"
+                        ],
+                        "connectorId": "536ae6e0-72b2-4ae1-9520-810acaddd2d1",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "get_report_1",
+                        "id": "6",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "report_id": "filtered-data:enrich_indicator:condition_1:hunt_ip_1:action_result.data.*.report_id"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "report_id"
+                            }
+                        ],
+                        "tab": "byAction",
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 60,
+                    "y": 880
+                },
+                "7": {
+                    "data": {
+                        "action": "get indicator summary",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "TruSTAR",
+                        "connectorConfigs": [
+                            "trustar - abc"
+                        ],
+                        "connectorId": "536ae6e0-72b2-4ae1-9520-810acaddd2d1",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "get_indicator_summary_1",
+                        "id": "7",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "enclave_ids": "38658197-4e9b-4651-9381-1c62c9d2cca0,77033ea5-3b8b-45ad-9120-7e0ea35baed5,ddc86a8b-9d8b-4cd4-8a55-96670b504df1,109940b7-1004-4b23-bfb0-c4df740d82f9,0f9fe120-f904-4750-baf7-731f8552016f,be86dc88-50c8-447f-b4ed-14797ed9ba4b,e100e42a-0550-46e5-b9e6-c99b405a7200,7e09b124-b631-44e2-b261-57d53dd727d0,11125bbd-ca70-4f16-bce2-7e361693ceb2,27f5a1a3-faf6-4cf6-93bf-8ab0cfd008a8,b85b0cfc-3be1-44ef-9077-5d7d8c049991,cb0f3a77-122d-4c9e-a2c6-f832369ad2e9,5ff109d4-a5b7-434a-8397-eef28ac05d67,8f7b34f8-9e99-4cc4-91eb-9f014e82f1bc",
+                            "indicator_values": "filtered-data:filter_indicator:condition_1:playbook_input:ip"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "indicator_values"
+                            }
+                        ],
+                        "tab": "byAction",
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "7",
+                    "type": "action",
+                    "warnings": {},
+                    "x": -200,
+                    "y": 600
+                },
+                "8": {
+                    "data": {
+                        "advanced": {
+                            "customName": "trustar report details",
+                            "customNameId": 0,
+                            "join": [],
+                            "notRequiredJoins": [
+                                "get_report_1",
+                                "get_indicator_summary_1"
+                            ]
+                        },
+                        "functionId": 1,
+                        "functionName": "trustar_report_details",
+                        "id": "8",
+                        "parameters": [
+                            "get_report_1:action_result.parameter.report_id",
+                            "get_report_1:action_result.data.*.title",
+                            "report_output_format:custom_function:report_output"
+                        ],
+                        "template": "# Trustar Report: Associated Reports and Extracted Indicators Details:\n%%\nReport ID: {0}\nReport Title: {1}\n\n%%\n\n\n{2}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "8",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 60,
+                    "y": 1280
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": [
+            {
+                "contains": [
+                    "ip"
+                ],
+                "description": "IPV4 address",
+                "name": "ip"
+            },
+            {
+                "contains": [
+                    "domain"
+                ],
+                "description": "domain",
+                "name": "domain"
+            },
+            {
+                "contains": [
+                    "url"
+                ],
+                "description": "URL",
+                "name": "url"
+            },
+            {
+                "contains": [
+                    "hash"
+                ],
+                "description": "Hash value",
+                "name": "hash"
+            }
+        ],
+        "output_spec": [
+            {
+                "contains": [],
+                "datapaths": [
+                    "TruSTAR Indicator Enrichment"
+                ],
+                "deduplicate": false,
+                "description": "",
+                "metadata": {},
+                "name": "note_title"
+            },
+            {
+                "contains": [],
+                "datapaths": [
+                    "create_output:custom_function:output_note"
+                ],
+                "deduplicate": false,
+                "description": "",
+                "metadata": {},
+                "name": "note_content"
+            }
+        ],
+        "playbook_type": "data",
+        "python_version": "3",
+        "schema": "5.0.11",
+        "version": "6.2.1.305"
+    },
+    "create_time": "2024-04-24T00:18:25.996841+00:00",
+    "draft_mode": false,
+    "labels": [
+        "*"
+    ],
+    "tags": []
+}
