@@ -130,7 +130,7 @@
                     "targetPort": "19_in"
                 }
             ],
-            "hash": "49bc83e5f2e14cc03e435d93201f863ac38ae4b0",
+            "hash": "58aa0381706b4e2aa6cef9e825d7e6f4d4c617b1",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,7 +549,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -738,6 +742,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -1017,7 +1024,7 @@
                                 "container": "container:id",
                                 "earliest_time": null,
                                 "field_list": [
-                                    "userResponse"
+                                    "asdasdasdasd"
                                 ],
                                 "filter_in_case": null,
                                 "filter_label": null,
@@ -1613,7 +1620,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T10:58:43.011699+00:00",
+    "create_time": "2024-04-24T10:59:46.843177+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
