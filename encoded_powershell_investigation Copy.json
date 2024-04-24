@@ -1,0 +1,872 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_2",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "id": "port_2_to_port_3",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "3",
+                    "targetPort": "3_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_3_to_port_6",
+                    "sourceNode": "3",
+                    "sourcePort": "3_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
+                },
+                {
+                    "id": "port_11_to_port_16",
+                    "sourceNode": "11",
+                    "sourcePort": "11_out",
+                    "targetNode": "16",
+                    "targetPort": "16_in"
+                },
+                {
+                    "id": "port_12_to_port_16",
+                    "sourceNode": "12",
+                    "sourcePort": "12_out",
+                    "targetNode": "16",
+                    "targetPort": "16_in"
+                },
+                {
+                    "id": "port_14_to_port_17",
+                    "sourceNode": "14",
+                    "sourcePort": "14_out",
+                    "targetNode": "17",
+                    "targetPort": "17_in"
+                },
+                {
+                    "id": "port_6_to_port_11",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "11",
+                    "targetPort": "11_in"
+                },
+                {
+                    "id": "port_6_to_port_12",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "12",
+                    "targetPort": "12_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_16_to_port_19",
+                    "sourceNode": "16",
+                    "sourcePort": "16_out",
+                    "targetNode": "19",
+                    "targetPort": "19_in"
+                },
+                {
+                    "id": "port_17_to_port_20",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "20",
+                    "targetPort": "20_in"
+                },
+                {
+                    "id": "port_13_to_port_14",
+                    "sourceNode": "13",
+                    "sourcePort": "13_out",
+                    "targetNode": "14",
+                    "targetPort": "14_in"
+                },
+                {
+                    "id": "port_20_to_port_23",
+                    "sourceNode": "20",
+                    "sourcePort": "20_out",
+                    "targetNode": "23",
+                    "targetPort": "23_in"
+                },
+                {
+                    "id": "port_19_to_port_23",
+                    "sourceNode": "19",
+                    "sourcePort": "19_out",
+                    "targetNode": "23",
+                    "targetPort": "23_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_16_to_port_13",
+                    "sourceNode": "16",
+                    "sourcePort": "16_out",
+                    "targetNode": "13",
+                    "targetPort": "13_in"
+                },
+                {
+                    "id": "port_23_to_port_24",
+                    "sourceNode": "23",
+                    "sourcePort": "23_out",
+                    "targetNode": "24",
+                    "targetPort": "24_in"
+                },
+                {
+                    "id": "port_24_to_port_25",
+                    "sourceNode": "24",
+                    "sourcePort": "24_out",
+                    "targetNode": "25",
+                    "targetPort": "25_in"
+                },
+                {
+                    "id": "port_25_to_port_1",
+                    "sourceNode": "25",
+                    "sourcePort": "25_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                }
+            ],
+            "hash": "658a9ad4fc6abf553ed3fb4387066505e7226f98",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 1020,
+                    "y": 520
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "userCode": "\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all details of actions\n    # can be collected here.\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n",
+                    "warnings": {},
+                    "x": 1020,
+                    "y": 2220
+                },
+                "11": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "regex_extract_ipv4",
+                            "repoName": "community"
+                        },
+                        "functionId": 4,
+                        "functionName": "regex_extract_ipv4_4",
+                        "id": "11",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "regex_extract_ipv4": {
+                                "description": "Takes a single input and extracts all IPv4 addresses from it using regex.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "An input string that may contain an arbitrary number of ipv4 addresses",
+                                        "inputType": "list",
+                                        "label": "input_string",
+                                        "name": "input_string",
+                                        "placeholder": "192.0.2.1",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "regex_extract_ipv4",
+                                "name": "regex_extract_ipv4"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "regex_extract_ipv4": {
+                                "input_string": "decode_base64:custom_function_result.data.*.output_string"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "11",
+                    "type": "utility",
+                    "userCode": "\n    parameters = []\n    for item in decode_base64_data___output_string:\n        parameters.append({\n            \"input_string\": item,\n        })\n\n",
+                    "warnings": {},
+                    "x": 860,
+                    "y": 1020
+                },
+                "12": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "regex_extract_ipv4",
+                            "repoName": "community"
+                        },
+                        "functionId": 5,
+                        "functionName": "regex_extract_ipv4_5",
+                        "id": "12",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "regex_extract_ipv4": {
+                                "description": "Takes a single input and extracts all IPv4 addresses from it using regex.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "An input string that may contain an arbitrary number of ipv4 addresses",
+                                        "inputType": "list",
+                                        "label": "input_string",
+                                        "name": "input_string",
+                                        "placeholder": "192.0.2.1",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "regex_extract_ipv4",
+                                "name": "regex_extract_ipv4"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "regex_extract_ipv4": {
+                                "input_string": "decode_nest_base64:custom_function_result.data.*.output_string"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "12",
+                    "type": "utility",
+                    "userCode": "    parameters = []\n    for item in decode_nest_base64_data___output_string:\n        parameters.append({\n            \"input_string\": item,\n        })\n\n",
+                    "warnings": {},
+                    "x": 1160,
+                    "y": 1020
+                },
+                "13": {
+                    "data": {
+                        "advanced": {
+                            "customName": "calculate_times",
+                            "customNameId": 0,
+                            "join": [],
+                            "notRequiredJoins": [],
+                            "scope": "all"
+                        },
+                        "functionId": 1,
+                        "functionName": "calculate_times",
+                        "id": "13",
+                        "inputParameters": [
+                            "container:create_time"
+                        ],
+                        "outputVariables": [
+                            "earliest_time",
+                            "latest_time"
+                        ],
+                        "type": "code"
+                    },
+                    "errors": {},
+                    "id": "13",
+                    "type": "code",
+                    "userCode": "    from dateutil import parser\n    \n    # how much to adjust time in seconds\n    time_window = 86400\n    epoch_time = parser.parse(create_time_value).timestamp()\n    # calculate earliest\n    calculate_times__earliest_time = epoch_time - time_window\n\n    # calculate latest\n    calculate_times__latest_time = epoch_time + time_window\n\n\n\n\n",
+                    "warnings": {},
+                    "x": 1160,
+                    "y": 1360
+                },
+                "14": {
+                    "data": {
+                        "advanced": {
+                            "customName": "format splunk query",
+                            "customNameId": 0,
+                            "drop_none": true,
+                            "join": [],
+                            "notRequiredJoins": [
+                                "regex_extract_ipv4_5",
+                                "regex_extract_ipv4_4"
+                            ]
+                        },
+                        "functionId": 4,
+                        "functionName": "format_splunk_query",
+                        "id": "14",
+                        "parameters": [
+                            "regex_extract_ipv4_4:custom_function_result.data.extracted_ipv4",
+                            "regex_extract_ipv4_5:custom_function_result.data.extracted_ipv4",
+                            "calculate_times:custom_function:earliest_time",
+                            "calculate_times:custom_function:latest_time"
+                        ],
+                        "template": "`summariesonly` max(_time) as _time, count from datamodel=Network_Traffic.All_Traffic where All_Traffic.src IN \n(\"{0}{1}\") OR All_Traffic.src_ip IN (\"{0}{1}\") OR All_Traffic.src_translated_ip IN (\"{0}{1}\") OR All_Traffic.dest IN \n(\"{0}{1}\") OR All_Traffic.dest_ip IN (\"{0}{1}\") OR All_Traffic.dest_translated_ip IN (\"{0}{1}\") (earliest={2} latest={3}) by All_Traffic.action, All_Traffic.src All_Traffic.dest, All_Traffic.transport | `drop_dm_object_name(\"All_Traffic\")` | sort - count | fields _time,action,src,dest,transport,count ",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "14",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1160,
+                    "y": 1440
+                },
+                "16": {
+                    "data": {
+                        "advanced": {
+                            "delimiter": ",",
+                            "delimiter_enabled": true,
+                            "join": [],
+                            "notRequiredJoins": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "regex_extract_ipv4_4:custom_function_result.data.extracted_ipv4",
+                                        "value": ""
+                                    },
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "regex_extract_ipv4_5:custom_function_result.data.extracted_ipv4",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "ip exists",
+                                "display": "If",
+                                "logic": "or",
+                                "type": "if"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "no ip",
+                                "display": "Else",
+                                "logic": "and",
+                                "type": "else"
+                            }
+                        ],
+                        "functionId": 3,
+                        "functionName": "decision_3",
+                        "id": "16",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "16",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 1080,
+                    "y": 1120
+                },
+                "17": {
+                    "data": {
+                        "action": "run query",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "splunk query",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "Splunk",
+                        "connectorConfigs": [
+                            "splunk"
+                        ],
+                        "connectorId": "ee475421-d2e4-4d8e-addb-a2ce1465d6a3",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "splunk_query",
+                        "id": "17",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "command": "tstats",
+                            "query": "format_splunk_query:formatted_data"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "",
+                                "default": "",
+                                "field": "query"
+                            }
+                        ],
+                        "tab": "byConnector",
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "17",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 1560
+                },
+                "19": {
+                    "data": {
+                        "advanced": {
+                            "drop_none": true,
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "format_1",
+                        "id": "19",
+                        "parameters": [
+                            "decode_base64:custom_function_result.data.*.output_string",
+                            "decode_nest_base64:custom_function_result.data.*.output_string"
+                        ],
+                        "template": "Splunk SOAR found a possible base64 encoded string and decoded it:\n\n```{0}```\n\nSOAR attempted a second decode. If available, the results are shown below.\n\n```{1}```\n\nThere was no match to an IP address during the second decode.",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "19",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 660,
+                    "y": 1680
+                },
+                "2": {
+                    "data": {
+                        "advanced": {
+                            "customName": "decode base64",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "base64_decode",
+                            "repoName": "community"
+                        },
+                        "functionId": 1,
+                        "functionName": "decode_base64",
+                        "id": "2",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "base64_decode": {
+                                "description": "Decode one or more strings encoded with base64. The input can be a single chunk of base64 or a list of strings separated by a delimiter.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "Y2FsYy5leGU=",
+                                        "inputType": "item",
+                                        "label": "input_string",
+                                        "name": "input_string",
+                                        "placeholder": "base64 string to decode",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            ""
+                                        ],
+                                        "description": "Defaults to False. If True, use the delimiter to split the input string and decode each of the components separately if it is base64.",
+                                        "inputType": "item",
+                                        "label": "split_input",
+                                        "name": "split_input",
+                                        "placeholder": "True or False",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The character to use as a delimiter if split_input is True. Defaults to a comma. The special option \"space\" can be used to split on a single space character (\" \").",
+                                        "inputType": "item",
+                                        "label": "delimiter",
+                                        "name": "delimiter",
+                                        "placeholder": ",",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "base64_decode",
+                                "name": "base64_decode"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "base64_decode": {
+                                "delimiter": "space",
+                                "input_string": "playbook_input:powershell_process",
+                                "split_input": "True"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 620
+                },
+                "20": {
+                    "data": {
+                        "advanced": {
+                            "drop_none": true,
+                            "join": []
+                        },
+                        "functionId": 2,
+                        "functionName": "format_2",
+                        "id": "20",
+                        "parameters": [
+                            "decode_base64:custom_function_result.data.*.output_string",
+                            "decode_nest_base64:custom_function_result.data.*.output_string",
+                            "splunk_query:action_result.data.*._time",
+                            "splunk_query:action_result.data.*.action",
+                            "splunk_query:action_result.data.*.src",
+                            "splunk_query:action_result.data.*.dest",
+                            "splunk_query:action_result.data.*.transport",
+                            "splunk_query:action_result.data.*.count"
+                        ],
+                        "template": "Splunk SOAR found a possible base64 encoded string and decoded it:\n\n```{0}```\n\nSOAR attempted a second decode. If available, the results are shown below.\n\n```{1}```\n\n---\n\nThe decode action discovered an IP address in the data.\nSOAR searched a time window within Splunk based on the earliest and latest times from the artifacts.\n\nResults are shown in the table below:\n\n| _time | action | src | dest | transport | count |\n| --- | --- | --- | --- | --- | --- |\n%%\n| {2} | {3} | {4} | {5} | {6} | {7} |\n%%",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "20",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 1680
+                },
+                "23": {
+                    "data": {
+                        "advanced": {
+                            "drop_none": true,
+                            "join": [],
+                            "notRequiredJoins": [
+                                "regex_extract_ipv4_4",
+                                "regex_extract_ipv4_5",
+                                "splunk_query"
+                            ]
+                        },
+                        "functionId": 5,
+                        "functionName": "format_5",
+                        "id": "23",
+                        "parameters": [
+                            "format_1:formatted_data",
+                            "format_2:formatted_data"
+                        ],
+                        "template": "{0} {1}\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "23",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 1800
+                },
+                "24": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 6,
+                        "functionName": "format_6",
+                        "id": "24",
+                        "parameters": [
+                            "decode_base64:custom_function_result.data.*.output_string"
+                        ],
+                        "template": "First decode of base64 encoded command:\n\n```{0}```\n\n---\n\n",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "24",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 1920
+                },
+                "25": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 3,
+                        "functionName": "format_3",
+                        "id": "25",
+                        "parameters": [
+                            "decode_nest_base64:custom_function_result.data.*.output_string"
+                        ],
+                        "template": "Second decode for nested base64 encoded command:\n\n```{0}```\n\n---",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "25",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 2040
+                },
+                "3": {
+                    "data": {
+                        "advanced": {
+                            "delimiter": ",",
+                            "delimiter_enabled": true,
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "!=",
+                                        "param": "decode_base64:custom_function_result.data.*.output_string",
+                                        "value": ""
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "base64 exists",
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            }
+                        ],
+                        "functionId": 1,
+                        "functionName": "decision_1",
+                        "id": "3",
+                        "type": "decision"
+                    },
+                    "errors": {},
+                    "id": "3",
+                    "type": "decision",
+                    "warnings": {},
+                    "x": 1080,
+                    "y": 720
+                },
+                "6": {
+                    "data": {
+                        "advanced": {
+                            "customName": "decode nest base64",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "base64_decode",
+                            "repoName": "community"
+                        },
+                        "functionId": 2,
+                        "functionName": "decode_nest_base64",
+                        "id": "6",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "base64_decode": {
+                                "description": "Decode one or more strings encoded with base64. The input can be a single chunk of base64 or a list of strings separated by a delimiter.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "Y2FsYy5leGU=",
+                                        "inputType": "item",
+                                        "label": "input_string",
+                                        "name": "input_string",
+                                        "placeholder": "base64 string to decode",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            ""
+                                        ],
+                                        "description": "Defaults to False. If True, use the delimiter to split the input string and decode each of the components separately if it is base64.",
+                                        "inputType": "item",
+                                        "label": "split_input",
+                                        "name": "split_input",
+                                        "placeholder": "True or False",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The character to use as a delimiter if split_input is True. Defaults to a comma. The special option \"space\" can be used to split on a single space character (\" \").",
+                                        "inputType": "item",
+                                        "label": "delimiter",
+                                        "name": "delimiter",
+                                        "placeholder": ",",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "base64_decode",
+                                "name": "base64_decode"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "base64_decode": {
+                                "delimiter": "'",
+                                "input_string": "decode_base64:custom_function_result.data.*.output_string",
+                                "split_input": "True"
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 1000,
+                    "y": 880
+                }
+            },
+            "notes": ""
+        },
+        "input_spec": [
+            {
+                "contains": [
+                    "process name",
+                    "process"
+                ],
+                "description": "",
+                "name": "powershell_process"
+            }
+        ],
+        "output_spec": [
+            {
+                "contains": [],
+                "datapaths": [
+                    "Encoded Powershell Investigation"
+                ],
+                "deduplicate": false,
+                "description": "",
+                "metadata": {},
+                "name": "note_title"
+            },
+            {
+                "contains": [
+                    "*"
+                ],
+                "datapaths": [
+                    "format_5:formatted_data"
+                ],
+                "deduplicate": false,
+                "description": "",
+                "metadata": {
+                    "list_merge_6:custom_function_result.data.*.item": {
+                        "contains": [
+                            "*"
+                        ]
+                    }
+                },
+                "name": "note_content"
+            },
+            {
+                "contains": [],
+                "datapaths": [
+                    "format_6:formatted_data"
+                ],
+                "deduplicate": false,
+                "description": "",
+                "metadata": {},
+                "name": "note_decoded_proc_info_first"
+            },
+            {
+                "contains": [],
+                "datapaths": [
+                    "format_3:formatted_data"
+                ],
+                "deduplicate": false,
+                "description": "",
+                "metadata": {},
+                "name": "note_decoded_proc_info_second"
+            }
+        ],
+        "playbook_type": "data",
+        "python_version": "3",
+        "schema": "5.0.11",
+        "version": "6.2.1.305"
+    },
+    "create_time": "2024-04-24T00:14:58.206468+00:00",
+    "draft_mode": false,
+    "labels": [
+        "*"
+    ],
+    "tags": [
+        "risk_notable",
+        "risk",
+        "investigate"
+    ]
+}
