@@ -1,0 +1,596 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_17",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "17",
+                    "targetPort": "17_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 0
+                        }
+                    ],
+                    "id": "port_17_to_port_2",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "2",
+                    "targetPort": "2_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 1
+                        }
+                    ],
+                    "id": "port_17_to_port_18",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "18",
+                    "targetPort": "18_in"
+                },
+                {
+                    "conditions": [
+                        {
+                            "index": 2
+                        }
+                    ],
+                    "id": "port_17_to_port_19",
+                    "sourceNode": "17",
+                    "sourcePort": "17_out",
+                    "targetNode": "19",
+                    "targetPort": "19_in"
+                },
+                {
+                    "id": "port_23_to_port_1",
+                    "sourceNode": "23",
+                    "sourcePort": "23_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_24_to_port_1",
+                    "sourceNode": "24",
+                    "sourcePort": "24_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_25_to_port_1",
+                    "sourceNode": "25",
+                    "sourcePort": "25_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_2_to_port_27",
+                    "sourceNode": "2",
+                    "sourcePort": "2_out",
+                    "targetNode": "27",
+                    "targetPort": "27_in"
+                },
+                {
+                    "id": "port_27_to_port_23",
+                    "sourceNode": "27",
+                    "sourcePort": "27_out",
+                    "targetNode": "23",
+                    "targetPort": "23_in"
+                },
+                {
+                    "id": "port_27_to_port_24",
+                    "sourceNode": "27",
+                    "sourcePort": "27_out",
+                    "targetNode": "24",
+                    "targetPort": "24_in"
+                },
+                {
+                    "id": "port_27_to_port_25",
+                    "sourceNode": "27",
+                    "sourcePort": "27_out",
+                    "targetNode": "25",
+                    "targetPort": "25_in"
+                }
+            ],
+            "hash": "fb42fc10848fc7fb93598af355758454be0f34a2",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 360,
+                    "y": -5.115907697472721e-13
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 360,
+                    "y": 920
+                },
+                "17": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "conditions": [
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 0,
+                                        "op": "==",
+                                        "param": "artifact:*.cef.fileName",
+                                        "value": "ip.txt"
+                                    }
+                                ],
+                                "conditionIndex": 0,
+                                "customName": "ip",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 1,
+                                        "op": "==",
+                                        "param": "artifact:*.cef.fileName",
+                                        "value": "domain.txt"
+                                    }
+                                ],
+                                "conditionIndex": 1,
+                                "customName": "domain",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 2,
+                                        "op": "==",
+                                        "param": "artifact:*.cef.fileName",
+                                        "value": "MD5.txt"
+                                    }
+                                ],
+                                "conditionIndex": 2,
+                                "customName": "hash",
+                                "logic": "and"
+                            },
+                            {
+                                "comparisons": [
+                                    {
+                                        "conditionIndex": 3,
+                                        "op": "!=",
+                                        "param": "artifact:*.description",
+                                        "value": "Artifact added by Parser"
+                                    }
+                                ],
+                                "conditionIndex": 3,
+                                "logic": "and"
+                            }
+                        ],
+                        "functionId": 2,
+                        "functionName": "filter_2",
+                        "id": "17",
+                        "type": "filter"
+                    },
+                    "errors": {},
+                    "id": "17",
+                    "type": "filter",
+                    "warnings": {},
+                    "x": 400,
+                    "y": 148
+                },
+                "18": {
+                    "data": {
+                        "action": "extract ioc",
+                        "actionType": "generic",
+                        "advanced": {
+                            "delayTime": 0,
+                            "join": []
+                        },
+                        "connector": "Parser",
+                        "connectorConfigs": [
+                            "soar_poc_parser"
+                        ],
+                        "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
+                        "connectorVersion": "v1",
+                        "functionId": 2,
+                        "functionName": "extract_ioc_2",
+                        "id": "18",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "artifact_tags": "domain_ioc",
+                            "container_id": "container:id",
+                            "custom_remap_json": "{}",
+                            "file_type": "txt",
+                            "parse_domains": true,
+                            "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                            "run_automation": true,
+                            "severity": "medium",
+                            "vault_id": "filtered-data:filter_2:condition_2:artifact:*.cef.vaultId"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "default": "medium",
+                                "field": "severity"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "parse_domains"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "run_automation"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                                "field": "remap_cef_fields"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "{}",
+                                "field": "custom_remap_json"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "18",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 680,
+                    "y": 328
+                },
+                "19": {
+                    "data": {
+                        "action": "extract ioc",
+                        "actionType": "generic",
+                        "advanced": {
+                            "delayTime": 0,
+                            "join": []
+                        },
+                        "connector": "Parser",
+                        "connectorConfigs": [
+                            "soar_poc_parser"
+                        ],
+                        "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
+                        "connectorVersion": "v1",
+                        "functionId": 3,
+                        "functionName": "extract_ioc_3",
+                        "id": "19",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "artifact_tags": "md5_ioc",
+                            "container_id": "container:id",
+                            "custom_remap_json": "{}",
+                            "file_type": "txt",
+                            "parse_domains": true,
+                            "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                            "run_automation": true,
+                            "severity": "medium",
+                            "vault_id": "filtered-data:filter_2:condition_3:artifact:*.cef.vaultId"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "default": "medium",
+                                "field": "severity"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "parse_domains"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "run_automation"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                                "field": "remap_cef_fields"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "{}",
+                                "field": "custom_remap_json"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "19",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 328
+                },
+                "2": {
+                    "data": {
+                        "action": "extract ioc",
+                        "actionType": "generic",
+                        "advanced": {
+                            "delayTime": 0,
+                            "join": []
+                        },
+                        "connector": "Parser",
+                        "connectorConfigs": [
+                            "soar_poc_parser"
+                        ],
+                        "connectorId": "4004f489-1826-44a1-af12-9c74eea82eb0",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "extract_ioc_1",
+                        "id": "2",
+                        "loop": {
+                            "conditions": [
+                                {
+                                    "comparisons": [
+                                        {
+                                            "conditionIndex": 0,
+                                            "op": "==",
+                                            "param": "",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "conditionIndex": 0,
+                                    "display": "If",
+                                    "logic": "and",
+                                    "type": "if"
+                                }
+                            ],
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "artifact_tags": "ip_ioc",
+                            "container_id": "container:id",
+                            "custom_remap_json": "{}",
+                            "file_type": "txt",
+                            "is_structured": false,
+                            "keep_raw": false,
+                            "label": "",
+                            "parse_domains": false,
+                            "remap_cef_fields": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                            "run_automation": true,
+                            "severity": "medium",
+                            "text": "",
+                            "vault_id": "filtered-data:filter_2:condition_1:artifact:*.cef.vaultId"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "default": "medium",
+                                "field": "severity"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "parse_domains"
+                            },
+                            {
+                                "data_type": "boolean",
+                                "default": true,
+                                "field": "run_automation"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "Do not apply CEF -> CIM remapping, only apply custom remap",
+                                "field": "remap_cef_fields"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "{}",
+                                "field": "custom_remap_json"
+                            }
+                        ],
+                        "tab": "byConnector",
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "2",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 340,
+                    "y": 320
+                },
+                "23": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_soar_poc_execute_search_IP_1",
+                        "id": "23",
+                        "inputs": {},
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "soar_poc_execute_search_IP",
+                        "playbookRepo": 2,
+                        "playbookRepoName": "local",
+                        "playbookType": "automation",
+                        "synchronous": true,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "23",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": -1.4210854715202004e-14,
+                    "y": 640
+                },
+                "24": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_soar_poc_execute_search_domain_1",
+                        "id": "24",
+                        "inputs": {},
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "soar_poc_execute_search_domain",
+                        "playbookRepo": 2,
+                        "playbookRepoName": "local",
+                        "playbookType": "automation",
+                        "synchronous": true,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "24",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 340,
+                    "y": 640
+                },
+                "25": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_soar_poc_execute_search_md5_1",
+                        "id": "25",
+                        "inputs": {},
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "soar_poc_execute_search_md5",
+                        "playbookRepo": 2,
+                        "playbookRepoName": "local",
+                        "playbookType": "automation",
+                        "synchronous": true,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "25",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 680,
+                    "y": 640
+                },
+                "27": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionId": 1,
+                        "functionName": "playbook_UOB_Use_case_#2___Put_IOC_into_custom_list_and_lookuptable_Subplaybook_1",
+                        "id": "27",
+                        "inputs": {},
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "playbookName": "UOB Use case #2 - Put IOC into custom list and lookuptable Subplaybook",
+                        "playbookRepo": 2,
+                        "playbookRepoName": "local",
+                        "playbookType": "automation",
+                        "synchronous": false,
+                        "type": "playbook"
+                    },
+                    "errors": {},
+                    "id": "27",
+                    "type": "playbook",
+                    "warnings": {},
+                    "x": 340,
+                    "y": 420
+                }
+            },
+            "notes": "",
+            "origin": {
+                "playbook_id": 749,
+                "playbook_name": "UOB Use Case #2 IOC Extraction From Regulator Main playbook",
+                "playbook_repo_id": 2,
+                "playbook_repo_name": "local"
+            }
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.11",
+        "version": "6.2.1.305"
+    },
+    "create_time": "2024-04-24T00:02:11.090014+00:00",
+    "draft_mode": false,
+    "labels": [
+        "soar_poc"
+    ],
+    "tags": []
+}
