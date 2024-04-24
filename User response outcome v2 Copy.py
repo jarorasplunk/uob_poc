@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'noop_1' block
-    noop_1(container=container)
+    # call 'indicator_collect_4' block
+    indicator_collect_4(container=container)
 
     return
 
@@ -236,8 +236,6 @@ def loop_noop_1(action=None, success=None, container=None, results=None, handle=
     if loop_state.should_continue(container=container, results=results): # should_continue evaluates iteration/timeout/conditions
         loop_state.increment() # increments iteration count
         noop_1(container=container, loop_state_json=loop_state.to_json())
-    else:
-        debug_2(container=container)
 
     return
 
@@ -316,7 +314,7 @@ def debug_2(action=None, success=None, container=None, results=None, handle=None
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_2", callback=decision_3)
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_2")
 
     return
 
@@ -329,7 +327,7 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
     found_match_1 = phantom.decision(
         container=container,
         conditions=[
-            ["noop_1:custom_function_result.loop_state.exit_reason", "==", "reached exit_condition"]
+            ["indicator_collect_4:custom_function_result.loop_state.exit_reason", "==", "reached exit_condition"]
         ],
         delimiter=None)
 
@@ -342,7 +340,7 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
     found_match_2 = phantom.decision(
         container=container,
         conditions=[
-            ["noop_1:custom_function_result.loop_state.exit_reason", "==", "reached max_iterations"]
+            ["indicator_collect_4:custom_function_result.loop_state.exit_reason", "==", "reached max_iterations"]
         ],
         delimiter=None)
 
@@ -402,6 +400,69 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
     ################################################################################
 
     phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc"])
+
+    return
+
+
+@phantom.playbook_block()
+def loop_indicator_collect_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("loop_indicator_collect_4() called")
+
+    loop_state = phantom.LoopState(state=loop_state_json)
+
+    if loop_state.should_continue(container=container, results=results): # should_continue evaluates iteration/timeout/conditions
+        loop_state.increment() # increments iteration count
+        indicator_collect_4(container=container, loop_state_json=loop_state.to_json())
+    else:
+        decision_3(container=container)
+
+    return
+
+
+@phantom.playbook_block()
+def indicator_collect_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("indicator_collect_4() called")
+
+    id_value = container.get("id", None)
+
+    parameters = []
+
+    parameters.append({
+        "container": id_value,
+        "artifact_ids_include": None,
+        "indicator_types_include": None,
+        "indicator_types_exclude": None,
+        "indicator_tags_include": None,
+        "indicator_tags_exclude": None,
+    })
+
+    if not loop_state_json:
+        # Loop state is empty. We are creating a new one from the inputs
+        loop_state_json = {
+            # Looping configs
+            "current_iteration": 1,
+            "max_iterations": 3,
+            "conditions": [
+                ["indicator_collect_4:custom_function_result.data.all_indicators.*.cef_key", "==", "userResponse"]
+            ],
+            "max_ttl": 600,
+            "delay_time": 120,
+        }
+
+    # Load state from the JSON passed to it
+    loop_state = phantom.LoopState(state=loop_state_json)
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.custom_function(custom_function="community/indicator_collect", parameters=parameters, name="indicator_collect_4", callback=loop_indicator_collect_4, loop_state=loop_state.to_json())
 
     return
 
