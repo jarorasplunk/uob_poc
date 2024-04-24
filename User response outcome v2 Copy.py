@@ -520,7 +520,11 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if found_match_1:
+        filter_2(action=action, success=success, container=container, results=results, handle=handle)
         return
+
+    # check for 'else' condition 2
+    send_htmlemail_1(action=action, success=success, container=container, results=results, handle=handle)
 
     return
 
