@@ -26,30 +26,6 @@
                     "targetPort": "2_in"
                 },
                 {
-                    "conditions": [
-                        {
-                            "index": 1
-                        }
-                    ],
-                    "id": "port_17_to_port_18",
-                    "sourceNode": "17",
-                    "sourcePort": "17_out",
-                    "targetNode": "18",
-                    "targetPort": "18_in"
-                },
-                {
-                    "conditions": [
-                        {
-                            "index": 2
-                        }
-                    ],
-                    "id": "port_17_to_port_19",
-                    "sourceNode": "17",
-                    "sourcePort": "17_out",
-                    "targetNode": "19",
-                    "targetPort": "19_in"
-                },
-                {
                     "id": "port_23_to_port_1",
                     "sourceNode": "23",
                     "sourcePort": "23_out",
@@ -78,20 +54,6 @@
                     "targetPort": "28_in"
                 },
                 {
-                    "id": "port_19_to_port_28",
-                    "sourceNode": "19",
-                    "sourcePort": "19_out",
-                    "targetNode": "28",
-                    "targetPort": "28_in"
-                },
-                {
-                    "id": "port_18_to_port_28",
-                    "sourceNode": "18",
-                    "sourcePort": "18_out",
-                    "targetNode": "28",
-                    "targetPort": "28_in"
-                },
-                {
                     "id": "port_28_to_port_23",
                     "sourceNode": "28",
                     "sourcePort": "28_out",
@@ -113,7 +75,7 @@
                     "targetPort": "25_in"
                 }
             ],
-            "hash": "3148a2c79ba0d32c8b9389a227bf9d6d473dcaa6",
+            "hash": "ed0af73a029cd54e370b8dca413b1f40e5f1e310",
             "nodes": {
                 "0": {
                     "data": {
@@ -288,7 +250,14 @@
                     "errors": {},
                     "id": "18",
                     "type": "action",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 680,
                     "y": 328
                 },
@@ -363,7 +332,11 @@
                     "errors": {},
                     "id": "19",
                     "type": "action",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 0,
                     "y": 328
                 },
@@ -607,7 +580,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T06:20:34.654474+00:00",
+    "create_time": "2024-04-24T06:21:10.529218+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
