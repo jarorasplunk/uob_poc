@@ -130,7 +130,7 @@
                     "targetPort": "19_in"
                 }
             ],
-            "hash": "53566a176b8eddb1a748124f0f7616ae96b6b0df",
+            "hash": "a63a0c46b4bcb6013ce3cf98f56ed1d4295a3e4c",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,7 +549,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -738,6 +742,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -893,7 +900,7 @@
                             ],
                             "enabled": false,
                             "exitAfterUnit": "m",
-                            "exitAfterValue": 10,
+                            "exitAfterValue": 6,
                             "exitConditionEnabled": false,
                             "exitLoopAfter": 3,
                             "pauseUnit": "m",
@@ -1107,6 +1114,22 @@
                         "functionName": "debug_8",
                         "id": "20",
                         "loop": {
+                            "conditions": [
+                                {
+                                    "comparisons": [
+                                        {
+                                            "conditionIndex": 0,
+                                            "op": "==",
+                                            "param": "",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "conditionIndex": 0,
+                                    "display": "If",
+                                    "logic": "and",
+                                    "type": "if"
+                                }
+                            ],
                             "enabled": false,
                             "exitAfterUnit": "m",
                             "exitAfterValue": 10,
@@ -1250,7 +1273,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "find_related_containers_4:custom_function_result.data"
+                                    "find_related_containers_4:custom_function_result.message"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -1268,8 +1291,8 @@
                     "id": "20",
                     "type": "utility",
                     "warnings": {},
-                    "x": 180,
-                    "y": 304.5
+                    "x": 160,
+                    "y": 340
                 },
                 "6": {
                     "data": {
@@ -1613,7 +1636,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:00:53.848703+00:00",
+    "create_time": "2024-04-24T11:02:10.053778+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
