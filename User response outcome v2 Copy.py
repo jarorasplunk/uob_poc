@@ -405,21 +405,6 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
 
 
 @phantom.playbook_block()
-def loop_indicator_collect_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("loop_indicator_collect_4() called")
-
-    loop_state = phantom.LoopState(state=loop_state_json)
-
-    if loop_state.should_continue(container=container, results=results): # should_continue evaluates iteration/timeout/conditions
-        loop_state.increment() # increments iteration count
-        indicator_collect_4(container=container, loop_state_json=loop_state.to_json())
-    else:
-        debug_8(container=container)
-
-    return
-
-
-@phantom.playbook_block()
 def indicator_collect_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("indicator_collect_4() called")
 
@@ -436,22 +421,6 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
         "indicator_types_include": None,
     })
 
-    if not loop_state_json:
-        # Loop state is empty. We are creating a new one from the inputs
-        loop_state_json = {
-            # Looping configs
-            "current_iteration": 1,
-            "max_iterations": 3,
-            "conditions": [
-                ["userResponse", "in", "indicator_collect_4:custom_function_result.data.all_indicators.*.cef_key"]
-            ],
-            "max_ttl": 600,
-            "delay_time": 120,
-        }
-
-    # Load state from the JSON passed to it
-    loop_state = phantom.LoopState(state=loop_state_json)
-
     ################################################################################
     ## Custom Code Start
     ################################################################################
@@ -462,7 +431,7 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/indicator_collect", parameters=parameters, name="indicator_collect_4", callback=loop_indicator_collect_4, loop_state=loop_state.to_json())
+    phantom.custom_function(custom_function="community/indicator_collect", parameters=parameters, name="indicator_collect_4", callback=debug_8)
 
     return
 
