@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'indicator_collect_4' block
-    indicator_collect_4(container=container)
+    # call 'find_related_containers_4' block
+    find_related_containers_4(container=container)
 
     return
 
@@ -405,20 +405,23 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
 
 
 @phantom.playbook_block()
-def indicator_collect_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("indicator_collect_4() called")
+def find_related_containers_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("find_related_containers_4() called")
 
     id_value = container.get("id", None)
 
     parameters = []
 
     parameters.append({
+        "field_list": None,
+        "value_list": None,
+        "minimum_match_count": None,
         "container": id_value,
-        "artifact_ids_include": None,
-        "indicator_types_include": None,
-        "indicator_types_exclude": None,
-        "indicator_tags_include": None,
-        "indicator_tags_exclude": None,
+        "earliest_time": None,
+        "filter_status": None,
+        "filter_label": None,
+        "filter_severity": None,
+        "filter_in_case": None,
     })
 
     ################################################################################
@@ -431,7 +434,7 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/indicator_collect", parameters=parameters, name="indicator_collect_4", callback=debug_8)
+    phantom.custom_function(custom_function="community/find_related_containers", parameters=parameters, name="find_related_containers_4", callback=debug_8)
 
     return
 
@@ -440,12 +443,14 @@ def indicator_collect_4(action=None, success=None, container=None, results=None,
 def debug_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_8() called")
 
-    artifact_count_value = container.get("artifact_count", None)
+    find_related_containers_4__result = phantom.collect2(container=container, datapath=["find_related_containers_4:custom_function_result.data"])
+
+    find_related_containers_4_data = [item[0] for item in find_related_containers_4__result]
 
     parameters = []
 
     parameters.append({
-        "input_1": artifact_count_value,
+        "input_1": find_related_containers_4_data,
         "input_2": None,
         "input_3": None,
         "input_4": None,

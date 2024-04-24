@@ -130,7 +130,7 @@
                     "targetPort": "19_in"
                 }
             ],
-            "hash": "dda3c60612f670157e65c5fac7c9e05b686b626f",
+            "hash": "45842632a168c29e620c2660290630cdeec7681c",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,11 +549,7 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -340,
                     "y": 180
                 },
@@ -742,9 +738,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -795,7 +788,11 @@
                     "errors": {},
                     "id": "17",
                     "type": "decision",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 260,
                     "y": 500
                 },
@@ -871,11 +868,11 @@
                         },
                         "customFunction": {
                             "draftMode": false,
-                            "name": "indicator_collect",
+                            "name": "find_related_containers",
                             "repoName": "community"
                         },
                         "functionId": 4,
-                        "functionName": "indicator_collect_4",
+                        "functionName": "find_related_containers_4",
                         "id": "19",
                         "loop": {
                             "conditions": [
@@ -906,14 +903,48 @@
                         "tab": "customFunctions",
                         "type": "utility",
                         "utilities": {
-                            "indicator_collect": {
-                                "description": "Collect all indicators in a container and separate them by data type. Additional output data paths are created for each data type. Artifact scope is ignored.",
+                            "find_related_containers": {
+                                "description": "Takes a list of indicator values or field names that may appear in other containers on the system. If any related containers are found, it will produce a list of the related container details.",
                                 "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "A comma separated list of fields to search on. Do not use data paths, only field names. Not compatible with value_list. Field/value combinations are OR'd together. Only containers that share the exact value(s) contained in the exact field(s) will contribute to minimum_match_count. ",
+                                        "inputType": "list",
+                                        "label": "field_list",
+                                        "name": "field_list",
+                                        "placeholder": "destinationAddress, requestURL",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "A list of indicator values to search on, such as a file hash or IP address. Values are OR'd together. To search on all indicator values in the container, use \"*\". Not compatible with field_list.",
+                                        "inputType": "list",
+                                        "label": "value_list",
+                                        "name": "value_list",
+                                        "placeholder": "artifact:*.cef.destinationAddress",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The minimum number of values from the value_list parameter or the fields from the field_list that must match with related containers. Supports an integer or the string 'all'. Adding 'all' will set the minimum_match_count to the length of the number of unique values in the value_list or the number of unique fields in the field_list. If no match count provided, this will default to 1.",
+                                        "inputType": "item",
+                                        "label": "minimum_match_count",
+                                        "name": "minimum_match_count",
+                                        "placeholder": "1-100",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
                                     {
                                         "dataTypes": [
                                             "phantom container id"
                                         ],
-                                        "description": "The current container",
+                                        "description": "The container to run indicator analysis against. Supports container object or container_id. This container will also be excluded from the results for related_containers.",
                                         "inputType": "item",
                                         "label": "container",
                                         "name": "container",
@@ -922,71 +953,76 @@
                                         "required": false
                                     },
                                     {
+                                        "dataTypes": [],
+                                        "description": "Optional modifier to only consider related containers within a time window. Default is -30d.  Supports year (y), month (m), day (d), hour (h), or minute (m)  Custom function will always set the earliest container window based on the input container \"create_time\".",
+                                        "inputType": "item",
+                                        "label": "earliest_time",
+                                        "name": "earliest_time",
+                                        "placeholder": "-30d",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
                                         "dataTypes": [
-                                            "phantom artifact id"
+                                            ""
                                         ],
-                                        "description": "Optional parameter to only look for indicator values that occur in the artifacts with these IDs. Must be one of: json serializable list, comma separated integers, or a single integer.",
+                                        "description": "Optional comma-separated list of status IDs or status names to filter on. Only containers that have statuses matching an item in this list will be included. If status names are provided, the automation user must have administrator privileges. Use `/rest/container_status` to obtain status ids instead of adding administrator privileges.",
                                         "inputType": "list",
-                                        "label": "artifact_ids_include",
-                                        "name": "artifact_ids_include",
-                                        "placeholder": "artifact:*.id",
+                                        "label": "filter_status",
+                                        "name": "filter_status",
+                                        "placeholder": "open",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [
+                                            "phantom container label"
+                                        ],
+                                        "description": "Optional comma-separated list of labels to filter on. Only containers that have labels matching an item in this list will be included.",
+                                        "inputType": "list",
+                                        "label": "filter_label",
+                                        "name": "filter_label",
+                                        "placeholder": "events",
                                         "renderType": "datapath",
                                         "required": false
                                     },
                                     {
                                         "dataTypes": [],
-                                        "description": "Optional parameter to only include indicators with at least one of the provided types in the output. If left empty, all indicator types will be included except those that are explicitly excluded. Accepts a comma-separated list.",
+                                        "description": "Optional comma-separated list of severities to filter on. Only containers that have severities matching an item in this list will be included.",
                                         "inputType": "list",
-                                        "label": "indicator_types_include",
-                                        "name": "indicator_types_include",
-                                        "placeholder": "ip, domain",
+                                        "label": "filter_severity",
+                                        "name": "filter_severity",
+                                        "placeholder": "medium",
                                         "renderType": "datapath",
                                         "required": false
                                     },
                                     {
                                         "dataTypes": [],
-                                        "description": "Optional parameter to exclude indicators with any of the provided types from the output. Accepts a comma-separated list.",
-                                        "inputType": "list",
-                                        "label": "indicator_types_exclude",
-                                        "name": "indicator_types_exclude",
-                                        "placeholder": "ip, domain",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [],
-                                        "description": "Optional parameter to only include indicators with at least one of the provided tags in the output. If left empty, tags will be ignored except when they are excluded. Accepts a comma-separated list.",
-                                        "inputType": "list",
-                                        "label": "indicator_tags_include",
-                                        "name": "indicator_tags_include",
-                                        "placeholder": "not_contained, malware",
-                                        "renderType": "datapath",
-                                        "required": false
-                                    },
-                                    {
-                                        "dataTypes": [],
-                                        "description": "Optional parameter to exclude indicators with any of the provided tags from the output. Accepts a comma-separated list.",
-                                        "inputType": "list",
-                                        "label": "indicator_tags_exclude",
-                                        "name": "indicator_tags_exclude",
-                                        "placeholder": "contained, not_malware",
+                                        "description": "Optional parameter to filter containers that are in a case or not. True for only containers in cases, False for only containers not in cases. Default is all containers.",
+                                        "inputType": "item",
+                                        "label": "filter_in_case",
+                                        "name": "filter_in_case",
+                                        "placeholder": "True or False",
                                         "renderType": "datapath",
                                         "required": false
                                     }
                                 ],
-                                "label": "indicator_collect",
-                                "name": "indicator_collect"
+                                "label": "find_related_containers",
+                                "name": "find_related_containers"
                             }
                         },
                         "utilityType": "custom_function",
                         "values": {
-                            "indicator_collect": {
-                                "artifact_ids_include": null,
+                            "find_related_containers": {
                                 "container": "container:id",
-                                "indicator_tags_exclude": null,
-                                "indicator_tags_include": null,
-                                "indicator_types_exclude": null,
-                                "indicator_types_include": null
+                                "earliest_time": null,
+                                "field_list": null,
+                                "filter_in_case": null,
+                                "filter_label": null,
+                                "filter_severity": null,
+                                "filter_status": null,
+                                "minimum_match_count": null,
+                                "value_list": null
                             }
                         }
                     },
@@ -1212,7 +1248,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "container:artifact_count"
+                                    "find_related_containers_4:custom_function_result.data"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -1575,7 +1611,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T10:52:42.546036+00:00",
+    "create_time": "2024-04-24T10:53:53.422222+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
