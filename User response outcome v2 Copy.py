@@ -327,7 +327,7 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
     found_match_1 = phantom.decision(
         container=container,
         conditions=[
-            ["indicator_collect_4:custom_function_result.loop_state.exit_reason", "==", "reached exit_condition"]
+            ["find_related_containers_4:custom_function_result.loop_state.exit_reason", "==", "reached exit_condition"]
         ],
         delimiter=None)
 
@@ -340,7 +340,7 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
     found_match_2 = phantom.decision(
         container=container,
         conditions=[
-            ["indicator_collect_4:custom_function_result.loop_state.exit_reason", "==", "reached max_iterations"]
+            ["find_related_containers_4:custom_function_result.loop_state.exit_reason", "==", "reached max_iterations"]
         ],
         delimiter=None)
 

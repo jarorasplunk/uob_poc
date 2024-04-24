@@ -130,7 +130,7 @@
                     "targetPort": "19_in"
                 }
             ],
-            "hash": "1f84614bea622a4bfd13df125ecb648504fae224",
+            "hash": "b2499dacdd590089741b9b88827c6d33646e202a",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,7 +549,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -738,6 +742,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -754,7 +761,7 @@
                                     {
                                         "conditionIndex": 0,
                                         "op": "==",
-                                        "param": "indicator_collect_4:custom_function_result.loop_state.exit_reason",
+                                        "param": "find_related_containers_4:custom_function_result.loop_state.exit_reason",
                                         "value": "reached exit_condition"
                                     }
                                 ],
@@ -769,7 +776,7 @@
                                     {
                                         "conditionIndex": 1,
                                         "op": "==",
-                                        "param": "indicator_collect_4:custom_function_result.loop_state.exit_reason",
+                                        "param": "find_related_containers_4:custom_function_result.loop_state.exit_reason",
                                         "value": "reached max_iterations"
                                     }
                                 ],
@@ -788,11 +795,7 @@
                     "errors": {},
                     "id": "17",
                     "type": "decision",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 260,
                     "y": 500
                 },
@@ -1629,7 +1632,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:03:47.012535+00:00",
+    "create_time": "2024-04-24T11:09:17.685470+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
