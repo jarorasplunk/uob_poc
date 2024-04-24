@@ -25,7 +25,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     matched_artifacts_1, matched_results_1 = phantom.condition(
         container=container,
         conditions=[
-            ["regex_split_3:custom_function_result.data.0.item", "!=", "Expected behaviour"]
+            ["regex_split_3:custom_function_result.data.0.item", "==", "Not Expected behaviour"]
         ],
         name="filter_1:condition_1",
         scope="all",
