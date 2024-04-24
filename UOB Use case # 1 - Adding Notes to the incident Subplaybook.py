@@ -105,7 +105,7 @@ def format_header_note_1(action=None, success=None, container=None, results=None
     recipient = filtered_artifact_0__cef_emailheaders_to[0]
     phantom.debug("recipient before")
     phantom.debug(recipient)
-    match = re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+', recipient)
+    match = re.findall(r'[\w.+-]+@[\w-]+\.[\w.-]+', recipient[0])
     recipient = match[0]
     phantom.debug("recipient after")
     phantom.debug(recipient)
