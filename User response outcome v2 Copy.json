@@ -137,7 +137,7 @@
                     "targetPort": "9_in"
                 }
             ],
-            "hash": "49bc83e5f2e14cc03e435d93201f863ac38ae4b0",
+            "hash": "3d309f72331e2b010819604090c7db352592420d",
             "nodes": {
                 "0": {
                     "data": {
@@ -734,7 +734,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -923,6 +927,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -976,6 +983,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -260,
@@ -1234,7 +1244,7 @@
                                     {
                                         "conditionIndex": 0,
                                         "op": "==",
-                                        "param": "regex_split_3:custom_function_result.data.0.item",
+                                        "param": "artifact:*.cef.userResponse",
                                         "value": "Not Expected behaviour"
                                     }
                                 ],
@@ -1247,7 +1257,7 @@
                                     {
                                         "conditionIndex": 1,
                                         "op": "==",
-                                        "param": "regex_split_3:custom_function_result.data.0.item",
+                                        "param": "artifact:*.cef.userResponse",
                                         "value": "Expected behaviour"
                                     }
                                 ],
@@ -2030,7 +2040,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:56:37.752586+00:00",
+    "create_time": "2024-04-24T12:00:55.398715+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
