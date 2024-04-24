@@ -47,7 +47,7 @@
                     "targetPort": "23_in"
                 }
             ],
-            "hash": "25bb21219e04be01d7dec83494c381e259ed3358",
+            "hash": "590e5c5472180ca82e8a5a1f4256c4afe90780ad",
             "nodes": {
                 "0": {
                     "data": {
@@ -63,7 +63,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 200,
-                    "y": -1.2789769243681803e-13
+                    "y": 0
                 },
                 "1": {
                     "data": {
@@ -79,13 +79,19 @@
                     "id": "1",
                     "type": "end",
                     "userCode": "\n    # This function is called after all actions are completed.\n    # summary of all the action and/or all details of actions\n    # can be collected here.\n\n    # summary_json = phantom.get_summary()\n    # if 'result' in summary_json:\n        # for action_result in summary_json['result']:\n            # if 'action_run_id' in action_result:\n                # action_results = phantom.get_action_results(action_run_id=action_result['action_run_id'], result_data=False, flatten=False)\n                # phantom.debug(action_results)\n\n",
-                    "warnings": {},
+                    "warnings": {
+                        "config": [
+                            "Reconfigure invalid datapath."
+                        ]
+                    },
                     "x": 200,
                     "y": 760
                 },
                 "11": {
                     "data": {
                         "advanced": {
+                            "customName": "encoded_powershell_investigation",
+                            "customNameId": 0,
                             "join": [],
                             "scope": "all"
                         },
@@ -100,14 +106,14 @@
                             }
                         },
                         "functionId": 1,
-                        "functionName": "playbook_encoded_powershell_investigation_1",
+                        "functionName": "encoded_powershell_investigation",
                         "id": "11",
                         "inputs": {
                             "powershell_process": {
                                 "datapaths": [
                                     "artifact:*.cef.cmdline"
                                 ],
-                                "deduplicate": true
+                                "deduplicate": false
                             }
                         },
                         "loop": {
@@ -119,9 +125,9 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "playbookName": "encoded_powershell_investigation",
-                        "playbookRepo": 2,
-                        "playbookRepoName": "local",
+                        "playbookName": "encoded_powershell_investigation Copy",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "uob_poc",
                         "playbookType": "data",
                         "synchronous": true,
                         "type": "playbook"
@@ -131,7 +137,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 180,
-                    "y": 119.99999999999994
+                    "y": 119.99999999999989
                 },
                 "18": {
                     "data": {
@@ -146,7 +152,7 @@
                                     {
                                         "conditionIndex": 0,
                                         "op": "!=",
-                                        "param": "playbook_encoded_powershell_investigation_1:playbook_output:note_content",
+                                        "param": "encoded_powershell_investigation:playbook_output:note_content",
                                         "value": ""
                                     }
                                 ],
@@ -267,17 +273,17 @@
                                     "task_id",
                                     "trace"
                                 ],
-                                "content": "playbook_encoded_powershell_investigation_1:playbook_output:note_content",
+                                "content": "encoded_powershell_investigation:playbook_output:note_content",
                                 "note_format": "html",
                                 "note_type": "general",
-                                "title": "playbook_encoded_powershell_investigation_1:playbook_output:note_title"
+                                "title": "encoded_powershell_investigation:playbook_output:note_title"
                             }
                         }
                     },
                     "errors": {},
                     "id": "21",
                     "type": "utility",
-                    "userCode": "\n    # Write your custom code here...\n    playbook_encoded_powershell_investigation_1_output_note_title_values = playbook_encoded_powershell_investigation_1_output_note_title_values[0]\n    playbook_encoded_powershell_investigation_1_output_note_content_values = playbook_encoded_powershell_investigation_1_output_note_content_values[0]\n    \n    \n\n",
+                    "userCode": "\n    # Write your custom code here...\n    encoded_powershell_investigation_output_note_title_values = encoded_powershell_investigation_output_note_title_values[0]\n    encoded_powershell_investigation_output_note_content_values = encoded_powershell_investigation_output_note_content_values[0]\n    \n    \n\n",
                     "warnings": {},
                     "x": 180,
                     "y": 400
@@ -308,7 +314,7 @@
                             "pauseValue": 2
                         },
                         "parameters": {
-                            "comment": "playbook_encoded_powershell_investigation_1:playbook_output:note_content",
+                            "comment": "encoded_powershell_investigation:playbook_output:note_content",
                             "event_ids": "artifact:*.cef.event_id"
                         },
                         "requiredParameters": [
@@ -340,7 +346,7 @@
             {
                 "contains": [],
                 "datapaths": [
-                    "playbook_encoded_powershell_investigation_1:playbook_output:note_title"
+                    "encoded_powershell_investigation:playbook_output:note_title"
                 ],
                 "deduplicate": false,
                 "description": "",
@@ -352,11 +358,16 @@
                     "*"
                 ],
                 "datapaths": [
-                    "playbook_encoded_powershell_investigation_1:playbook_output:note_content"
+                    "encoded_powershell_investigation:playbook_output:note_content"
                 ],
                 "deduplicate": false,
                 "description": "",
                 "metadata": {
+                    "encoded_powershell_investigation:playbook_output:note_content": {
+                        "contains": [
+                            "*"
+                        ]
+                    },
                     "playbook_encoded_powershell_investigation_1:playbook_output:note_content": {
                         "contains": [
                             "*"
@@ -368,7 +379,7 @@
             {
                 "contains": [],
                 "datapaths": [
-                    "playbook_encoded_powershell_investigation_1:playbook_output:note_decoded_proc_info_first"
+                    "encoded_powershell_investigation:playbook_output:note_decoded_proc_info_first"
                 ],
                 "deduplicate": false,
                 "description": "",
@@ -378,7 +389,7 @@
             {
                 "contains": [],
                 "datapaths": [
-                    "playbook_encoded_powershell_investigation_1:playbook_output:note_decoded_proc_info_second"
+                    "encoded_powershell_investigation:playbook_output:note_decoded_proc_info_second"
                 ],
                 "deduplicate": false,
                 "description": "",
@@ -391,7 +402,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T00:14:23.796799+00:00",
+    "create_time": "2024-04-24T01:03:52.617032+00:00",
     "draft_mode": false,
     "labels": [
         "encoded_ps",
