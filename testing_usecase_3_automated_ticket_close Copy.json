@@ -75,7 +75,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "073d2da90188231da1d277efb0ac3318d700eed3",
+            "hash": "b21482d855c29255b88fd31d33f40de872b6ed0a",
             "nodes": {
                 "0": {
                     "data": {
@@ -91,7 +91,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 1000,
-                    "y": 339.99999999999864
+                    "y": 339.9999999999985
                 },
                 "1": {
                     "data": {
@@ -112,10 +112,12 @@
                 "11": {
                     "data": {
                         "advanced": {
+                            "customName": "ES Process Analysis",
+                            "customNameId": 0,
                             "join": []
                         },
                         "functionId": 1,
-                        "functionName": "playbook_ES_Process_Analysis_1",
+                        "functionName": "es_process_analysis",
                         "id": "11",
                         "inputs": {},
                         "loop": {
@@ -143,9 +145,9 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "playbookName": "ES Process Analysis",
-                        "playbookRepo": 2,
-                        "playbookRepoName": "local",
+                        "playbookName": "ES Process Analysis Copy",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "uob_poc",
                         "playbookType": "automation",
                         "synchronous": true,
                         "type": "playbook"
@@ -160,10 +162,12 @@
                 "12": {
                     "data": {
                         "advanced": {
+                            "customName": "ES Indicator Reputation Analysis",
+                            "customNameId": 0,
                             "join": []
                         },
                         "functionId": 1,
-                        "functionName": "playbook_ES_Indicator_Reputation_Analysis_1",
+                        "functionName": "es_indicator_reputation_analysis",
                         "id": "12",
                         "inputs": {},
                         "loop": {
@@ -175,9 +179,9 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "playbookName": "ES Indicator Reputation Analysis",
-                        "playbookRepo": 2,
-                        "playbookRepoName": "local",
+                        "playbookName": "ES Indicator Reputation Analysis Copy",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "uob_poc",
                         "playbookType": "automation",
                         "synchronous": true,
                         "type": "playbook"
@@ -198,7 +202,7 @@
                         },
                         "connector": "SMTP",
                         "connectorConfigs": [
-                            "soar_poc_smtp"
+                            "soar_poc"
                         ],
                         "connectorId": "45bb6f37-4478-499b-b4a3-51ecfa62b78c",
                         "connectorVersion": "v1",
@@ -237,10 +241,10 @@
                                 "parameters": [
                                     "artifact:*.cef.normalized_risk_object",
                                     "artifact:*.cef.dest_nt_host",
-                                    "playbook_es_process_analysis_1:playbook_output:note_title",
-                                    "playbook_es_process_analysis_1:playbook_output:note_content_process_info_first",
+                                    "es_process_analysis:playbook_output:note_title",
+                                    "es_process_analysis:playbook_output:note_content_process_info_first",
                                     "container:id",
-                                    "playbook_es_process_analysis_1:playbook_output:note_content_process_info_second"
+                                    "es_process_analysis:playbook_output:note_content_process_info_second"
                                 ],
                                 "template": "<p>Hi {0},</p>\n\n<p>Please find below details of the suspicious activity found on your computer: {1}</p>\n\n<p>{2} </p>\n<p>{3} </p>\n<p>{5} </p>\n\n<p><strong>Action required </strong> Click on one of the links below to respond to this notification. This will create an email response and then you can click send without making any changes:</p>\n\n<p><a href=\"mailto:splunksoarpoc@gmail.com?subject={4}-User-{0}%20Response&body=Expected%20behaviour\">Expected behaviour</a></p>\n\n<p><a href=\"mailto:splunksoarpoc@gmail.com?subject={4}-User-{0}%20Response&body=Not%20expected%20behaviour\">Not expected behaviour</a></p>\n\n<p></p>"
                             },
@@ -269,7 +273,7 @@
                     "id": "19",
                     "type": "action",
                     "warnings": {},
-                    "x": 980,
+                    "x": 960,
                     "y": 1020
                 },
                 "20": {
@@ -412,11 +416,13 @@
                 "7": {
                     "data": {
                         "advanced": {
+                            "customName": "assets_and_identities_enrichment",
+                            "customNameId": 0,
                             "join": [],
                             "scope": "all"
                         },
                         "functionId": 1,
-                        "functionName": "playbook_assets_and_identities_enrichment_1",
+                        "functionName": "assets_and_identities_enrichment",
                         "id": "7",
                         "inputs": {
                             "computername": {
@@ -428,9 +434,7 @@
                                 "deduplicate": false
                             },
                             "dest_hostname": {
-                                "datapaths": [
-                                    "artifact:*.cef.dest_nt_host"
-                                ],
+                                "datapaths": [],
                                 "deduplicate": false
                             },
                             "src": {
@@ -442,15 +446,11 @@
                                 "deduplicate": false
                             },
                             "src_user": {
-                                "datapaths": [
-                                    "artifact:*.cef.risk_object"
-                                ],
+                                "datapaths": [],
                                 "deduplicate": false
                             },
                             "user": {
-                                "datapaths": [
-                                    "artifact:*.cef.normalized_risk_object"
-                                ],
+                                "datapaths": [],
                                 "deduplicate": false
                             }
                         },
@@ -463,9 +463,9 @@
                             "pauseUnit": "m",
                             "pauseValue": 2
                         },
-                        "playbookName": "assets_and_identities_enrichment",
-                        "playbookRepo": 2,
-                        "playbookRepoName": "local",
+                        "playbookName": "assets_and_identities_enrichment Copy",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "uob_poc",
                         "playbookType": "data",
                         "synchronous": true,
                         "type": "playbook"
@@ -475,7 +475,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 980,
-                    "y": 439.99999999999983
+                    "y": 439.99999999999994
                 },
                 "8": {
                     "data": {
@@ -579,7 +579,7 @@
                                     "task_id",
                                     "trace"
                                 ],
-                                "content": "playbook_assets_and_identities_enrichment_1:playbook_output:task_note_identity",
+                                "content": "assets_and_identities_enrichment:playbook_output:task_note_identity",
                                 "note_format": "markdown",
                                 "note_type": "general",
                                 "title": "Identity details"
@@ -589,7 +589,7 @@
                     "errors": {},
                     "id": "8",
                     "type": "utility",
-                    "userCode": "\n    # Write your custom code here...\n    \n    playbook_assets_and_identities_enrichment_1_output_task_note_identity_values = playbook_assets_and_identities_enrichment_1_output_task_note_identity_values[0]\n\n",
+                    "userCode": "\n    # Write your custom code here...\n    \n    assets_and_identities_enrichment_output_task_note_identity_values = assets_and_identities_enrichment_output_task_note_identity_values[0]\n\n",
                     "warnings": {},
                     "x": 980,
                     "y": 820
@@ -696,7 +696,7 @@
                                     "task_id",
                                     "trace"
                                 ],
-                                "content": "playbook_assets_and_identities_enrichment_1:playbook_output:task_note_assets",
+                                "content": "assets_and_identities_enrichment:playbook_output:task_note_assets",
                                 "note_format": "markdown",
                                 "note_type": "general",
                                 "title": "Asset details"
@@ -706,7 +706,7 @@
                     "errors": {},
                     "id": "9",
                     "type": "utility",
-                    "userCode": "\n    # Write your custom code here...\n    playbook_assets_and_identities_enrichment_1_output_task_note_assets_values = playbook_assets_and_identities_enrichment_1_output_task_note_assets_values[0]\n\n",
+                    "userCode": "\n    # Write your custom code here...\n    assets_and_identities_enrichment_output_task_note_assets_values = assets_and_identities_enrichment_output_task_note_assets_values[0]\n\n",
                     "warnings": {},
                     "x": 980,
                     "y": 900
@@ -727,7 +727,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T00:06:40.571686+00:00",
+    "create_time": "2024-04-24T00:42:53.442413+00:00",
     "draft_mode": false,
     "labels": [
         "encoded_ps"

@@ -12,29 +12,23 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
 
-    # call 'playbook_assets_and_identities_enrichment_1' block
-    playbook_assets_and_identities_enrichment_1(container=container)
+    # call 'assets_and_identities_enrichment' block
+    assets_and_identities_enrichment(container=container)
 
     return
 
 @phantom.playbook_block()
-def playbook_assets_and_identities_enrichment_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("playbook_assets_and_identities_enrichment_1() called")
-
-    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.normalized_risk_object","artifact:*.cef.risk_object","artifact:*.cef.dest_nt_host"], scope="all")
-
-    container_artifact_cef_item_0 = [item[0] for item in container_artifact_data]
-    container_artifact_cef_item_1 = [item[1] for item in container_artifact_data]
-    container_artifact_cef_item_2 = [item[2] for item in container_artifact_data]
+def assets_and_identities_enrichment(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("assets_and_identities_enrichment() called")
 
     inputs = {
+        "user": [],
+        "src_user": [],
         "src": [],
         "dest": [],
-        "user": container_artifact_cef_item_0,
         "src_ip": [],
-        "src_user": container_artifact_cef_item_1,
+        "dest_hostname": [],
         "computername": [],
-        "dest_hostname": container_artifact_cef_item_2,
     }
 
     ################################################################################
@@ -47,8 +41,8 @@ def playbook_assets_and_identities_enrichment_1(action=None, success=None, conta
     ## Custom Code End
     ################################################################################
 
-    # call playbook "local/assets_and_identities_enrichment", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("local/assets_and_identities_enrichment", container=container, name="playbook_assets_and_identities_enrichment_1", callback=playbook_es_process_analysis_1, inputs=inputs)
+    # call playbook "uob_poc/assets_and_identities_enrichment Copy", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("uob_poc/assets_and_identities_enrichment Copy", container=container, name="assets_and_identities_enrichment", callback=es_process_analysis, inputs=inputs)
 
     return
 
@@ -57,9 +51,9 @@ def playbook_assets_and_identities_enrichment_1(action=None, success=None, conta
 def add_note_identity(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("add_note_identity() called")
 
-    playbook_assets_and_identities_enrichment_1_output_task_note_identity = phantom.collect2(container=container, datapath=["playbook_assets_and_identities_enrichment_1:playbook_output:task_note_identity"])
+    assets_and_identities_enrichment_output_task_note_identity = phantom.collect2(container=container, datapath=["assets_and_identities_enrichment:playbook_output:task_note_identity"])
 
-    playbook_assets_and_identities_enrichment_1_output_task_note_identity_values = [item[0] for item in playbook_assets_and_identities_enrichment_1_output_task_note_identity]
+    assets_and_identities_enrichment_output_task_note_identity_values = [item[0] for item in assets_and_identities_enrichment_output_task_note_identity]
 
     ################################################################################
     ## Custom Code Start
@@ -67,13 +61,13 @@ def add_note_identity(action=None, success=None, container=None, results=None, h
 
     # Write your custom code here...
     
-    playbook_assets_and_identities_enrichment_1_output_task_note_identity_values = playbook_assets_and_identities_enrichment_1_output_task_note_identity_values[0]
+    assets_and_identities_enrichment_output_task_note_identity_values = assets_and_identities_enrichment_output_task_note_identity_values[0]
 
     ################################################################################
     ## Custom Code End
     ################################################################################
 
-    phantom.add_note(container=container, content=playbook_assets_and_identities_enrichment_1_output_task_note_identity_values, note_format="markdown", note_type="general", title="Identity details")
+    phantom.add_note(container=container, content=assets_and_identities_enrichment_output_task_note_identity_values, note_format="markdown", note_type="general", title="Identity details")
 
     add_note_assets(container=container)
 
@@ -84,22 +78,22 @@ def add_note_identity(action=None, success=None, container=None, results=None, h
 def add_note_assets(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("add_note_assets() called")
 
-    playbook_assets_and_identities_enrichment_1_output_task_note_assets = phantom.collect2(container=container, datapath=["playbook_assets_and_identities_enrichment_1:playbook_output:task_note_assets"])
+    assets_and_identities_enrichment_output_task_note_assets = phantom.collect2(container=container, datapath=["assets_and_identities_enrichment:playbook_output:task_note_assets"])
 
-    playbook_assets_and_identities_enrichment_1_output_task_note_assets_values = [item[0] for item in playbook_assets_and_identities_enrichment_1_output_task_note_assets]
+    assets_and_identities_enrichment_output_task_note_assets_values = [item[0] for item in assets_and_identities_enrichment_output_task_note_assets]
 
     ################################################################################
     ## Custom Code Start
     ################################################################################
 
     # Write your custom code here...
-    playbook_assets_and_identities_enrichment_1_output_task_note_assets_values = playbook_assets_and_identities_enrichment_1_output_task_note_assets_values[0]
+    assets_and_identities_enrichment_output_task_note_assets_values = assets_and_identities_enrichment_output_task_note_assets_values[0]
 
     ################################################################################
     ## Custom Code End
     ################################################################################
 
-    phantom.add_note(container=container, content=playbook_assets_and_identities_enrichment_1_output_task_note_assets_values, note_format="markdown", note_type="general", title="Asset details")
+    phantom.add_note(container=container, content=assets_and_identities_enrichment_output_task_note_assets_values, note_format="markdown", note_type="general", title="Asset details")
 
     send_htmlemail_1(container=container)
 
@@ -107,8 +101,8 @@ def add_note_assets(action=None, success=None, container=None, results=None, han
 
 
 @phantom.playbook_block()
-def playbook_es_process_analysis_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("playbook_es_process_analysis_1() called")
+def es_process_analysis(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("es_process_analysis() called")
 
     ################################################################################
     ## Custom Code Start
@@ -120,15 +114,15 @@ def playbook_es_process_analysis_1(action=None, success=None, container=None, re
     ## Custom Code End
     ################################################################################
 
-    # call playbook "local/ES Process Analysis", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("local/ES Process Analysis", container=container, name="playbook_es_process_analysis_1", callback=playbook_es_indicator_reputation_analysis_1)
+    # call playbook "uob_poc/ES Process Analysis Copy", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("uob_poc/ES Process Analysis Copy", container=container, name="es_process_analysis", callback=es_indicator_reputation_analysis)
 
     return
 
 
 @phantom.playbook_block()
-def playbook_es_indicator_reputation_analysis_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("playbook_es_indicator_reputation_analysis_1() called")
+def es_indicator_reputation_analysis(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("es_indicator_reputation_analysis() called")
 
     ################################################################################
     ## Custom Code Start
@@ -140,8 +134,8 @@ def playbook_es_indicator_reputation_analysis_1(action=None, success=None, conta
     ## Custom Code End
     ################################################################################
 
-    # call playbook "local/ES Indicator Reputation Analysis", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("local/ES Indicator Reputation Analysis", container=container, name="playbook_es_indicator_reputation_analysis_1", callback=add_note_identity)
+    # call playbook "uob_poc/ES Indicator Reputation Analysis Copy", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("uob_poc/ES Indicator Reputation Analysis Copy", container=container, name="es_indicator_reputation_analysis", callback=add_note_identity)
 
     return
 
@@ -164,25 +158,25 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
         parameters=[
             "artifact:*.cef.normalized_risk_object",
             "artifact:*.cef.dest_nt_host",
-            "playbook_es_process_analysis_1:playbook_output:note_title",
-            "playbook_es_process_analysis_1:playbook_output:note_content_process_info_first",
+            "es_process_analysis:playbook_output:note_title",
+            "es_process_analysis:playbook_output:note_content_process_info_first",
             "container:id",
-            "playbook_es_process_analysis_1:playbook_output:note_content_process_info_second"
+            "es_process_analysis:playbook_output:note_content_process_info_second"
         ])
 
     id_value = container.get("id", None)
     container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.dest_nt_host","artifact:*.cef.normalized_risk_object","artifact:*.id"])
-    playbook_es_process_analysis_1_output_note_title = phantom.collect2(container=container, datapath=["playbook_es_process_analysis_1:playbook_output:note_title"])
-    playbook_es_process_analysis_1_output_note_content_process_info_first = phantom.collect2(container=container, datapath=["playbook_es_process_analysis_1:playbook_output:note_content_process_info_first"])
-    playbook_es_process_analysis_1_output_note_content_process_info_second = phantom.collect2(container=container, datapath=["playbook_es_process_analysis_1:playbook_output:note_content_process_info_second"])
+    es_process_analysis_output_note_title = phantom.collect2(container=container, datapath=["es_process_analysis:playbook_output:note_title"])
+    es_process_analysis_output_note_content_process_info_first = phantom.collect2(container=container, datapath=["es_process_analysis:playbook_output:note_content_process_info_first"])
+    es_process_analysis_output_note_content_process_info_second = phantom.collect2(container=container, datapath=["es_process_analysis:playbook_output:note_content_process_info_second"])
 
     parameters = []
 
     # build parameters list for 'send_htmlemail_1' call
     for container_artifact_item in container_artifact_data:
-        for playbook_es_process_analysis_1_output_note_title_item in playbook_es_process_analysis_1_output_note_title:
-            for playbook_es_process_analysis_1_output_note_content_process_info_first_item in playbook_es_process_analysis_1_output_note_content_process_info_first:
-                for playbook_es_process_analysis_1_output_note_content_process_info_second_item in playbook_es_process_analysis_1_output_note_content_process_info_second:
+        for es_process_analysis_output_note_title_item in es_process_analysis_output_note_title:
+            for es_process_analysis_output_note_content_process_info_first_item in es_process_analysis_output_note_content_process_info_first:
+                for es_process_analysis_output_note_content_process_info_second_item in es_process_analysis_output_note_content_process_info_second:
                     if html_body_formatted_string is not None:
                         parameters.append({
                             "to": "splunksoarpoc@gmail.com",
@@ -202,7 +196,7 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc_smtp"], callback=decision_1)
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc"], callback=decision_1)
 
     return
 
