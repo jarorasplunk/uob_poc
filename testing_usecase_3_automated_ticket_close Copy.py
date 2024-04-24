@@ -21,13 +21,19 @@ def on_start(container):
 def assets_and_identities_enrichment(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("assets_and_identities_enrichment() called")
 
+    container_artifact_data = phantom.collect2(container=container, datapath=["artifact:*.cef.normalized_risk_object","artifact:*.cef.risk_object","artifact:*.cef.dest_nt_host"], scope="all")
+
+    container_artifact_cef_item_0 = [item[0] for item in container_artifact_data]
+    container_artifact_cef_item_1 = [item[1] for item in container_artifact_data]
+    container_artifact_cef_item_2 = [item[2] for item in container_artifact_data]
+
     inputs = {
-        "user": [],
-        "src_user": [],
+        "user": container_artifact_cef_item_0,
+        "src_user": container_artifact_cef_item_1,
         "src": [],
         "dest": [],
         "src_ip": [],
-        "dest_hostname": [],
+        "dest_hostname": container_artifact_cef_item_2,
         "computername": [],
     }
 

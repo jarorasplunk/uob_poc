@@ -75,7 +75,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "073d2da90188231da1d277efb0ac3318d700eed3",
+            "hash": "1f7a42e40b6bce26df97239bb1adca4d3ec162ea",
             "nodes": {
                 "0": {
                     "data": {
@@ -304,7 +304,11 @@
                     "errors": {},
                     "id": "20",
                     "type": "playbook",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 1920,
                     "y": 1160
                 },
@@ -430,7 +434,9 @@
                                 "deduplicate": false
                             },
                             "dest_hostname": {
-                                "datapaths": [],
+                                "datapaths": [
+                                    "artifact:*.cef.dest_nt_host"
+                                ],
                                 "deduplicate": false
                             },
                             "src": {
@@ -442,11 +448,15 @@
                                 "deduplicate": false
                             },
                             "src_user": {
-                                "datapaths": [],
+                                "datapaths": [
+                                    "artifact:*.cef.risk_object"
+                                ],
                                 "deduplicate": false
                             },
                             "user": {
-                                "datapaths": [],
+                                "datapaths": [
+                                    "artifact:*.cef.normalized_risk_object"
+                                ],
                                 "deduplicate": false
                             }
                         },
@@ -470,8 +480,8 @@
                     "id": "7",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 980,
-                    "y": 439.99999999999994
+                    "x": 960,
+                    "y": 460
                 },
                 "8": {
                     "data": {
@@ -723,7 +733,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T00:42:53.442413+00:00",
+    "create_time": "2024-04-24T00:52:12.268820+00:00",
     "draft_mode": false,
     "labels": [
         "encoded_ps"
