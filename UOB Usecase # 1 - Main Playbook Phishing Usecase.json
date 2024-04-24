@@ -207,7 +207,7 @@
                     "targetPort": "3_in"
                 }
             ],
-            "hash": "f98b36448422d2b8aed047766e6ca928967a9ea1",
+            "hash": "e2ac75a07c809d01421dc5b7782335d07d30dcc6",
             "nodes": {
                 "0": {
                     "data": {
@@ -223,7 +223,7 @@
                     "type": "start",
                     "warnings": {},
                     "x": 380,
-                    "y": -1.9184653865522705e-13
+                    "y": -2.5579538487363607e-13
                 },
                 "1": {
                     "data": {
@@ -551,6 +551,7 @@
                                         "value": "phish"
                                     },
                                     {
+                                        "conditionIndex": 0,
                                         "op": "==",
                                         "param": "playbook_saa_dynamic_email_analysis_1:playbook_output:verdict",
                                         "value": "malware"
@@ -602,8 +603,8 @@
                     "id": "17",
                     "type": "decision",
                     "warnings": {},
-                    "x": 130,
-                    "y": 1756
+                    "x": 140,
+                    "y": 1760
                 },
                 "18": {
                     "data": {
@@ -614,7 +615,7 @@
                         },
                         "connector": "SMTP",
                         "connectorConfigs": [
-                            "soar_poc_phishing_smtp"
+                            "soar_phishing"
                         ],
                         "connectorId": "45bb6f37-4478-499b-b4a3-51ecfa62b78c",
                         "connectorVersion": "v1",
@@ -895,7 +896,7 @@
                         },
                         "connector": "SMTP",
                         "connectorConfigs": [
-                            "soar_poc_phishing_smtp"
+                            "soar_phishing"
                         ],
                         "connectorId": "45bb6f37-4478-499b-b4a3-51ecfa62b78c",
                         "connectorVersion": "v1",
@@ -941,8 +942,8 @@
                     "id": "20",
                     "type": "action",
                     "warnings": {},
-                    "x": 350,
-                    "y": 1936
+                    "x": 360,
+                    "y": 1940
                 },
                 "25": {
                     "data": {
@@ -1015,7 +1016,7 @@
                         },
                         "connector": "MSG File Parser",
                         "connectorConfigs": [
-                            "splunk_poc"
+                            "soar_poc_msg_parser"
                         ],
                         "connectorId": "e0b31412-4545-43eb-ad86-b1e466b38e7f",
                         "connectorVersion": "v1",
@@ -1245,7 +1246,7 @@
                         },
                         "connector": "SMTP",
                         "connectorConfigs": [
-                            "soar_poc_phishing_smtp"
+                            "soar_phishing"
                         ],
                         "connectorId": "45bb6f37-4478-499b-b4a3-51ecfa62b78c",
                         "connectorVersion": "v1",
@@ -1302,7 +1303,7 @@
                         },
                         "connector": "SMTP",
                         "connectorConfigs": [
-                            "soar_poc_phishing_smtp"
+                            "soar_phishing"
                         ],
                         "connectorId": "45bb6f37-4478-499b-b4a3-51ecfa62b78c",
                         "connectorVersion": "v1",
@@ -1532,8 +1533,8 @@
                     "id": "32",
                     "type": "utility",
                     "warnings": {},
-                    "x": 50,
-                    "y": 1608
+                    "x": 60,
+                    "y": 1600
                 },
                 "34": {
                     "data": {
@@ -1554,8 +1555,8 @@
                             "pauseValue": 2
                         },
                         "playbookName": "UOB Use case # 1 - Adding Notes to the incident Subplaybook",
-                        "playbookRepo": 2,
-                        "playbookRepoName": "local",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "uob_poc",
                         "playbookType": "automation",
                         "synchronous": false,
                         "type": "playbook"
@@ -1565,7 +1566,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 40,
-                    "y": 279.9999999999999
+                    "y": 279.99999999999983
                 },
                 "5": {
                     "data": {
@@ -1753,7 +1754,7 @@
                         ]
                     },
                     "x": 680,
-                    "y": 2.1316282072803006e-14
+                    "y": 2.842170943040401e-14
                 },
                 "6": {
                     "data": {
@@ -1791,8 +1792,8 @@
                     "id": "6",
                     "type": "filter",
                     "warnings": {},
-                    "x": 110,
-                    "y": 624
+                    "x": 120,
+                    "y": 620
                 },
                 "7": {
                     "data": {
@@ -2000,8 +2001,8 @@
                             "pauseValue": 2
                         },
                         "playbookName": "SAA_Dynamic_Email_Analysis",
-                        "playbookRepo": 2,
-                        "playbookRepoName": "local",
+                        "playbookRepo": 3,
+                        "playbookRepoName": "uob_poc",
                         "playbookType": "data",
                         "synchronous": true,
                         "type": "playbook"
@@ -2010,8 +2011,8 @@
                     "id": "8",
                     "type": "playbook",
                     "warnings": {},
-                    "x": 50,
-                    "y": 952
+                    "x": 60,
+                    "y": 960
                 },
                 "9": {
                     "data": {
@@ -2127,16 +2128,16 @@
                     "type": "utility",
                     "userCode": "\n    # Write your custom code here...\n    observable_values = str()\n    for item in playbook_saa_dynamic_email_analysis_1_output_observable_values:\n        if item is not None:\n            observable_values = item\n            \n    playbook_saa_dynamic_email_analysis_1_output_observable_values = observable_values\n    \n    for item in playbook_saa_dynamic_email_analysis_1_output_observable_values:\n        phantom.debug(item)\n\n",
                     "warnings": {},
-                    "x": 50,
-                    "y": 1264
+                    "x": 60,
+                    "y": 1260
                 }
             },
             "notes": "",
             "origin": {
-                "playbook_id": 724,
-                "playbook_name": "testing_usecase_1_automated_phising_v3.1",
-                "playbook_repo_id": 2,
-                "playbook_repo_name": "local"
+                "playbook_id": 240,
+                "playbook_name": "UOB Usecase # 1 - Main Playbook Phishing Usecase Copy",
+                "playbook_repo_id": 3,
+                "playbook_repo_name": "uob_poc"
             }
         },
         "input_spec": null,
@@ -2146,7 +2147,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-23T23:57:56.381943+00:00",
+    "create_time": "2024-04-24T02:05:09.193237+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc_phishing"

@@ -172,8 +172,8 @@ def playbook_saa_dynamic_email_analysis_1(action=None, success=None, container=N
     ## Custom Code End
     ################################################################################
 
-    # call playbook "local/SAA_Dynamic_Email_Analysis", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("local/SAA_Dynamic_Email_Analysis", container=container, name="playbook_saa_dynamic_email_analysis_1", callback=add_note_whois_info, inputs=inputs)
+    # call playbook "uob_poc/SAA_Dynamic_Email_Analysis", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("uob_poc/SAA_Dynamic_Email_Analysis", container=container, name="playbook_saa_dynamic_email_analysis_1", callback=add_note_whois_info, inputs=inputs)
 
     return
 
@@ -398,7 +398,7 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc_phishing_smtp"], callback=set_status_promote_to_case_set_severity_add_note_10)
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_phishing"], callback=set_status_promote_to_case_set_severity_add_note_10)
 
     return
 
@@ -480,7 +480,7 @@ def send_htmlemail_2(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_2", assets=["soar_poc_phishing_smtp"])
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_2", assets=["soar_phishing"])
 
     return
 
@@ -547,7 +547,7 @@ def extract_email_1(action=None, success=None, container=None, results=None, han
     ## Custom Code End
     ################################################################################
 
-    phantom.act("extract email", parameters=parameters, name="extract_email_1", assets=["splunk_poc"], callback=playbook_uob_use_case___1___adding_notes_to_the_incident_subplaybook_1)
+    phantom.act("extract email", parameters=parameters, name="extract_email_1", assets=["soar_poc_msg_parser"], callback=playbook_uob_use_case___1___adding_notes_to_the_incident_subplaybook_1)
 
     return
 
@@ -649,7 +649,7 @@ def send_htmlemail_3(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_3", assets=["soar_poc_phishing_smtp"], callback=send_htmlemail_4)
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_3", assets=["soar_phishing"], callback=send_htmlemail_4)
 
     return
 
@@ -700,7 +700,7 @@ def send_htmlemail_4(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_4", assets=["soar_poc_phishing_smtp"])
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_4", assets=["soar_phishing"])
 
     return
 
@@ -757,8 +757,8 @@ def playbook_uob_use_case___1___adding_notes_to_the_incident_subplaybook_1(actio
     ## Custom Code End
     ################################################################################
 
-    # call playbook "local/UOB Use case # 1 - Adding Notes to the incident Subplaybook", returns the playbook_run_id
-    playbook_run_id = phantom.playbook("local/UOB Use case # 1 - Adding Notes to the incident Subplaybook", container=container)
+    # call playbook "uob_poc/UOB Use case # 1 - Adding Notes to the incident Subplaybook", returns the playbook_run_id
+    playbook_run_id = phantom.playbook("uob_poc/UOB Use case # 1 - Adding Notes to the incident Subplaybook", container=container)
 
     vault_list_1(container=container)
 
