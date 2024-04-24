@@ -73,7 +73,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 def regex_split_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("regex_split_3() called")
 
-    filtered_artifact_0_data_filter_2 = phantom.collect2(container=container, datapath=["filtered-data:filter_2:condition_1:artifact:*.cef.userResponse","filtered-data:filter_2:condition_1:artifact:*.id"])
+    filtered_artifact_0_data_filter_2 = phantom.collect2(container=container, datapath=["filtered-data:filter_2:condition_1:artifact:*.cef.userResponse","filtered-data:filter_2:condition_1:artifact:*.id"], scope="all")
 
     parameters = []
 
