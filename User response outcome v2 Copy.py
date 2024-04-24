@@ -187,8 +187,8 @@ def set_status_pin_6(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.set_status(container=container, status="closed")
     phantom.pin(container=container, data="Expected behaviour", message="User Response", name="User Response", pin_style="blue", pin_type="card")
+    phantom.set_status(container=container, status="closed")
 
     container = phantom.get_container(container.get('id', None))
 
@@ -211,11 +211,11 @@ def promote_to_case_add_note_set_status_set_severity_pin_7(action=None, success=
     ## Custom Code End
     ################################################################################
 
+    phantom.pin(container=container, data="Not expected behaviour", message="User Response", name="User Response", pin_style="red", pin_type="card")
     phantom.promote(container=container, template="Data Breach")
     phantom.add_note(container=container, content="This event has been updated to a case and the severity has been raised to critical.", note_format="markdown", note_type="general", title="Investigation status update")
     phantom.set_status(container=container, status="open")
     phantom.set_severity(container=container, severity="critical")
-    phantom.pin(container=container, data="Not expected behaviour", message="User Response", name="User Response", pin_style="red", pin_type="card")
 
     container = phantom.get_container(container.get('id', None))
 
@@ -441,15 +441,15 @@ def find_related_containers_4(action=None, success=None, container=None, results
     parameters = []
 
     parameters.append({
+        "container": id_value,
         "field_list": ["userResponse"],
         "value_list": None,
-        "minimum_match_count": None,
-        "container": id_value,
+        "filter_label": None,
         "earliest_time": None,
         "filter_status": None,
-        "filter_label": None,
-        "filter_severity": None,
         "filter_in_case": None,
+        "filter_severity": None,
+        "minimum_match_count": None,
     })
 
     if not loop_state_json:
@@ -457,7 +457,7 @@ def find_related_containers_4(action=None, success=None, container=None, results
         loop_state_json = {
             # Looping configs
             "current_iteration": 1,
-            "max_iterations": 3,
+            "max_iterations": 2,
             "conditions": [
                 ["find_related_containers_4:custom_function_result.success", "==", "True"]
             ],
