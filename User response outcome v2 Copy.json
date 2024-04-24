@@ -130,7 +130,7 @@
                     "targetPort": "18_in"
                 }
             ],
-            "hash": "49bc83e5f2e14cc03e435d93201f863ac38ae4b0",
+            "hash": "13eeacaec2c9252b880ec8c85d3460517b7d5bcc",
             "nodes": {
                 "0": {
                     "data": {
@@ -727,11 +727,7 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -340,
                     "y": 180
                 },
@@ -920,9 +916,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -976,9 +969,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -260,
@@ -1227,7 +1217,8 @@
                     "data": {
                         "advanced": {
                             "case_sensitive": false,
-                            "join": []
+                            "join": [],
+                            "scope": "all"
                         },
                         "conditions": [
                             {
@@ -1853,7 +1844,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:45:22.499063+00:00",
+    "create_time": "2024-04-24T11:50:02.821062+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

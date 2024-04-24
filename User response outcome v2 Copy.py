@@ -28,6 +28,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
             ["regex_split_3:custom_function_result.data.0.item", "!=", "Expected behaviour"]
         ],
         name="filter_1:condition_1",
+        scope="all",
         case_sensitive=False,
         delimiter=None)
 
@@ -42,6 +43,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
             ["regex_split_3:custom_function_result.data.0.item", "==", "Expected behaviour"]
         ],
         name="filter_1:condition_2",
+        scope="all",
         case_sensitive=False,
         delimiter=None)
 
