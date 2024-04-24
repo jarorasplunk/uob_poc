@@ -361,7 +361,7 @@ def add_note_ip_address_extracted(action=None, success=None, container=None, res
 def format_ip_address_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_ip_address_extracted() called")
 
-    template = """%%\n{0}\n%%"""
+    template = """{0}\n"""
 
     # parameter list for template variable replacement
     parameters = [
@@ -389,7 +389,7 @@ def format_ip_address_extracted(action=None, success=None, container=None, resul
 def format_domain_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_domain_extracted() called")
 
-    template = """%%\n{0}\n%%"""
+    template = """{0}\n"""
 
     # parameter list for template variable replacement
     parameters = [
@@ -440,7 +440,7 @@ def add_note_domain_extracted(action=None, success=None, container=None, results
 def format_hash_extracted(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("format_hash_extracted() called")
 
-    template = """%%\n{0}\n%%"""
+    template = """{0}\n"""
 
     # parameter list for template variable replacement
     parameters = [

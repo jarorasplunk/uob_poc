@@ -167,7 +167,7 @@
                     "targetPort": "32_in"
                 }
             ],
-            "hash": "58707fed6f10f0a45c44022e3441a20f2b1825d0",
+            "hash": "e5bf8c84c0267c68470b786e1e4dad58096cee65",
             "nodes": {
                 "0": {
                     "data": {
@@ -758,7 +758,7 @@
                     "id": "30",
                     "type": "utility",
                     "warnings": {},
-                    "x": -1.4210854715202004e-14,
+                    "x": 0,
                     "y": 820
                 },
                 "31": {
@@ -775,7 +775,7 @@
                         "parameters": [
                             "artifact:*.cef.sourceAddress"
                         ],
-                        "template": "%%\n{0}\n%%",
+                        "template": "{0}\n",
                         "type": "format"
                     },
                     "errors": {},
@@ -799,7 +799,7 @@
                         "parameters": [
                             "artifact:*.cef.destinationDnsDomain"
                         ],
-                        "template": "%%\n{0}\n%%",
+                        "template": "{0}\n",
                         "type": "format"
                     },
                     "errors": {},
@@ -939,7 +939,7 @@
                         "parameters": [
                             "artifact:*.cef.fileHash"
                         ],
-                        "template": "%%\n{0}\n%%",
+                        "template": "{0}\n",
                         "type": "format"
                     },
                     "errors": {},
@@ -1118,7 +1118,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T07:44:34.829456+00:00",
+    "create_time": "2024-04-24T07:45:41.763591+00:00",
     "draft_mode": false,
     "labels": [
         "soar_poc"
