@@ -412,7 +412,7 @@ def send_htmlemail_1(action=None, success=None, container=None, results=None, ha
     ## Custom Code End
     ################################################################################
 
-    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc"])
+    phantom.act("send htmlemail", parameters=parameters, name="send_htmlemail_1", assets=["soar_poc"], callback=pin_set_status_10)
 
     return
 
@@ -611,6 +611,28 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
     if found_match_2:
         debug_9(action=action, success=success, container=container, results=results, handle=handle)
         return
+
+    return
+
+
+@phantom.playbook_block()
+def pin_set_status_10(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("pin_set_status_10() called")
+
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################
+
+    phantom.pin(container=container, data="Not Received Response", message="User Response", name="User Response", pin_style="grey", pin_type="card")
+    phantom.set_status(container=container, status="open")
+
+    container = phantom.get_container(container.get('id', None))
 
     return
 
