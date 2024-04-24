@@ -130,7 +130,7 @@
                     "targetPort": "19_in"
                 }
             ],
-            "hash": "49bc83e5f2e14cc03e435d93201f863ac38ae4b0",
+            "hash": "ef9920302deef75d494a5803c807f640d450335a",
             "nodes": {
                 "0": {
                     "data": {
@@ -549,7 +549,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": -340,
                     "y": 180
                 },
@@ -738,6 +742,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -788,11 +795,7 @@
                     "errors": {},
                     "id": "17",
                     "type": "decision",
-                    "warnings": {
-                        "config": [
-                            "Reconfigure invalid datapath."
-                        ]
-                    },
+                    "warnings": {},
                     "x": 260,
                     "y": 500
                 },
@@ -868,11 +871,11 @@
                         },
                         "customFunction": {
                             "draftMode": false,
-                            "name": "collect_by_cef_type",
+                            "name": "indicator_collect",
                             "repoName": "community"
                         },
                         "functionId": 4,
-                        "functionName": "collect_by_cef_type_4",
+                        "functionName": "indicator_collect_4",
                         "id": "19",
                         "loop": {
                             "conditions": [
@@ -903,12 +906,14 @@
                         "tab": "customFunctions",
                         "type": "utility",
                         "utilities": {
-                            "collect_by_cef_type": {
-                                "description": "Collect all artifact values that match the desired CEF data types, such as \"ip\", \"url\", \"sha1\", or \"all\". Optionally also filter for artifacts that have the specified tags.",
+                            "indicator_collect": {
+                                "description": "Collect all indicators in a container and separate them by data type. Additional output data paths are created for each data type. Artifact scope is ignored.",
                                 "fields": [
                                     {
-                                        "dataTypes": [],
-                                        "description": "(Optional) Collect data from this container. Defaults to current container.",
+                                        "dataTypes": [
+                                            "phantom container id"
+                                        ],
+                                        "description": "The current container",
                                         "inputType": "item",
                                         "label": "container",
                                         "name": "container",
@@ -917,49 +922,71 @@
                                         "required": false
                                     },
                                     {
-                                        "dataTypes": [],
-                                        "description": "(Required) The CEF data type to collect values for. This could be a single string or a comma separated list such as \"hash,filehash,file_hash\". The special value \"all\" can also be used to collect all field values from all artifacts.",
+                                        "dataTypes": [
+                                            "phantom artifact id"
+                                        ],
+                                        "description": "Optional parameter to only look for indicator values that occur in the artifacts with these IDs. Must be one of: json serializable list, comma separated integers, or a single integer.",
                                         "inputType": "list",
-                                        "label": "data_types",
-                                        "name": "data_types",
-                                        "placeholder": "data_type1, data_type2, data_type3",
+                                        "label": "artifact_ids_include",
+                                        "name": "artifact_ids_include",
+                                        "placeholder": "artifact:*.id",
                                         "renderType": "datapath",
                                         "required": false
                                     },
                                     {
                                         "dataTypes": [],
-                                        "description": "(Optional) Define custom scope and defaults to 'new'. Advanced Settings Scope is not passed to a custom function. Options are 'all' or 'new'.",
-                                        "inputType": "item",
-                                        "label": "scope",
-                                        "name": "scope",
-                                        "placeholder": "new",
+                                        "description": "Optional parameter to only include indicators with at least one of the provided types in the output. If left empty, all indicator types will be included except those that are explicitly excluded. Accepts a comma-separated list.",
+                                        "inputType": "list",
+                                        "label": "indicator_types_include",
+                                        "name": "indicator_types_include",
+                                        "placeholder": "ip, domain",
                                         "renderType": "datapath",
                                         "required": false
                                     },
                                     {
                                         "dataTypes": [],
-                                        "description": "(Optional) Only return fields from artifacts that have all of the provided tags. This could be an individual tag or a comma separated list.",
+                                        "description": "Optional parameter to exclude indicators with any of the provided types from the output. Accepts a comma-separated list.",
                                         "inputType": "list",
-                                        "label": "tags",
-                                        "name": "tags",
-                                        "placeholder": "tag1,tag2,tag3",
+                                        "label": "indicator_types_exclude",
+                                        "name": "indicator_types_exclude",
+                                        "placeholder": "ip, domain",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to only include indicators with at least one of the provided tags in the output. If left empty, tags will be ignored except when they are excluded. Accepts a comma-separated list.",
+                                        "inputType": "list",
+                                        "label": "indicator_tags_include",
+                                        "name": "indicator_tags_include",
+                                        "placeholder": "not_contained, malware",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Optional parameter to exclude indicators with any of the provided tags from the output. Accepts a comma-separated list.",
+                                        "inputType": "list",
+                                        "label": "indicator_tags_exclude",
+                                        "name": "indicator_tags_exclude",
+                                        "placeholder": "contained, not_malware",
                                         "renderType": "datapath",
                                         "required": false
                                     }
                                 ],
-                                "label": "collect_by_cef_type",
-                                "name": "collect_by_cef_type"
+                                "label": "indicator_collect",
+                                "name": "indicator_collect"
                             }
                         },
                         "utilityType": "custom_function",
                         "values": {
-                            "collect_by_cef_type": {
+                            "indicator_collect": {
+                                "artifact_ids_include": null,
                                 "container": "container:id",
-                                "data_types": [
-                                    "all"
-                                ],
-                                "scope": null,
-                                "tags": null
+                                "indicator_tags_exclude": null,
+                                "indicator_tags_include": null,
+                                "indicator_types_exclude": null,
+                                "indicator_types_include": null
                             }
                         }
                     },
@@ -1185,7 +1212,7 @@
                         "values": {
                             "debug": {
                                 "input_1": [
-                                    "collect_by_cef_type_4:custom_function_result.data"
+                                    "indicator_collect_4:custom_function_result.data.all_indicators"
                                 ],
                                 "input_10": null,
                                 "input_2": null,
@@ -1548,7 +1575,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T10:18:39.512475+00:00",
+    "create_time": "2024-04-24T10:42:12.163661+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"
