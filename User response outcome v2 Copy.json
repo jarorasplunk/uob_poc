@@ -144,7 +144,7 @@
                     "targetPort": "1_in"
                 }
             ],
-            "hash": "b93032f48dddf119b30de79168c45e96be9eef60",
+            "hash": "54050ff58d2a48177653b9b2685daccc8e53dd2e",
             "nodes": {
                 "0": {
                     "data": {
@@ -741,7 +741,11 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {},
+                    "warnings": {
+                        "context": [
+                            "Connect block to playbook flow."
+                        ]
+                    },
                     "x": 880,
                     "y": 0
                 },
@@ -930,6 +934,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 1220,
@@ -983,6 +990,9 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
+                        ],
+                        "context": [
+                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 1560,
@@ -1286,9 +1296,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": 660,
@@ -1925,7 +1932,7 @@
                         "advanced": {
                             "join": [],
                             "refreshNotableData": true,
-                            "scope": "all"
+                            "scope": "default"
                         },
                         "customDatapaths": {
                             "filter_2": {
@@ -2020,7 +2027,7 @@
                             "notRequiredJoins": [
                                 "noop_1"
                             ],
-                            "scope": "all"
+                            "scope": "default"
                         },
                         "conditions": [
                             {
@@ -2057,8 +2064,8 @@
                     "id": "8",
                     "type": "filter",
                     "warnings": {},
-                    "x": 230,
-                    "y": 690
+                    "x": 240,
+                    "y": 700
                 },
                 "9": {
                     "data": {
@@ -2264,7 +2271,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T12:50:02.076041+00:00",
+    "create_time": "2024-04-24T12:50:42.011134+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

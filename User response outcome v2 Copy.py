@@ -73,7 +73,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 def regex_split_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("regex_split_3() called")
 
-    filtered_artifact_0_data_filter_2 = phantom.collect2(container=container, datapath=["filtered-data:filter_2:condition_1:artifact:*.cef.userResponse","filtered-data:filter_2:condition_1:artifact:*.id"], scope="all")
+    filtered_artifact_0_data_filter_2 = phantom.collect2(container=container, datapath=["filtered-data:filter_2:condition_1:artifact:*.cef.userResponse","filtered-data:filter_2:condition_1:artifact:*.id"])
 
     parameters = []
 
@@ -111,7 +111,6 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
             ["artifact:*.name", "==", "User Response Artifact"]
         ],
         name="filter_2:condition_1",
-        scope="all",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
@@ -125,7 +124,6 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
             ["artifact:*.name", "!=", "User Response Artifact"]
         ],
         name="filter_2:condition_2",
-        scope="all",
         delimiter=None)
 
     # call connected blocks if filtered artifacts or results
