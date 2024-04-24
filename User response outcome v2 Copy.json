@@ -130,7 +130,7 @@
                     "targetPort": "18_in"
                 }
             ],
-            "hash": "13f945d3586e0408df32df605d6a1016fb68f93c",
+            "hash": "afb625c48d77f084fc21ebf8fb40eb2d8cf21106",
             "nodes": {
                 "0": {
                     "data": {
@@ -172,7 +172,7 @@
                         },
                         "customFunction": null,
                         "functionId": 6,
-                        "functionName": "set_status_6",
+                        "functionName": "set_status_pin_6",
                         "id": "10",
                         "loop": {
                             "enabled": false,
@@ -187,6 +187,82 @@
                         "tab": "apis",
                         "type": "utility",
                         "utilities": {
+                            "pin": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "message",
+                                        "name": "message",
+                                        "placeholder": "Enter a message",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "data",
+                                        "name": "data",
+                                        "placeholder": "Enter a value",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "card",
+                                            "data"
+                                        ],
+                                        "description": "",
+                                        "label": "pin type",
+                                        "name": "pin_type",
+                                        "placeholder": "Select pin type",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "grey",
+                                            "blue",
+                                            "red"
+                                        ],
+                                        "description": "",
+                                        "label": "pin color",
+                                        "name": "pin_style",
+                                        "placeholder": "Select pin color",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "Use a named pin",
+                                        "renderType": "input",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "truncate",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "pin",
+                                "name": "pin"
+                            },
                             "set_status": {
                                 "description": "",
                                 "fields": [
@@ -217,6 +293,19 @@
                         },
                         "utilityType": "api",
                         "values": {
+                            "pin": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "truncate",
+                                    "trace"
+                                ],
+                                "data": "Expected behaviour",
+                                "message": "User Response",
+                                "name": "User Response",
+                                "pin_style": "blue",
+                                "pin_type": "card"
+                            },
                             "set_status": {
                                 "_internal": [
                                     "container",
@@ -240,7 +329,7 @@
                             "refreshNotableData": true
                         },
                         "functionId": 7,
-                        "functionName": "promote_to_case_add_note_set_status_set_severity_7",
+                        "functionName": "promote_to_case_add_note_set_status_set_severity_pin_7",
                         "id": "11",
                         "loop": {
                             "enabled": false,
@@ -321,6 +410,82 @@
                                 ],
                                 "label": "add note",
                                 "name": "add_note"
+                            },
+                            "pin": {
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "description": "",
+                                        "label": "message",
+                                        "name": "message",
+                                        "placeholder": "Enter a message",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "data",
+                                        "name": "data",
+                                        "placeholder": "Enter a value",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "card",
+                                            "data"
+                                        ],
+                                        "description": "",
+                                        "label": "pin type",
+                                        "name": "pin_type",
+                                        "placeholder": "Select pin type",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "choices": [
+                                            "grey",
+                                            "blue",
+                                            "red"
+                                        ],
+                                        "description": "",
+                                        "label": "pin color",
+                                        "name": "pin_style",
+                                        "placeholder": "Select pin color",
+                                        "renderType": "dropdown",
+                                        "required": false
+                                    },
+                                    {
+                                        "description": "",
+                                        "label": "name",
+                                        "name": "name",
+                                        "placeholder": "Use a named pin",
+                                        "renderType": "input",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "container",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "author",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "truncate",
+                                        "required": false
+                                    },
+                                    {
+                                        "hidden": true,
+                                        "name": "trace",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "pin",
+                                "name": "pin"
                             },
                             "promote": {
                                 "description": "",
@@ -427,6 +592,19 @@
                                 "note_type": "general",
                                 "title": "Investigation status update"
                             },
+                            "pin": {
+                                "_internal": [
+                                    "container",
+                                    "author",
+                                    "truncate",
+                                    "trace"
+                                ],
+                                "data": "Not expected behaviour",
+                                "message": "User Response",
+                                "name": "User Response",
+                                "pin_style": "red",
+                                "pin_type": "card"
+                            },
                             "promote": {
                                 "_internal": [
                                     "container",
@@ -453,8 +631,8 @@
                     "id": "11",
                     "type": "utility",
                     "warnings": {},
-                    "x": -1.4210854715202004e-14,
-                    "y": 1345
+                    "x": 0,
+                    "y": 1340
                 },
                 "12": {
                     "data": {
@@ -488,7 +666,7 @@
                     "type": "playbook",
                     "warnings": {},
                     "x": 340,
-                    "y": 1360
+                    "y": 1340
                 },
                 "13": {
                     "data": {
@@ -549,11 +727,7 @@
                     "errors": {},
                     "id": "13",
                     "type": "utility",
-                    "warnings": {
-                        "context": [
-                            "Connect block to playbook flow."
-                        ]
-                    },
+                    "warnings": {},
                     "x": -340,
                     "y": 180
                 },
@@ -742,9 +916,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -340,
@@ -798,9 +969,6 @@
                     "warnings": {
                         "config": [
                             "Reconfigure invalid datapath."
-                        ],
-                        "context": [
-                            "Connect block to playbook flow."
                         ]
                     },
                     "x": -260,
@@ -1675,7 +1843,7 @@
         "schema": "5.0.11",
         "version": "6.2.1.305"
     },
-    "create_time": "2024-04-24T11:38:08.942299+00:00",
+    "create_time": "2024-04-24T11:45:22.499063+00:00",
     "draft_mode": false,
     "labels": [
         "process_analysed"

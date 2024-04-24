@@ -47,7 +47,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
 
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_2 or matched_results_2:
-        set_status_6(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
+        set_status_pin_6(action=action, success=success, container=container, results=results, handle=handle, filtered_artifacts=matched_artifacts_2, filtered_results=matched_results_2)
 
     return
 
@@ -151,14 +151,14 @@ def debug_5(action=None, success=None, container=None, results=None, handle=None
     ## Custom Code End
     ################################################################################
 
-    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_5", callback=promote_to_case_add_note_set_status_set_severity_7)
+    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_5", callback=promote_to_case_add_note_set_status_set_severity_pin_7)
 
     return
 
 
 @phantom.playbook_block()
-def set_status_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("set_status_6() called")
+def set_status_pin_6(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("set_status_pin_6() called")
 
     ################################################################################
     ## Custom Code Start
@@ -171,6 +171,7 @@ def set_status_6(action=None, success=None, container=None, results=None, handle
     ################################################################################
 
     phantom.set_status(container=container, status="closed")
+    phantom.pin(container=container, data="Expected behaviour", message="User Response", name="User Response", pin_style="blue", pin_type="card")
 
     container = phantom.get_container(container.get('id', None))
 
@@ -180,8 +181,8 @@ def set_status_6(action=None, success=None, container=None, results=None, handle
 
 
 @phantom.playbook_block()
-def promote_to_case_add_note_set_status_set_severity_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("promote_to_case_add_note_set_status_set_severity_7() called")
+def promote_to_case_add_note_set_status_set_severity_pin_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
+    phantom.debug("promote_to_case_add_note_set_status_set_severity_pin_7() called")
 
     ################################################################################
     ## Custom Code Start
@@ -197,6 +198,7 @@ def promote_to_case_add_note_set_status_set_severity_7(action=None, success=None
     phantom.add_note(container=container, content="This event has been updated to a case and the severity has been raised to critical.", note_format="markdown", note_type="general", title="Investigation status update")
     phantom.set_status(container=container, status="open")
     phantom.set_severity(container=container, severity="critical")
+    phantom.pin(container=container, data="Not expected behaviour", message="User Response", name="User Response", pin_style="red", pin_type="card")
 
     container = phantom.get_container(container.get('id', None))
 
