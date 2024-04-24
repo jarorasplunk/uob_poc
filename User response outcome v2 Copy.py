@@ -461,7 +461,7 @@ def find_related_containers_4(action=None, success=None, container=None, results
             "conditions": [
                 ["find_related_containers_4:custom_function_result.success", "==", "True"]
             ],
-            "max_ttl": 360,
+            "max_ttl": 600,
             "delay_time": 180,
         }
 
