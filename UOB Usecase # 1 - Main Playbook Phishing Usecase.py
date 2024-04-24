@@ -49,47 +49,6 @@ def vault_list_1(action=None, success=None, container=None, results=None, handle
 
 
 @phantom.playbook_block()
-def debug_3(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
-    phantom.debug("debug_3() called")
-
-    vault_list_1__result = phantom.collect2(container=container, datapath=["vault_list_1:custom_function_result.data.container_name","vault_list_1:custom_function_result.data.file_name","vault_list_1:custom_function_result.data.vault_id","vault_list_1:custom_function_result.data.path"])
-
-    vault_list_1_data_container_name = [item[0] for item in vault_list_1__result]
-    vault_list_1_data_file_name = [item[1] for item in vault_list_1__result]
-    vault_list_1_data_vault_id = [item[2] for item in vault_list_1__result]
-    vault_list_1_data_path = [item[3] for item in vault_list_1__result]
-
-    parameters = []
-
-    parameters.append({
-        "input_1": vault_list_1_data_container_name,
-        "input_2": vault_list_1_data_file_name,
-        "input_3": vault_list_1_data_vault_id,
-        "input_4": vault_list_1_data_path,
-        "input_5": None,
-        "input_6": None,
-        "input_7": None,
-        "input_8": None,
-        "input_9": None,
-        "input_10": None,
-    })
-
-    ################################################################################
-    ## Custom Code Start
-    ################################################################################
-
-    # Write your custom code here...
-
-    ################################################################################
-    ## Custom Code End
-    ################################################################################
-
-    phantom.custom_function(custom_function="community/debug", parameters=parameters, name="debug_3")
-
-    return
-
-
-@phantom.playbook_block()
 def filter_vault_for_emails(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("filter_vault_for_emails() called")
 
