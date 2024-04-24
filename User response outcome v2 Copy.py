@@ -443,14 +443,14 @@ def find_related_containers_4(action=None, success=None, container=None, results
 def debug_8(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, loop_state_json=None, **kwargs):
     phantom.debug("debug_8() called")
 
-    find_related_containers_4_data = phantom.collect2(container=container, datapath=["find_related_containers_4:custom_function_result.data.*.container_id"])
+    find_related_containers_4__result = phantom.collect2(container=container, datapath=["find_related_containers_4:custom_function_result.data"])
 
-    find_related_containers_4_data___container_id = [item[0] for item in find_related_containers_4_data]
+    find_related_containers_4_data = [item[0] for item in find_related_containers_4__result]
 
     parameters = []
 
     parameters.append({
-        "input_1": find_related_containers_4_data___container_id,
+        "input_1": find_related_containers_4_data,
         "input_2": None,
         "input_3": None,
         "input_4": None,
