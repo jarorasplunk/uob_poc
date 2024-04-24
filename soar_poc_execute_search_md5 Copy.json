@@ -1,0 +1,387 @@
+{
+    "blockly": false,
+    "blockly_xml": "<xml></xml>",
+    "category": "Uncategorized",
+    "coa": {
+        "data": {
+            "description": "",
+            "edges": [
+                {
+                    "id": "port_0_to_port_6",
+                    "sourceNode": "0",
+                    "sourcePort": "0_out",
+                    "targetNode": "6",
+                    "targetPort": "6_in"
+                },
+                {
+                    "id": "port_18_to_port_19",
+                    "sourceNode": "18",
+                    "sourcePort": "18_out",
+                    "targetNode": "19",
+                    "targetPort": "19_in"
+                },
+                {
+                    "id": "port_6_to_port_18",
+                    "sourceNode": "6",
+                    "sourcePort": "6_out",
+                    "targetNode": "18",
+                    "targetPort": "18_in"
+                },
+                {
+                    "id": "port_31_to_port_1",
+                    "sourceNode": "31",
+                    "sourcePort": "31_out",
+                    "targetNode": "1",
+                    "targetPort": "1_in"
+                },
+                {
+                    "id": "port_19_to_port_40",
+                    "sourceNode": "19",
+                    "sourcePort": "19_out",
+                    "targetNode": "40",
+                    "targetPort": "40_in"
+                },
+                {
+                    "id": "port_40_to_port_31",
+                    "sourceNode": "40",
+                    "sourcePort": "40_out",
+                    "targetNode": "31",
+                    "targetPort": "31_in"
+                }
+            ],
+            "hash": "5567a98a7469dcddc5d40ced98d5819f8f4a4d4e",
+            "nodes": {
+                "0": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_start",
+                        "id": "0",
+                        "type": "start"
+                    },
+                    "errors": {},
+                    "id": "0",
+                    "type": "start",
+                    "warnings": {},
+                    "x": 19.999999999999986,
+                    "y": -3.197442310920451e-13
+                },
+                "1": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "functionName": "on_finish",
+                        "id": "1",
+                        "type": "end"
+                    },
+                    "errors": {},
+                    "id": "1",
+                    "type": "end",
+                    "warnings": {},
+                    "x": 19.999999999999986,
+                    "y": 888
+                },
+                "18": {
+                    "data": {
+                        "action": "run query",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "customName": "Query Unique Character",
+                            "customNameId": 0,
+                            "join": []
+                        },
+                        "connector": "Splunk",
+                        "connectorConfigs": [
+                            "splunk_result_internal"
+                        ],
+                        "connectorId": "91883aa8-9c81-470b-97a1-5d8f7995f560",
+                        "connectorVersion": "v1",
+                        "functionId": 2,
+                        "functionName": "query_unique_character",
+                        "id": "18",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "command": "search",
+                            "query": "index=botsv* sourcetype=\"XmlWinEventLog\" | lookup local_md5_soar_poc md5 as MD5 OUTPUT threat_key md5 as match | search threat_key = md5 |table _time user MD5 threat_key match |dedup match | table match",
+                            "start_time": "-1d"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "query"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "search",
+                                "field": "command"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "18",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 296
+                },
+                "19": {
+                    "data": {
+                        "advanced": {
+                            "customName": "Get the MD5",
+                            "customNameId": 0,
+                            "drop_none": true,
+                            "join": []
+                        },
+                        "customDatapaths": {
+                            "query_unique_character": {
+                                "action_result.data.*.match": {
+                                    "contains": [],
+                                    "isCustomDatapath": true,
+                                    "label": "action_result.data.*.match",
+                                    "value": "query_unique_character:action_result.data.*.match"
+                                }
+                            }
+                        },
+                        "functionId": 4,
+                        "functionName": "get_the_md5",
+                        "id": "19",
+                        "parameters": [
+                            "query_unique_character:action_result.data.*.match"
+                        ],
+                        "template": "{0}",
+                        "type": "format"
+                    },
+                    "errors": {},
+                    "id": "19",
+                    "type": "format",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 444
+                },
+                "31": {
+                    "data": {
+                        "action": "file reputation",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "join": []
+                        },
+                        "connector": "VirusTotal v3",
+                        "connectorConfigs": [
+                            "soar_poc_virustotal"
+                        ],
+                        "connectorId": "3fe4875d-a4a7-47d3-9ef1-f9e63a6653a4",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "file_reputation_1",
+                        "id": "31",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "hash": "string_split_3:custom_function_result.data.*.item"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "hash"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "31",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 740
+                },
+                "40": {
+                    "data": {
+                        "advanced": {
+                            "join": []
+                        },
+                        "customFunction": {
+                            "draftMode": false,
+                            "name": "string_split",
+                            "repoName": "community"
+                        },
+                        "functionId": 3,
+                        "functionName": "string_split_3",
+                        "id": "40",
+                        "loop": {
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "selectMore": false,
+                        "type": "utility",
+                        "utilities": {
+                            "string_split": {
+                                "description": "Return a list of the components of input_string when split using the specified delimiter. If strip_whitespace is not specified or is \"True\", strip all whitespace from the beginning and end of each resulting component.",
+                                "fields": [
+                                    {
+                                        "dataTypes": [
+                                            "*"
+                                        ],
+                                        "description": "The string to split",
+                                        "inputType": "item",
+                                        "label": "input_string",
+                                        "name": "input_string",
+                                        "placeholder": "item_1, item_2, item_3",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "The delimiter to split by, which defaults to a comma",
+                                        "inputType": "item",
+                                        "label": "delimiter",
+                                        "name": "delimiter",
+                                        "placeholder": ",",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    },
+                                    {
+                                        "dataTypes": [],
+                                        "description": "Either True or False to indicate whether or not to remove whitespace before and after each item. Defaults to True",
+                                        "inputType": "item",
+                                        "label": "strip_whitespace",
+                                        "name": "strip_whitespace",
+                                        "placeholder": "True",
+                                        "renderType": "datapath",
+                                        "required": false
+                                    }
+                                ],
+                                "label": "string_split",
+                                "name": "string_split"
+                            }
+                        },
+                        "utilityType": "custom_function",
+                        "values": {
+                            "string_split": {
+                                "delimiter": ",",
+                                "input_string": "get_the_md5:formatted_data",
+                                "strip_whitespace": null
+                            }
+                        }
+                    },
+                    "errors": {},
+                    "id": "40",
+                    "type": "utility",
+                    "warnings": {},
+                    "x": 0,
+                    "y": 592
+                },
+                "6": {
+                    "data": {
+                        "action": "run query",
+                        "actionType": "investigate",
+                        "advanced": {
+                            "delayTime": 1.5,
+                            "join": []
+                        },
+                        "connector": "Splunk",
+                        "connectorConfigs": [
+                            "splunk"
+                        ],
+                        "connectorId": "91883aa8-9c81-470b-97a1-5d8f7995f560",
+                        "connectorVersion": "v1",
+                        "functionId": 1,
+                        "functionName": "run_query_1",
+                        "id": "6",
+                        "loop": {
+                            "conditions": [
+                                {
+                                    "comparisons": [
+                                        {
+                                            "conditionIndex": 0,
+                                            "op": "==",
+                                            "param": "",
+                                            "value": ""
+                                        }
+                                    ],
+                                    "conditionIndex": 0,
+                                    "display": "If",
+                                    "logic": "and",
+                                    "type": "if"
+                                }
+                            ],
+                            "enabled": false,
+                            "exitAfterUnit": "m",
+                            "exitAfterValue": 10,
+                            "exitConditionEnabled": false,
+                            "exitLoopAfter": 2,
+                            "pauseUnit": "m",
+                            "pauseValue": 2
+                        },
+                        "parameters": {
+                            "attach_result": false,
+                            "command": "search",
+                            "display": "_time,user,MD5,threat_key,match",
+                            "query": "index=botsv* sourcetype=\"XmlWinEventLog\" | lookup local_md5_soar_poc md5 as MD5 OUTPUT threat_key md5 as match | search threat_key = md5 |table _time user MD5 threat_key match",
+                            "start_time": "-1d"
+                        },
+                        "requiredParameters": [
+                            {
+                                "data_type": "string",
+                                "field": "query"
+                            },
+                            {
+                                "data_type": "string",
+                                "default": "search",
+                                "field": "command"
+                            }
+                        ],
+                        "type": "action"
+                    },
+                    "errors": {},
+                    "id": "6",
+                    "type": "action",
+                    "warnings": {},
+                    "x": 1.4210854715202004e-14,
+                    "y": 148
+                }
+            },
+            "notes": "",
+            "origin": {
+                "playbook_id": 397,
+                "playbook_name": "soar_poc_execute_search_domain",
+                "playbook_repo_id": 2,
+                "playbook_repo_name": "local"
+            }
+        },
+        "input_spec": null,
+        "output_spec": null,
+        "playbook_type": "automation",
+        "python_version": "3",
+        "schema": "5.0.11",
+        "version": "6.2.1.305"
+    },
+    "create_time": "2024-04-24T00:17:08.951000+00:00",
+    "draft_mode": false,
+    "labels": [
+        "soar_poc"
+    ],
+    "tags": []
+}
