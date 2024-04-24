@@ -257,7 +257,7 @@ def noop_1(action=None, success=None, container=None, results=None, handle=None,
             "conditions": [
                 ["artifact:*.name", "==", "User Response Artifact"]
             ],
-            "max_ttl": 10800,
+            "max_ttl": 900,
             "delay_time": 180,
         }
 
